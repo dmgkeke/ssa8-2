@@ -31,5 +31,7 @@ public class Test {
 		p = newPrinterFromClass();
 		
 		p.out();
+		
+		// 커밋 테스트
 	}
 }
