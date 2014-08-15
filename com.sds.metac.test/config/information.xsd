@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema 
+	xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.samsung.com/sds/ssa8-2/information"
+	elementFormDefault="qualified"
+	xmlns:Q1="http://www.samsung.com/sds/ssa8-2/information">
+
+
+    <element name="information">
+    	<complexType>
+    		<sequence>
+    			<element name="classInfo" type="Q1:ClassInformation" maxOccurs="unbounded" minOccurs="0"></element>
+    		</sequence>
+    	</complexType>
+    	<unique name="uniqueClassInfo">
+    		<selector xpath="classInfo" />    		
+    		<field xpath="name" />
+    	</unique>
+    </element>
+
+    <complexType name="ClassInformation">
+    	<sequence>    		
+    		<element name="name" type="string" nillable="false" minOccurs="1" maxOccurs="1"></element>
+    		<element name="type" type="Q1:ClassInformationType"></element>
+    		<element name="className" type="string"></element>
+    		<element name="classFilePath" type="string"></element>
+    	</sequence>
+    </complexType>
+    
+
+    <simpleType name="ClassInformationType">
+    	<restriction base="string">
+    		<enumeration value="input"></enumeration>
+    		<enumeration value="output"></enumeration>
+    		<enumeration value="postProc"></enumeration>
+    	</restriction>
+    </simpleType>
+</schema>
