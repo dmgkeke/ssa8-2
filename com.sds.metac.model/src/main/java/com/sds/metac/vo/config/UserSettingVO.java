@@ -7,6 +7,8 @@ public class UserSettingVO extends AbstractVO {
 	private String inputReaderName;
 	private String outputWriterName;
 	private String postProcessorName;
+	
+	private String implementationFolder;
 
 	public String getPostProcessorName() {
 		return postProcessorName;
@@ -31,4 +33,14 @@ public class UserSettingVO extends AbstractVO {
 	public void setInputReaderName(String readerName) {
 		this.inputReaderName = readerName;
 	}
+
+	public String getImplementationFolder() {
+		return implementationFolder;
+	}
+
+	public void setImplementationFolder(String implementationFolder) {
+		this.implementationFolder = implementationFolder;
+	}
+	
+	
 }

@@ -6,4 +6,7 @@ public class MetaCException extends RuntimeException {
 		super(string);
 	}
 
+	public MetaCException(Exception e) {
+		super(e);
+	}
 }
