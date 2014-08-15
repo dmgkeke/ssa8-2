@@ -7,6 +7,10 @@ public class StandardVO extends AbstractVO {
 	private String name;
 	private String value;
 	
+	public StandardVO() {
+		
+	}
+	
 	public StandardVO(String name, String value) {
 		this.name = name;
 		this.value = value;
