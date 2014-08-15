@@ -5,7 +5,11 @@ import java.util.List;
 
 import com.sds.metac.exception.MetaCException;
 import com.sds.metac.file.FileManager;
-import com.sds.metac.file.MetaCFile;
+import com.sds.metac.schema.information.ClassInformation;
+import com.sds.metac.schema.information.Information;
+import com.sds.metac.schema.userSetting.Setting;
+import com.sds.metac.schema.userSetting.Setting.Folder;
+import com.sds.metac.schema.userSetting.Setting.Selection;
 import com.sds.metac.util.StringUtil;
 import com.sds.metac.vo.config.InformationVO;
 import com.sds.metac.vo.config.UserSettingVO;
@@ -25,53 +29,57 @@ public enum ConfigManager {
 	private void readUserSetting() {
 		FileManager fileManager = FileManager.INSTANCE;
 		
-		MetaCFile userSettingFile = fileManager.readFile("userSetting.xml");
+		Setting setting = fileManager.readConfigXmlFile("user-setting.xml", Setting.class);
 		
-		CRATE_USER_SETTING : {
-			userSettingVO = new UserSettingVO();
-			
-			userSettingVO.setInputReaderName("jsonReader");
-			userSettingVO.setOutputWriterName("enumWriter");
-			userSettingVO.setPostProcessorName("postJavaProcessor");
-		}
+		userSettingVO = new UserSettingVO();
+		
+		Selection selection = setting.getSelection();
+		userSettingVO.setInputReaderName(selection.getInput().getName());
+		userSettingVO.setOutputWriterName(selection.getOutput().getName());
+		userSettingVO.setPostProcessorName(selection.getPostProc().getName());
+		
+		Folder folder = setting.getFolder();
+		userSettingVO.setImplementationFolder(folder.getImplementation().getLocation());
 	}
 
 	private void readInformation() {
+		if (userSettingVO == null) {
+			readUserSetting();
+		}
+		
+		String implementationFolder = userSettingVO.getImplementationFolder();
+		
 		FileManager fileManager = FileManager.INSTANCE;
 		
-		MetaCFile informationFile = fileManager.readFile("information.xml");
+		Information information = fileManager.readConfigXmlFile("information.xml", Information.class);
 		
-		// TODO : 임시 코딩임
-		CREATE_INFO : {
-			informationVO = new InformationVO();
+		informationVO = new InformationVO();
+		List<ClassInfoVO> inputReaderInfoList = new ArrayList<ClassInfoVO>();
+		informationVO.setInputReaderInfoList(inputReaderInfoList);
+		
+		List<ClassInfoVO> outputWriterInfoList = new ArrayList<ClassInfoVO>();
+		informationVO.setOutputWriterInfoList(outputWriterInfoList);
+		
+		List<ClassInfoVO> postProcessorInfoList = new ArrayList<ClassInfoVO>();
+		informationVO.setPostProcessorInfoList(postProcessorInfoList);
+		
+		List<ClassInformation> classInfos = information.getClassInfo();
+		for (ClassInformation classInfo : classInfos) {
+			ClassInfoVO infoVO = new ClassInfoVO();
+			infoVO.setName(classInfo.getName());
+			infoVO.setClassName(classInfo.getClassName());
+			infoVO.setClassFilePath(implementationFolder + "\\" + classInfo.getClassFilePath());
 			
-			List<ClassInfoVO> inputReaderInfoList = new ArrayList<ClassInfoVO>();
-			ClassInfoVO inputReaderInfoVO = new ClassInfoVO();
-			inputReaderInfoVO.setName("jsonReader");
-			inputReaderInfoVO.setClassName("com.sds.metac.input.reader.poller.InputJsonFilePoller");
-			inputReaderInfoVO.setClassFilePath("implementation\\InputJsonFilePoller.jar");
-			inputReaderInfoList.add(inputReaderInfoVO);
-						
-			informationVO.setInputReaderInfoList(inputReaderInfoList);
+			List<ClassInfoVO> list = null;
+			switch(classInfo.getType()) {
+			case INPUT : list = inputReaderInfoList; break;
+			case OUTPUT : list = outputWriterInfoList; break;
+			case POST_PROC : list = postProcessorInfoList; break;
+			default :
+				continue;
+			}
 			
-			List<ClassInfoVO> outputWriterInfoList = new ArrayList<ClassInfoVO>();
-			ClassInfoVO outputWriterInfoVO = new ClassInfoVO();
-			outputWriterInfoVO.setName("enumWriter");
-			outputWriterInfoVO.setClassName("com.sds.metac.output.writer.java.OutputEnumWriter");
-			outputWriterInfoVO.setClassFilePath("implementation\\OutputEnumWriter.jar");
-			outputWriterInfoList.add(outputWriterInfoVO);
-			
-			informationVO.setOutputWriterInfoList(outputWriterInfoList);
-			
-			
-			List<ClassInfoVO> postProcessorInfoList = new ArrayList<ClassInfoVO>();
-			ClassInfoVO postProcessorInfoVO = new ClassInfoVO();
-			postProcessorInfoVO.setName("postJavaProcessor");
-			postProcessorInfoVO.setClassName("com.sds.metac.post.PostJavaProcessor");
-			postProcessorInfoVO.setClassFilePath("implementation\\PostJavaProcessor.jar");
-			postProcessorInfoList.add(postProcessorInfoVO);
-			
-			informationVO.setPostProcessorInfoList(postProcessorInfoList);
+			list.add(infoVO);
 		}
 	}
 
@@ -104,6 +112,10 @@ public enum ConfigManager {
 	
 	private ClassInfoVO getClassInfo(String key, List<ClassInfoVO> list) {
 		ClassInfoVO ret = null;
+		
+		if (list == null) {
+			return null;
+		}
 		
 		for (ClassInfoVO inputReaderInfoVO : list) {
 			if (StringUtil.equals(key, inputReaderInfoVO.getName())) {

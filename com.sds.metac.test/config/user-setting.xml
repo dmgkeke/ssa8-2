@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<setting xmlns="http://www.samsung.com/sds/ssa8-2/user-setting">
+	<folder>
+		<implementation location="implementation" />
+	</folder>
+	<selection>
+		<Input name="jsonReader" />
+		<Output name="enumWriter" />
+		<PostProc name="postJavaProcessor" />
+	</selection>
+</setting>
