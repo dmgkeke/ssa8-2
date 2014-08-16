@@ -10,16 +10,13 @@ import com.sds.metac.exception.MetaCException;
 
 public enum FileManager {
 	INSTANCE;
+	
+	public static final String DOT = ".";
 
 	private static final String PATH = "file:/" + Paths.get("").toAbsolutePath().toString();
 	private static final String FOLDER_PATH = Paths.get("").toAbsolutePath().toString();
 	private static final String FOLDER_SEP = "\\";
 	
-	public MetaCFile readFile(String fileName) {		
-		
-		return new MetaCFile();
-	}
-
 	
 	public String getResourceFilePath(String path) {
 		return PATH + FOLDER_SEP + path;
@@ -52,6 +49,20 @@ public enum FileManager {
 			throw new MetaCException(e);
 		}
 	}
+	
+	public File loadFile(String folder, String fileName) {
+		File file = new File(FOLDER_PATH + FOLDER_SEP + folder + FOLDER_SEP + fileName);
+		if (!file.exists()) {
+			try {
+				file.getParentFile().mkdirs();
+				file.createNewFile();
+			} catch (Exception e) {
+				throw new MetaCException(e);
+			}
+		}
+		
+		return file;
+	}
 
 
 	private void createFile(File file) {
@@ -60,6 +71,64 @@ public enum FileManager {
 		}
 		catch (Exception e) {
 			throw new MetaCException(e);
+		}
+	}
+
+
+	public File createNewFile(String folder, String fileName) {
+		File file = new File(FOLDER_PATH + FOLDER_SEP + folder + FOLDER_SEP + fileName);
+		
+		if (!file.exists()) {
+			file.mkdirs();
+		}
+		
+		try {
+			file.createNewFile();
+		} catch (Exception e) {
+			throw new MetaCException(e);
+		}
+		
+		return file;
+	}
+
+	public void deleteAllFiles(String folderName) {
+		File folder = new File(FOLDER_PATH + FOLDER_SEP + folderName);
+		
+		if (!folder.isDirectory()) {
+			return;
+		}
+		
+		for (File file : folder.listFiles()) {
+			if (file.isFile()) {
+				file.delete();
+			}
+			else if (file.isDirectory()) {
+				deleteAllFiles(folderName + FOLDER_SEP + file.getName());
+				file.delete();
+			}
+		}
+	}
+
+	public void createFolder(String folderName) {
+		File folder = new File(FOLDER_PATH + FOLDER_SEP + folderName);
+		
+		if (folder.exists()) {
+			return;
+		}
+		else {
+			folder.mkdirs();
+		}
+	}
+	
+	public File loadFolder(String folderName) {
+		File folder = new File(FOLDER_PATH + FOLDER_SEP + folderName);
+		
+		if (folder.exists()) {
+			return folder;
+		}
+		else {
+			folder.mkdirs();
+			return folder;
 		}
 	}
 }

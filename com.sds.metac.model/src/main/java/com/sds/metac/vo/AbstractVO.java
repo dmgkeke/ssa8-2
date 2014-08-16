@@ -4,10 +4,25 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.Collection;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 
 public abstract class AbstractVO {
 	
+	public String toJson() {
+		GsonBuilder builder = new GsonBuilder();
+		Gson gson = builder.create();
+		
+		return gson.toJson(this);
+	}
 	
+	public static <T extends AbstractVO> T fromJson(String jsonString, Class<T> clazz) {
+		GsonBuilder builder = new GsonBuilder();
+		Gson gson = builder.create();
+		
+		return gson.fromJson(jsonString, clazz);
+	}
 	
 	@Override
 	public String toString() {

@@ -7,4 +7,6 @@ public interface InputWriter {
 
 	void write(StandardVO standardVO);
 	void write(GroupVO groupVO);
+	
+	void postProcess();
 }

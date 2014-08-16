@@ -27,5 +27,7 @@ public class InputProcessor {
 			GroupVO groupVO = inputPoller.readGroup();
 			inputWriter.write(groupVO);
 		}
+		
+		inputWriter.postProcess();
 	}
 }

@@ -9,6 +9,19 @@ public class UserSettingVO extends AbstractVO {
 	private String postProcessorName;
 	
 	private String implementationFolder;
+	private String tempFileFolder;
+	
+	private String tempFileExt;
+	
+	
+
+	public String getTempFileFolder() {
+		return tempFileFolder;
+	}
+
+	public void setTempFileFolder(String tempFileFolder) {
+		this.tempFileFolder = tempFileFolder;
+	}
 
 	public String getPostProcessorName() {
 		return postProcessorName;
@@ -41,6 +54,13 @@ public class UserSettingVO extends AbstractVO {
 	public void setImplementationFolder(String implementationFolder) {
 		this.implementationFolder = implementationFolder;
 	}
-	
+
+	public String getTempFileExt() {
+		return tempFileExt;
+	}
+
+	public void setTempFileExt(String tempFileExt) {
+		this.tempFileExt = tempFileExt;
+	}
 	
 }
