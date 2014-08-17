@@ -37,6 +37,14 @@ public class GroupVO extends AbstractVO {
 		this.name = name;
 	}
 	
+	public Map<String, String> getCodeMap() {
+		return codeMap;
+	}
+	
+	public void setCodeMap(Map<String, String> codeMap) {
+		this.codeMap = codeMap;
+	}
+	
 	public void addCodeSet(String code, String codeValue) {
 		codeMap.put(code, codeValue);
 	}

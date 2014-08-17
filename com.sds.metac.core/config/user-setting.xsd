@@ -12,10 +12,11 @@
 			<sequence>
 				<element name="folder" minOccurs="1" maxOccurs="1">
 					<complexType>
-						<sequence>							
+						<sequence>
 							<element name="implementation"
-								type="Q1:Folder">
+								type="Q1:Folder" maxOccurs="1" minOccurs="0">
 							</element>
+							<element name="temp" type="Q1:Folder" maxOccurs="1" minOccurs="0"></element>
 						</sequence>
 					</complexType>
 				</element>
@@ -28,7 +29,18 @@
 							<element name="Output" type="Q1:ClassInfo"
 								minOccurs="1" maxOccurs="1">
 							</element>
-							<element name="PostProc" type="Q1:ClassInfo" minOccurs="1" maxOccurs="1"></element>
+							<element name="PostProc" type="Q1:ClassInfo"
+								minOccurs="1" maxOccurs="1">
+							</element>
+						</sequence>
+					</complexType>
+				</element>
+				<element name="extension">
+					<complexType>
+						<sequence>
+							<element name="tempFile"
+								type="Q1:ExtType">
+							</element>
 						</sequence>
 					</complexType>
 				</element>
@@ -44,5 +56,10 @@
 
 	<complexType name="ClassInfo">
 		<attribute name="name" type="string" use="required" ></attribute>
+	</complexType>
+
+
+	<complexType name="ExtType">
+		<attribute name="name" type="string"></attribute>
 	</complexType>
 </schema>

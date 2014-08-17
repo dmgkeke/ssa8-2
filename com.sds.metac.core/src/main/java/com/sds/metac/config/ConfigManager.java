@@ -8,6 +8,7 @@ import com.sds.metac.file.FileManager;
 import com.sds.metac.schema.information.ClassInformation;
 import com.sds.metac.schema.information.Information;
 import com.sds.metac.schema.userSetting.Setting;
+import com.sds.metac.schema.userSetting.Setting.Extension;
 import com.sds.metac.schema.userSetting.Setting.Folder;
 import com.sds.metac.schema.userSetting.Setting.Selection;
 import com.sds.metac.util.StringUtil;
@@ -24,6 +25,18 @@ public enum ConfigManager {
 	private ConfigManager() {
 		readInformation();
 		readUserSetting();
+		
+		createTempFolder();
+	}
+	
+	
+
+	public UserSettingVO getUserSetting() {
+		return userSettingVO;
+	}
+	
+	public InformationVO getInformation() {
+		return informationVO;
 	}
 	
 	private void readUserSetting() {
@@ -40,6 +53,10 @@ public enum ConfigManager {
 		
 		Folder folder = setting.getFolder();
 		userSettingVO.setImplementationFolder(folder.getImplementation().getLocation());
+		userSettingVO.setTempFileFolder(folder.getTemp().getLocation());
+		
+		Extension extensions = setting.getExtension();
+		userSettingVO.setTempFileExt(extensions.getTempFile().getName());
 	}
 
 	private void readInformation() {
@@ -81,6 +98,16 @@ public enum ConfigManager {
 			
 			list.add(infoVO);
 		}
+	}
+	
+	
+	private void createTempFolder() {
+		FileManager fileManager = FileManager.INSTANCE;
+		
+		String folderName = this.userSettingVO.getTempFileFolder();
+		
+		fileManager.createFolder(folderName);
+		fileManager.deleteAllFiles(folderName);
 	}
 
 	public ClassInfoVO getInputReaderClassInfo() {

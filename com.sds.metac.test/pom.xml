@@ -21,21 +21,7 @@
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>com.sds.inputjsonfilepoller</groupId>
-			<artifactId>com.sds.inputjsonfilepoller</artifactId>
-			<version>1.0.0</version>
-		</dependency>
-		<dependency>
-			<groupId>com.sds.outputenumwriter</groupId>
-			<artifactId>com.sds.outputenumwriter</artifactId>
-			<version>1.0.0</version>
-		</dependency>
-		<dependency>
-			<groupId>com.sds.postjavaprocessor</groupId>
-			<artifactId>com.sds.postjavaprocessor</artifactId>
-			<version>1.0.0</version>
-		</dependency>
+
 		<dependency>
 			<groupId>com.sds.metac.core</groupId>
 			<artifactId>com.sds.metac.core</artifactId>
