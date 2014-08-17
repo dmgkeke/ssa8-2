@@ -38,14 +38,9 @@
 			<version>1.0</version>
 		</dependency>
 		<dependency>
-			<groupId>org.jboss.forge.roaster</groupId>
-			<artifactId>roaster-jdt</artifactId>
-			<version>2.7.0.Final</version>
-		</dependency>
-		<dependency>
-			<groupId>org.jboss.forge.roaster</groupId>
-			<artifactId>roaster-api</artifactId>
-			<version>2.7.0.Final</version>
+			<groupId>com.sun.codemodel</groupId>
+			<artifactId>codemodel</artifactId>
+			<version>2.6</version>
 		</dependency>
 	</dependencies>
 	<modules>
