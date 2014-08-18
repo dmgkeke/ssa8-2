@@ -8,7 +8,9 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 
+import com.sds.metac.output.reader.StandardReader;
 import com.sds.metac.vo.domain.GroupVO;
+import com.sds.metac.vo.domain.StandardVO;
 import com.sun.codemodel.ClassType;
 import com.sun.codemodel.JClassAlreadyExistsException;
 import com.sun.codemodel.JCodeModel;
@@ -32,6 +34,15 @@ public class OutputEnumWriter implements OutputJavaWriter {
 	private final static String CODEVALUE_FIELD_NAME = "codeValue";
 	
 	private final static String ENUM_FILE_PATH = "temp/";
+	
+	@Override
+	public void write(GroupVO groupVO, StandardReader standardReader) {
+		// TODO Auto-generated method stub
+		if (standardReader != null) {
+			StandardVO vo = standardReader.getStandardVO(groupVO.getName());
+			logger.debug(vo.getValue());
+		}
+	}
 
 	public void write(GroupVO groupVO, Map<String, String> keySet) {
 		this.groupVO = groupVO;

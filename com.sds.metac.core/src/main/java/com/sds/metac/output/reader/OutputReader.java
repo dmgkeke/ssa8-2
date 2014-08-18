@@ -8,6 +8,4 @@ public interface OutputReader {
 
 	public boolean hasNextGroup();
 	public GroupVO readGroup();
-	public Map<String, String> getStandardMap(GroupVO groupVO);
-
 }

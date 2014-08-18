@@ -34,20 +34,17 @@ public class InputIndexedFileWriter implements InputWriter {
 		fileManager = FileManager.INSTANCE;
 	}
 	
-
-	@Override
+	
 	public void write(GroupVO groupVO) {
 		File file = IndexedFileUtil.readTempFile(groupVO.getName(), IndexedFileUtil.TAG_GRP);
 		writeVOtoFile(groupVO, file);
 	}
 
-	@Override
 	public void write(StandardVO standardVO) {
 		File file = IndexedFileUtil.readTempFile(standardVO.getName(), IndexedFileUtil.TAG_STN);		
 		writeVOtoFile(standardVO, file);
 	}
 	
-	@Override
 	public void postProcess() {
 		logger.debug("인덱싱 작업을 시작합니다.");
 		
