@@ -7,7 +7,7 @@
 		<temp location="temp"/>
 	</folder>
 	<selection>
-		<Input name="jsonReader" />
+		<Input name="csvReader" />
 		<Output name="enumWriter" />
 		<PostProc name="postJavaProcessor" />
 	</selection>
