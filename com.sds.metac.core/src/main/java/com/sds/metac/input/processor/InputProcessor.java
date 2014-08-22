@@ -25,9 +25,7 @@ public class InputProcessor {
 
 		while (inputPoller.hasNextGroup()) {
 			GroupVO groupVO = inputPoller.readGroup();
-			if (groupVO != null) {
-				inputWriter.write(groupVO);
-			}
+			inputWriter.write(groupVO);
 		}
 
 		inputWriter.postProcess();
