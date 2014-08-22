@@ -43,7 +43,7 @@ public class InputCsvFilePoller implements InputPoller {
 
 	// 생성자
 	public InputCsvFilePoller() {
-		// 단어 bufferedReader
+		// 각각 버퍼를 read하며 vo 생성
 		try {
 			bufferedReaderWord = new BufferedReader(
 					new FileReader(filePathWord));
