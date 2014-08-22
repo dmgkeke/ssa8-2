@@ -1,15 +1,11 @@
 package com.sds.metac.input.reader.poller;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-import javax.xml.parsers.ParserConfigurationException;
-
 import org.apache.log4j.Logger;
-import org.xml.sax.SAXException;
 
 import com.sds.metac.exception.MetaCException;
 import com.sds.metac.input.reader.poller.InputPoller;
@@ -18,175 +14,179 @@ import com.sds.metac.vo.domain.GroupVO;
 import com.sds.metac.vo.domain.StandardVO;
 
 public class InputCsvFilePoller implements InputPoller {
-	// 테스트를 위한 변수 - 미사용
-	static int countStandard = 0;
-	static int countGroup = 0;
-	// count 변수
-	static int counter = 0;
-
-	String splitter;
-	String name;
-	String key;
-	String value;
-
-	static String tmpName = "";
-	static String tmpLine = "";
-	static boolean codeMapComplete = false;
-
-	// final string
-	final String configXmlPath = "./config/inputReadConfig.xml";
-	final String CODE = "code"; // 공통코트
-	final String WORD = "word"; // 단어
 
 	// logging
 	Logger logger = Logger.getLogger(InputCsvFilePoller.class);
 
-	// groupVO
+	// counter
+	int countStandard = 0;
+	int countGroup = 0;
+
+	// 대상 파일 위치 및 설정값
+	final String filePathWord = "./inputfiles/word.csv";
+	final String filePathCode = "./inputfiles/code.csv";
+	final String splitter = "\\|";
+	boolean isHeaderWrod = true;
+	boolean isHeaderCode = true;
+
+	// 그룹VO의 코드값비교를 위한 변수
+	String nextLine;
+	boolean isKeyChanged = false;
+
+	// file read 관련
+	BufferedReader bufferedReaderWord;
+	BufferedReader bufferedReaderCode;
+
+	// VO
 	GroupVO groupVO;
-	// strndartVO
 	StandardVO standardVO;
 
-	// 공통코드
-	public boolean hasNextGroup() {
-		boolean ret = false;
-
-		InputReadConfig inputReadConfig = this.getConfigInfo();
-		splitter = inputReadConfig.getInputFileInfoMap().get(CODE)
-				.getSpiltter();
-		InputFileInfo wordFileInfo = inputReadConfig.getInputFileInfoMap().get(
-				CODE);
-		File wordFile = this.getFileInfo(wordFileInfo);
-
-		ret = doHasNext(wordFile, CODE, splitter);
-		return ret;
-	}
-
-	// 단어
-	public boolean hasNextStandard() {
-		boolean ret = false;
-
-		InputReadConfig inputReadConfig = this.getConfigInfo();
-		splitter = inputReadConfig.getInputFileInfoMap().get(WORD)
-				.getSpiltter();
-		InputFileInfo wordFileInfo = inputReadConfig.getInputFileInfoMap().get(
-				WORD);
-		File wordFile = this.getFileInfo(wordFileInfo);
-
-		ret = doHasNext(wordFile, WORD, splitter);
-		return ret;
-	}
-
-	@SuppressWarnings("resource")
-	public boolean doHasNext(File file, String type, String splitter) {
-		boolean result = false;
+	// 생성자
+	public InputCsvFilePoller() {
+		// 단어 bufferedReader
 		try {
-			BufferedReader br = new BufferedReader(new FileReader(file));
-			String line = br.readLine();
-			counter++;
-			for (int i = 0; i < counter; i++) {
-				line = br.readLine();
-			}
-			if (StringUtil.isEmpty(line) || line == null) {
-				// 종료, static counter 초기화
-				result = false;
-				counter = 0;
-			} else {
-				logger.debug(line);
-				result = true;
-
-				if (WORD.equals(type)) {
-					name = line.split("\\" + splitter)[0];
-					value = line.split("\\" + splitter)[1];
-					standardVO = new StandardVO(name, value);
-				} else if (CODE.equals(type)) {
-					name = line.split("\\" + splitter)[0];
-					key = line.split("\\" + splitter)[1];
-					value = line.split("\\" + splitter)[2];
-					// 초기값
-					if (counter == 1) {
-						groupVO = new GroupVO();
-					}
-
-					logger.debug(tmpName + " : " + name);
-					// 이전값과 비교
-					if (!StringUtil.isEmpty(tmpName) && !tmpName.equals(name)) {
-						codeMapComplete = true;
-						tmpName = name;
-						tmpLine = line;
-						return true;
-					} else {
-						if (codeMapComplete) {
-							codeMapComplete = false;
-							groupVO = new GroupVO();
-							groupVO.setName(tmpLine.split("\\" + splitter)[0]);
-							groupVO.addCodeSet(
-									tmpLine.split("\\" + splitter)[1],
-									tmpLine.split("\\" + splitter)[2]);
-						}
-						codeMapComplete = false;
-					}
-					groupVO.setName(name);
-					groupVO.addCodeSet(key, value);
-					tmpName = name;
-					logger.debug("tmpName : " + tmpName + "**************");
-					// 마지막 값 확인
-					if (br.readLine() == null) {
-						codeMapComplete = true;
-						return true;
-					}
-				}
-
-			}
+			bufferedReaderWord = new BufferedReader(
+					new FileReader(filePathWord));
+			bufferedReaderCode = new BufferedReader(
+					new FileReader(filePathCode));
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
-			throw new MetaCException("!!! FileNotFoundException - doHasNext()");
+			throw new MetaCException(
+					"!!! FileNotFoundException - InputCsvFilePoller()");
+		}
+	}
+
+	// 단어 next
+	public boolean hasNextStandard() {
+		boolean isNextStandard = false;
+		try {
+			String readLine = bufferedReaderWord.readLine();
+			// 중간에 공백이 생기는 부분 처리
+			if (StringUtil.isEmpty(readLine)) {
+				while (true) {
+					readLine = bufferedReaderWord.readLine();
+					if (readLine == null) {
+						isNextStandard = false;
+						break;
+					} else {
+						if (StringUtil.isEmpty(readLine)) {
+							continue;
+						}
+						break;
+					}
+				}
+			}
+			if (readLine == null) {
+				isNextStandard = false;
+			} else {
+				// 파일에 타이틀이 포함된경우, 한줄을 더읽음
+				if (isHeaderWrod) {
+					readLine = bufferedReaderWord.readLine();
+					isHeaderWrod = false;
+				}
+				logger.debug(readLine);
+				standardVO = new StandardVO(readLine.split(splitter)[0],
+						readLine.split(splitter)[0]);
+				isNextStandard = true;
+			}
 		} catch (IOException e) {
 			e.printStackTrace();
-			throw new MetaCException("!!! IOException - doHasNext()");
+			throw new MetaCException("!!! IOException - hasNextStandard()");
 		}
-		return result;
+
+		return isNextStandard;
 	}
 
-	public GroupVO readGroup() {
-		GroupVO groupVO = null;
-		if (codeMapComplete) {
-			groupVO = new GroupVO();
-			groupVO.setName(this.groupVO.getName());
-			groupVO.setCodeMap(this.groupVO.getCodeMap());
+	// 공통코드 next
+	public boolean hasNextGroup() {
+		boolean isNextStandard = false;
+		String readLine = "";
+		try {
+			// 읽다가 키값이 변경된경우는 읽지않고 이전 loop에 읽었던 nextLine 값을 사용
+			if (isKeyChanged) {
+				isKeyChanged = false;
+				readLine = nextLine;
+			} else {
+				readLine = bufferedReaderCode.readLine();
+			}
+
+			if (readLine == null) {
+				isNextStandard = false;
+			} else {
+				// 파일에 타이틀이 포함된경우, 한줄을 더읽음
+				if (isHeaderCode) {
+					readLine = bufferedReaderCode.readLine();
+					isHeaderCode = false;
+				}
+				logger.debug(readLine);
+
+				// 현재라인 저장
+				groupVO = new GroupVO();
+				groupVO.setName(readLine.split(splitter)[0]);
+				groupVO.addCodeSet(readLine.split(splitter)[1],
+						readLine.split(splitter)[2]);
+
+				// 다음라인과 비교
+				while (true) {
+					nextLine = bufferedReaderCode.readLine();
+					// 중간에 공백이 생기는 부분 처리
+					if (StringUtil.isEmpty(nextLine)) {
+						while (true) {
+							nextLine = bufferedReaderCode.readLine();
+							if (nextLine == null) {
+								isNextStandard = false;
+								break;
+							} else {
+								if (StringUtil.isEmpty(nextLine)) {
+									continue;
+								}
+								break;
+							}
+						}
+					}
+					// 다음라인이 null인경우 마지막 코드 저장 후종료
+					if (nextLine == null) {
+						isNextStandard = true;
+						break;
+					}
+
+					// 다음라인의 키값과 같은경우 코드값저장
+					if (readLine.split(splitter)[0].equals(nextLine
+							.split(splitter)[0])) {
+						logger.debug(nextLine);
+						groupVO.addCodeSet(nextLine.split(splitter)[1],
+								nextLine.split(splitter)[2]);
+					} else {
+						// 다음라인과 코드값이 달라진경우 플래그를 주고 종료
+						isKeyChanged = true;
+						isNextStandard = true;
+						break;
+					}
+				}
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+			throw new MetaCException("!!! IOException - hasNextGroup()");
 		}
-		return groupVO;
+
+		return isNextStandard;
 	}
 
+	// 단어 VO
 	public StandardVO readStandard() {
 		StandardVO standardVO = new StandardVO();
-		standardVO.setName(this.name);
-		standardVO.setValue(this.value);
+		standardVO.setName(this.standardVO.getName());
+		standardVO.setName(this.standardVO.getValue());
 		return standardVO;
 	}
 
-	public File getFileInfo(InputFileInfo inputFileInfo) {
-		String uri = inputFileInfo.getFilePath() + inputFileInfo.getFileName()
-				+ "." + inputFileInfo.getExtention();
-		return new File(uri);
-	}
+	// 공통코드 VO
+	public GroupVO readGroup() {
 
-	public InputReadConfig getConfigInfo() {
-		InputReadConfig inputReadConfig = null;
-		try {
-			inputReadConfig = new InputReadConfig(configXmlPath);
-		} catch (ParserConfigurationException e) {
-
-			e.printStackTrace();
-			throw new MetaCException(
-					"!!! ParserConfigurationException - getConfigInfo()");
-		} catch (SAXException e) {
-			e.printStackTrace();
-			throw new MetaCException("!!! SAXException - getConfigInfo()");
-		} catch (IOException e) {
-			e.printStackTrace();
-			throw new MetaCException("!!! IOException - getConfigInfo()");
-		}
-		return inputReadConfig;
+		GroupVO groupVO = new GroupVO();
+		groupVO.setName(this.groupVO.getName());
+		groupVO.setCodeMap(this.groupVO.getCodeMap());
+		return groupVO;
 	}
 
 }
