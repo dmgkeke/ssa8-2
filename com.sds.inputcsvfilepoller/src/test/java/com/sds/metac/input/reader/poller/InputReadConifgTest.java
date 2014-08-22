@@ -15,7 +15,7 @@ import org.xml.sax.SAXException;
 
 import com.sds.metac.exception.MetaCException;
 import com.sds.metac.input.reader.poller.InputCsvFilePoller;
-import com.sds.metac.input.reader.poller.InputReadConfig;
+
 import com.sds.metac.util.StringUtil;
 import com.sds.metac.vo.domain.GroupVO;
 import com.sds.metac.vo.domain.StandardVO;
@@ -47,54 +47,45 @@ public class InputReadConifgTest {
 	@Test
 	public void test() throws ParserConfigurationException, SAXException,
 			IOException {
-		String configXmlPath = "./config/inputReadConfig.xml";
-		InputReadConfig inputReadConfig = new InputReadConfig(configXmlPath);
-
-		InputCsvFilePoller inputCsvFilePoller = new InputCsvFilePoller();
-
-		File file = inputCsvFilePoller.getFileInfo(inputReadConfig
-				.getInputFileInfoMap().get("code"));
-
-		boolean result = false;
+		boolean isHeaderWrod = true;
+		boolean isHeaderCode = true;
+		boolean isNextStandard = false;
+		BufferedReader bufferedReaderWord = new BufferedReader(new FileReader(
+				"./inputfiles/word.csv"));
 		try {
-			BufferedReader br = new BufferedReader(new FileReader(file));
-			String line = br.readLine();
-			counter++;
-			while (line != null) {
-				line = br.readLine();
-
-				if (StringUtil.isEmpty(line) || line == null) {
-					// 종료, static counter 초기화
-					result = false;
-					counter = 0;
+			while (true) {
+				String readLine = bufferedReaderWord.readLine();
+				// 중간에 공백이 생기는 부분 처리
+				if (StringUtil.isEmpty(readLine)) {
+					while (true) {
+						readLine = bufferedReaderWord.readLine();
+						if (readLine == null) {
+							isNextStandard = false;
+							bufferedReaderWord.close();
+						} else {
+							break;
+						}
+					}
+				}
+				if (readLine == null) {
+					isNextStandard = false;
+					bufferedReaderWord.close();
 				} else {
-					logger.debug(line);
-					result = true;
-
-					name = line.split("\\" + splitter)[0];
-					value = line.split("\\" + splitter)[1];
-					// 초기값
-					if (tmpKey == null) {
-						tmpKey = name;
-						groupVO = new GroupVO();
+					// 파일에 타이틀이 포함된경우, 한줄을 더읽음
+					if (isHeaderWrod) {
+						readLine = bufferedReaderWord.readLine();
+						isHeaderWrod = false;
 					}
-					if (!tmpKey.equals(name)) {
-						result = true;
-						groupVO = new GroupVO();
-					} else {
-						result = false;
-					}
-					groupVO.addCodeSet(name, value);
-					tmpKey = name;
+					logger.debug(readLine);
+					standardVO = new StandardVO(readLine.split(splitter)[0],
+							readLine.split(splitter)[0]);
+					isNextStandard = true;
 				}
 			}
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-			throw new MetaCException("!!! FileNotFoundException - doHasNext()");
 		} catch (IOException e) {
 			e.printStackTrace();
-			throw new MetaCException("!!! IOException - doHasNext()");
+			throw new MetaCException("!!! IOException - hasNextStandard()");
 		}
-
 	}
+
 }
