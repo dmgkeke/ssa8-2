@@ -94,12 +94,21 @@ public class InputCsvFilePoller implements InputPoller {
 			throw new MetaCException("!!! IOException - hasNextStandard()");
 		}
 
+		if (!isNextStandard) {
+			try {
+				bufferedReaderWord.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+				throw new MetaCException(
+						"!!! IOException - hasNextStandard() - closd()");
+			}
+		}
 		return isNextStandard;
 	}
 
 	// 공통코드 next
 	public boolean hasNextGroup() {
-		boolean isNextStandard = false;
+		boolean isNextGroup = false;
 		String readLine = "";
 		try {
 			// 읽다가 키값이 변경된경우는 읽지않고 이전 loop에 읽었던 nextLine 값을 사용
@@ -111,7 +120,7 @@ public class InputCsvFilePoller implements InputPoller {
 			}
 
 			if (readLine == null) {
-				isNextStandard = false;
+				isNextGroup = false;
 			} else {
 				// 파일에 타이틀이 포함된경우, 한줄을 더읽음
 				if (isHeaderCode) {
@@ -134,7 +143,7 @@ public class InputCsvFilePoller implements InputPoller {
 						while (true) {
 							nextLine = bufferedReaderCode.readLine();
 							if (nextLine == null) {
-								isNextStandard = false;
+								isNextGroup = false;
 								break;
 							} else {
 								if (StringUtil.isEmpty(nextLine)) {
@@ -146,7 +155,7 @@ public class InputCsvFilePoller implements InputPoller {
 					}
 					// 다음라인이 null인경우 마지막 코드 저장 후종료
 					if (nextLine == null) {
-						isNextStandard = true;
+						isNextGroup = true;
 						break;
 					}
 
@@ -159,7 +168,7 @@ public class InputCsvFilePoller implements InputPoller {
 					} else {
 						// 다음라인과 코드값이 달라진경우 플래그를 주고 종료
 						isKeyChanged = true;
-						isNextStandard = true;
+						isNextGroup = true;
 						break;
 					}
 				}
@@ -169,7 +178,16 @@ public class InputCsvFilePoller implements InputPoller {
 			throw new MetaCException("!!! IOException - hasNextGroup()");
 		}
 
-		return isNextStandard;
+		if (!isNextGroup) {
+			try {
+				bufferedReaderCode.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+				throw new MetaCException(
+						"!!! IOException - hasNextGroup() - close()");
+			}
+		}
+		return isNextGroup;
 	}
 
 	// 단어 VO
