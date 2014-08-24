@@ -33,8 +33,6 @@ public class InputCsvFilePoller implements InputPoller {
 	final String splitter = "\\|";
 	boolean isHeaderWrod = true;
 	boolean isHeaderCode = true;
-	boolean isHeaderWordSort = false;
-	boolean isHeaderCodeSort = false;
 	String filePathWordSort = "";
 	String filePathCodeSort = "";
 
@@ -55,16 +53,9 @@ public class InputCsvFilePoller implements InputPoller {
 		// 각각 버퍼를 read하며 vo 생성
 		try {
 			// 표준단어 정렬
-			if (!isHeaderWordSort) {
-				filePathWordSort = this.sortSvcFile(filePathWord, isHeaderWrod);
-				isHeaderWordSort = true;
-			}
-
+			filePathWordSort = this.sortSvcFile(filePathWord, isHeaderWrod);
 			// 코드 정렬
-			if (!isHeaderCodeSort) {
-				filePathCodeSort = this.sortSvcFile(filePathCode, isHeaderCode);
-				isHeaderCodeSort = true;
-			}
+			filePathCodeSort = this.sortSvcFile(filePathCode, isHeaderCode);
 
 			bufferedReaderWord = new BufferedReader(new FileReader(
 					filePathWordSort));
