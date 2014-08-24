@@ -2,6 +2,13 @@
 <information xmlns="http://www.samsung.com/sds/ssa8-2/information">
 	
 	<classInfo>
+		<name>jsonReader</name>
+		<type>input</type>
+		<className>com.sds.metac.input.reader.poller.InputJsonFilePoller</className>
+		<classFilePath>InputJsonFilePoller.jar</classFilePath>
+	</classInfo>
+	
+	<classInfo>
 		<name>csvReader</name>
 		<type>input</type>
 		<className>com.sds.metac.input.reader.poller.InputCsvFilePoller</className>
