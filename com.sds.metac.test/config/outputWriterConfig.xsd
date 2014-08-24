@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema 
+	xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.samsung.com/sds/ssa8-2/information"
+	elementFormDefault="qualified"
+	xmlns:Q1="http://www.samsung.com/sds/ssa8-2/information">
+
+    <complexType name="outputWriterInformation">
+    	<sequence>    		
+    		<element name="metaFomula" type="Q1:MetaFomula"></element>
+    		<element name="singleCharYn" type="boolean"></element>
+    		<element name="variableSyntax" type="Q1:VariableSyntax"></element>
+    	</sequence>
+    </complexType>
+    
+
+    <simpleType name="MetaFomula">
+    	<restriction base="string">
+    		<enumeration value="bottomUp"></enumeration>
+    		<enumeration value="topDown"></enumeration>
+    	</restriction>
+    </simpleType>
+    
+    <simpleType name="VariableSyntax">
+    	<restriction base="string">
+    		<enumeration value="CamelCase"></enumeration>
+    		<enumeration value="UnderscoreCase"></enumeration>
+    	</restriction>
+    </simpleType>
+</schema>

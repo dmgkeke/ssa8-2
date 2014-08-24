@@ -28,7 +28,7 @@ public class OutputEnumWriter implements OutputJavaWriter {
 	JDefinedClass definedClass;
 	
 	GroupVO groupVO;
-	Map<String, String> keySet;
+	StandardVO standardVO;
 	
 	private final static String DEFAULT_PACKAGE = "code";
 	private final static String CODEVALUE_FIELD_NAME = "codeValue";
@@ -37,16 +37,10 @@ public class OutputEnumWriter implements OutputJavaWriter {
 	
 	@Override
 	public void write(GroupVO groupVO, StandardReader standardReader) {
-		// TODO Auto-generated method stub
-		if (standardReader != null) {
-			StandardVO vo = standardReader.getStandardVO(groupVO.getName());
-			logger.debug(vo.getValue());
-		}
-	}
-
-	public void write(GroupVO groupVO, Map<String, String> keySet) {
 		this.groupVO = groupVO;
-		this.keySet = keySet;
+		if (standardReader != null) {
+			this.standardVO = standardReader.getStandardVO(groupVO.getName());
+		}
 		
 		try {
 			createEnum();
@@ -61,22 +55,28 @@ public class OutputEnumWriter implements OutputJavaWriter {
 		}
 		
 		logger.debug("Enum 으로 변환해라 : " + groupVO);
-		logger.debug(keySet);
+		logger.debug(standardVO);
+		
+		
 	}
+	
+	@Override
+	public void write(GroupVO groupVO, Map<String, String> keySet) {
+		// FIXME Deprecated
+	}
+
 
 
 	private void createEnum() throws JClassAlreadyExistsException {
 		definedClass = codeModel.rootPackage()._class(JMod.PUBLIC, getCodeName(), ClassType.ENUM);
-		definedClass.javadoc().append(getKeyValue(getCodeName()) + " 공통코드");
+		definedClass.javadoc().append(standardVO.getValue() + " 공통코드");
 	}
 
 	private void createEnumConstant() throws JClassAlreadyExistsException{
-		for (String key : getCodeMap().keySet()) {
-			JEnumConstant enumConstant = definedClass.enumConstant(key);
-			enumConstant.arg(lit("한글코드값 : " + getCodeMap().get(key)));
-			
-			enumConstant.javadoc().append(getKeyValue(key));
-		}
+		JEnumConstant enumConstant = definedClass.enumConstant(standardVO.getName());
+		enumConstant.arg(lit("코드값 : " + getCodeMap().get(standardVO.getName())));
+		
+		enumConstant.javadoc().append(standardVO.getValue());
 	}
 	
 	private void createMethod() throws JClassAlreadyExistsException {
@@ -97,10 +97,6 @@ public class OutputEnumWriter implements OutputJavaWriter {
 	
 	private Map<String, String> getCodeMap() {
 		return groupVO.getCodeMap();
-	}
-	
-	private String getKeyValue(String key) {
-		return keySet.get(key);
 	}
 	
 	private String getFieldNameWithFirstLetterToUpperCase(String fieldName) {
