@@ -1,9 +1,14 @@
 package com.sds.metac.input.reader.poller;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 
@@ -28,6 +33,10 @@ public class InputCsvFilePoller implements InputPoller {
 	final String splitter = "\\|";
 	boolean isHeaderWrod = true;
 	boolean isHeaderCode = true;
+	boolean isHeaderWordSort = false;
+	boolean isHeaderCodeSort = false;
+	String filePathWordSort = "";
+	String filePathCodeSort = "";
 
 	// 그룹VO의 코드값비교를 위한 변수
 	String nextLine;
@@ -45,10 +54,22 @@ public class InputCsvFilePoller implements InputPoller {
 	public InputCsvFilePoller() {
 		// 각각 버퍼를 read하며 vo 생성
 		try {
-			bufferedReaderWord = new BufferedReader(
-					new FileReader(filePathWord));
-			bufferedReaderCode = new BufferedReader(
-					new FileReader(filePathCode));
+			// 표준단어 정렬
+			if (!isHeaderWordSort) {
+				filePathWordSort = this.sortSvcFile(filePathWord, isHeaderWrod);
+				isHeaderWordSort = true;
+			}
+
+			// 코드 정렬
+			if (!isHeaderCodeSort) {
+				filePathCodeSort = this.sortSvcFile(filePathCode, isHeaderCode);
+				isHeaderCodeSort = true;
+			}
+
+			bufferedReaderWord = new BufferedReader(new FileReader(
+					filePathWordSort));
+			bufferedReaderCode = new BufferedReader(new FileReader(
+					filePathCodeSort));
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 			throw new MetaCException(
@@ -61,29 +82,10 @@ public class InputCsvFilePoller implements InputPoller {
 		boolean isNextStandard = false;
 		try {
 			String readLine = bufferedReaderWord.readLine();
-			// 중간에 공백이 생기는 부분 처리
-			if (StringUtil.isEmpty(readLine)) {
-				while (true) {
-					readLine = bufferedReaderWord.readLine();
-					if (readLine == null) {
-						isNextStandard = false;
-						break;
-					} else {
-						if (StringUtil.isEmpty(readLine)) {
-							continue;
-						}
-						break;
-					}
-				}
-			}
+			// 끝까지 다읽은 경우
 			if (readLine == null) {
 				isNextStandard = false;
 			} else {
-				// 파일에 타이틀이 포함된경우, 한줄을 더읽음
-				if (isHeaderWrod) {
-					readLine = bufferedReaderWord.readLine();
-					isHeaderWrod = false;
-				}
 				logger.debug(readLine);
 				standardVO = new StandardVO(readLine.split(splitter)[0],
 						readLine.split(splitter)[0]);
@@ -122,11 +124,6 @@ public class InputCsvFilePoller implements InputPoller {
 			if (readLine == null) {
 				isNextGroup = false;
 			} else {
-				// 파일에 타이틀이 포함된경우, 한줄을 더읽음
-				if (isHeaderCode) {
-					readLine = bufferedReaderCode.readLine();
-					isHeaderCode = false;
-				}
 				logger.debug(readLine);
 
 				// 현재라인 저장
@@ -138,21 +135,7 @@ public class InputCsvFilePoller implements InputPoller {
 				// 다음라인과 비교
 				while (true) {
 					nextLine = bufferedReaderCode.readLine();
-					// 중간에 공백이 생기는 부분 처리
-					if (StringUtil.isEmpty(nextLine)) {
-						while (true) {
-							nextLine = bufferedReaderCode.readLine();
-							if (nextLine == null) {
-								isNextGroup = false;
-								break;
-							} else {
-								if (StringUtil.isEmpty(nextLine)) {
-									continue;
-								}
-								break;
-							}
-						}
-					}
+
 					// 다음라인이 null인경우 마지막 코드 저장 후종료
 					if (nextLine == null) {
 						isNextGroup = true;
@@ -205,6 +188,49 @@ public class InputCsvFilePoller implements InputPoller {
 		groupVO.setName(this.groupVO.getName());
 		groupVO.setCodeMap(this.groupVO.getCodeMap());
 		return groupVO;
+	}
+
+	// 파일정렬 후 temp 새로운 temp 파일생성하여 file명을 리턴
+	public String sortSvcFile(String fileName, boolean isHeader) {
+		String outputFile = fileName + "_sort.csv";
+		List<String> fileReadList = new ArrayList<String>();
+		try {
+			BufferedReader br = new BufferedReader(new FileReader(fileName));
+			String line = "";
+			// 타이틀이 있는경우 건너뜀
+			if (isHeader) {
+				line = br.readLine();
+			}
+			while ((line = br.readLine()) != null) {
+				// 공백line 건너뜀
+				if (StringUtil.isEmpty(line)) {
+					continue;
+				}
+				fileReadList.add(line);
+			}
+			br.close();
+			// 정렬
+			Collections.sort(fileReadList);
+
+			// output 생성
+			BufferedWriter wr = new BufferedWriter(new FileWriter(outputFile));
+			for (int i = 0; i < fileReadList.size(); i++) {
+				wr.write(fileReadList.get(i));
+				wr.newLine();
+			}
+			wr.close();
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+			throw new MetaCException(
+					"!!! FileNotFoundException - hasNsortSvcFile()");
+		} catch (IOException e) {
+			e.printStackTrace();
+			throw new MetaCException(
+					"!!! FileNotFoundException - IOException()");
+		}
+
+		return outputFile;
 	}
 
 }
