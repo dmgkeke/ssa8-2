@@ -1,25 +1,18 @@
 package com.sds.metac.output.reader.impl;
 
 import java.io.File;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
-import java.util.SortedMap;
 import java.util.Stack;
 
 import org.apache.log4j.Logger;
 
-import com.jramoyo.io.IndexedFileReader;
 import com.sds.metac.config.ConfigManager;
 import com.sds.metac.exception.MetaCException;
 import com.sds.metac.file.FileManager;
 import com.sds.metac.output.reader.OutputReader;
 import com.sds.metac.util.IndexedFileUtil;
-import com.sds.metac.util.StringUtil;
 import com.sds.metac.vo.config.UserSettingVO;
-import com.sds.metac.vo.core.IndexDataVO;
 import com.sds.metac.vo.domain.GroupVO;
-import com.sds.metac.vo.domain.StandardVO;
 
 public class OutputIndexedFileReader implements OutputReader {
 

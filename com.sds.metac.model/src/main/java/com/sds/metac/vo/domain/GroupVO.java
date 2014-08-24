@@ -27,6 +27,12 @@ public class GroupVO extends AbstractVO {
 	
 	/** 공통코드의 집합 */
 	private Map<String, String> codeMap = new HashMap<String, String>();
+	
+	/** 공통코드 자체의 Method */
+	private Method method = Method.NEW;
+	
+	/** 각 코드별 Method */
+	private Map<String, Method> codeMethodMap = new HashMap<String, Method>();
 
 	
 	public String getName() {
@@ -41,18 +47,68 @@ public class GroupVO extends AbstractVO {
 		return codeMap;
 	}
 	
+	/** GroupVO 전체의 Method 설정 */
+	public Method getMethod() {
+		return method;
+	}
+
+	/** GroupVO 전체의 Method */
+	public void setMethod(Method method) {
+		this.method = method;
+	}
+
+	public Map<String, Method> getCodeMethodMap() {
+		return codeMethodMap;
+	}
+
+	/** JSON 클래스를 위한 용도 가급적 사용하지 말것 */
+	public void setCodeMethodMap(Map<String, Method> codeMethodMap) {
+		this.codeMethodMap = codeMethodMap;
+	}
+	
+	/** JSON 클래스를 위한 용도 가급적 사용하지 말것 */
 	public void setCodeMap(Map<String, String> codeMap) {
 		this.codeMap = codeMap;
 	}
 	
+	/** 코드 추가, DEFAULT - NEW */
 	public void addCodeSet(String code, String codeValue) {
 		codeMap.put(code, codeValue);
+		codeMethodMap.put(code, Method.NEW);
 	}
 	
+	/** 코드 추가, Method 지정필요 */
+	public void addCodeSet(String code, String codeValue, Method codeMethod) {
+		codeMap.put(code, codeValue);
+		codeMethodMap.put(code, codeMethod);
+	}
+	
+	/** 코드집합 전체 추가, DEFAULT - NEW */
 	public void addCodeSets(Map<String, String> codeMap) {
 		this.codeMap.putAll(codeMap);
+		for (String key : codeMap.keySet()) {
+			this.codeMethodMap.put(key, Method.NEW);
+		}
 	}
 	
+	/** 코드집합 전체추가, Method 는 일괄지정 */
+	public void addCodeSet(Map<String, String> codeMap, Method method) {
+		this.codeMap.putAll(codeMap);
+		for (String key : codeMap.keySet()) {
+			this.codeMethodMap.put(key, method);
+		}
+	}
+	
+	/** 코드집합 전체추가, Method는 codeMethodMap에서 추출 */
+	public void addCodeSets(Map<String, String> codeMap, Map<String, Method> codeMethodMap) {
+		this.codeMap.putAll(codeMap);
+		for (String key : codeMap.keySet()) {
+			this.codeMethodMap.put(key, codeMethodMap.get(key));
+		}
+	}
+	
+	
+
 	/**
 	 * 코드명 Set을 리턴한다
 	 * @return
@@ -68,6 +124,13 @@ public class GroupVO extends AbstractVO {
 	 */
 	public String getCodeValue(String code) {
 		return codeMap.get(code);
+	}
+	
+	/**
+	 * 코드의 Method를 리턴한다
+	 */
+	public Method getCodeMehtod(String code) {
+		return codeMethodMap.get(code) == null ? Method.NEW : codeMethodMap.get(code);
 	}
 	
 	/**
@@ -91,6 +154,7 @@ public class GroupVO extends AbstractVO {
 	 */
 	public void removeCode(String code) {
 		codeMap.remove(code);
+		codeMethodMap.remove(code);
 	}
 	
 	/**
@@ -109,6 +173,7 @@ public class GroupVO extends AbstractVO {
 		}
 		if (delCode != null) {
 			codeMap.remove(delCode);
+			codeMethodMap.remove(delCode);
 		}
 	}
 }
