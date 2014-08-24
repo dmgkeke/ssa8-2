@@ -16,7 +16,9 @@
 							<element name="implementation"
 								type="Q1:Folder" maxOccurs="1" minOccurs="0">
 							</element>
-							<element name="temp" type="Q1:Folder" maxOccurs="1" minOccurs="0"></element>
+							<element name="temp" type="Q1:Folder"
+								maxOccurs="1" minOccurs="0">
+							</element>
 						</sequence>
 					</complexType>
 				</element>
@@ -42,6 +44,18 @@
 								type="Q1:ExtType">
 							</element>
 						</sequence>
+					</complexType>
+				</element>
+				<element name="cache">
+					<complexType>
+						<attribute name="maxSize">
+							<simpleType>
+								<restriction base="int">
+									<minExclusive value="0"></minExclusive>
+									<maxExclusive value="100"></maxExclusive>
+								</restriction>
+							</simpleType>
+						</attribute>
 					</complexType>
 				</element>
 			</sequence>

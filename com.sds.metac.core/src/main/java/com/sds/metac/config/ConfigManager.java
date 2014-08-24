@@ -8,6 +8,7 @@ import com.sds.metac.file.FileManager;
 import com.sds.metac.schema.information.ClassInformation;
 import com.sds.metac.schema.information.Information;
 import com.sds.metac.schema.userSetting.Setting;
+import com.sds.metac.schema.userSetting.Setting.Cache;
 import com.sds.metac.schema.userSetting.Setting.Extension;
 import com.sds.metac.schema.userSetting.Setting.Folder;
 import com.sds.metac.schema.userSetting.Setting.Selection;
@@ -57,6 +58,9 @@ public enum ConfigManager {
 		
 		Extension extensions = setting.getExtension();
 		userSettingVO.setTempFileExt(extensions.getTempFile().getName());
+		
+		Cache cache = setting.getCache();
+		userSettingVO.setMaxCacheSize(cache.getMaxSize());
 	}
 
 	private void readInformation() {

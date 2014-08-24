@@ -13,7 +13,17 @@ public class UserSettingVO extends AbstractVO {
 	
 	private String tempFileExt;
 	
+	private Integer maxCacheSize;
 	
+	
+
+	public Integer getMaxCacheSize() {
+		return maxCacheSize;
+	}
+
+	public void setMaxCacheSize(Integer maxCacheSize) {
+		this.maxCacheSize = maxCacheSize;
+	}
 
 	public String getTempFileFolder() {
 		return tempFileFolder;
