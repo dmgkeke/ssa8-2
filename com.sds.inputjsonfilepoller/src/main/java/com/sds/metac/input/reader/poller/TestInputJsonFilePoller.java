@@ -3,20 +3,15 @@ package com.sds.metac.input.reader.poller;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-
-import javax.xml.parsers.ParserConfigurationException;
-
 import org.apache.log4j.Logger;
-import org.xml.sax.SAXException;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
@@ -28,7 +23,7 @@ import com.sds.metac.input.reader.vo.CustomVO;
 import com.sds.metac.vo.domain.GroupVO;
 import com.sds.metac.vo.domain.StandardVO;
 
-public class TestInputJsonFilePoller /*implements InputPoller*/ {
+public class TestInputJsonFilePoller implements InputPoller {
 	// logging
 	Logger logger = Logger.getLogger(TestInputJsonFilePoller.class);
 	final String filePath = "./inputfiles/생활안내Directory분류코드정보.json";
@@ -111,8 +106,10 @@ public class TestInputJsonFilePoller /*implements InputPoller*/ {
 			}
 		}
 		standardVOList 	= new ArrayList<StandardVO>(standardVOMap.values());
+		Collections.sort(standardVOList, new StnNameAscCompare());
 		standardIter 	= standardVOList.iterator();
 		groupVOList 	= new ArrayList<GroupVO>(groupVOMap.values());
+		Collections.sort(groupVOList, new GrpNameAscCompare());
 		groupIter 		= groupVOList.iterator();
 	}
 	
@@ -147,82 +144,27 @@ public class TestInputJsonFilePoller /*implements InputPoller*/ {
 		}
 	}
 	
-//	final String configXmlPath = "./config/inputReadConfig.xml";
-	/*public File getFileInfo(InputFileInfo inputFileInfo) {
-		String uri = inputFileInfo.getFilePath() + inputFileInfo.getFileName()
-				+ "." + inputFileInfo.getExtention();
-		return new File(uri);
-	}*/
-
-	/*public InputReadConfig getConfigInfo() {
-		InputReadConfig inputReadConfig = null;
-		try {
-			inputReadConfig = new InputReadConfig(configXmlPath);
-		} catch (ParserConfigurationException e) {
-			
-			e.printStackTrace();
-			throw new MetaCException(
-					"!!! ParserConfigurationException - getConfigInfo()");
-		} catch (SAXException e) {
-			e.printStackTrace();
-			throw new MetaCException("!!! SAXException - getConfigInfo()");
-		} catch (IOException e) {
-			e.printStackTrace();
-			throw new MetaCException("!!! IOException - getConfigInfo()");
+	class StnNameAscCompare implements Comparator<StandardVO> {
+		 
+		/**
+		 * 오름차순(ASC)
+		 */
+		public int compare(StandardVO arg0, StandardVO arg1) {
+			// TODO Auto-generated method stub
+			return arg0.getName().compareTo(arg1.getName());
 		}
-		return inputReadConfig;
-	}*/
+ 
+	}
 	
-	
-	
-	/*private List<CustomVO> getCustomList() {
-		if(customList == null) {
-			Gson gson = getGsonInstance();
-			InputReadConfig inputReadConfig = this.getConfigInfo();
-			File file = getFileInfo(inputReadConfig.getInputFileInfoMap().get("code"));
-			
-			try {
-				JsonObject temp = gson.fromJson(new FileReader(file), JsonObject.class);
-				JsonArray array = temp.get("DATA").getAsJsonArray();
-				CustomVO[] customVOArr = gson.fromJson(array, CustomVO[].class);
-				
-				customList = new ArrayList<CustomVO>(Arrays.asList(customVOArr));
-			} catch (JsonSyntaxException e) {
-				e.printStackTrace();
-				throw new MetaCException("!!! JsonSyntaxException - getCustomList()");
-			} catch (JsonIOException e) {
-				e.printStackTrace();
-				throw new MetaCException("!!! JsonSyntaxException - getCustomList()");
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-				throw new MetaCException("!!! JsonSyntaxException - getCustomList()");
-			}
+	class GrpNameAscCompare implements Comparator<GroupVO> {
+		 
+		/**
+		 * 오름차순(ASC)
+		 */
+		public int compare(GroupVO arg0, GroupVO arg1) {
+			// TODO Auto-generated method stub
+			return arg0.getName().compareTo(arg1.getName());
 		}
-		return customList;
-	}*/
-	
-	
-	
-//	public static void main(String[] args) {
-//		HashMap hmResult = new HashMap();
-//		
-//		hmResult.put("1", "1");
-//		hmResult.put("2", "2");
-//		hmResult.put("3", "3");
-//		hmResult.put("4", "4");
-//		
-////		List list = new ArrayList(hmResult.values());
-//		List list = new LinkedList();
-//		list.addAll(hmResult.values());
-//		
-//		System.out.println(list.size());
-//		Iterator it = list.iterator();
-//		
-//		while(it.hasNext()){
-//			System.out.println(it.next());
-//		}
-//		
-//		
-//		
-//	}
+ 
+	}
 }
