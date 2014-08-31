@@ -46,6 +46,10 @@ public enum Core {
 		OutputWriterFactory outputWriterFactory = OutputWriterFactory.INSTANCE;
 		OutputWriter outputWriter = outputWriterFactory.getOutputWriter();
 
+		// 문자열변환 테스트
+		// String tmp = "AFI메세지타입";
+		// MetacCommonUtil.convertStandardStr("AFI메세지타입", tmp.length());
+
 		// Output 처리
 		logger.debug("Output 처리");
 		OutputProcessor outputProcessor = new OutputProcessor();
