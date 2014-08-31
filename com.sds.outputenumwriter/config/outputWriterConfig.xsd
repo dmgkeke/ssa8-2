@@ -1,15 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema 
 	xmlns="http://www.w3.org/2001/XMLSchema"
-	targetNamespace="http://www.samsung.com/sds/ssa8-2/information"
+	targetNamespace="http://www.samsung.com/sds/ssa8-2/outputWriterConfig"
 	elementFormDefault="qualified"
-	xmlns:Q1="http://www.samsung.com/sds/ssa8-2/information">
+	xmlns:Q1="http://www.samsung.com/sds/ssa8-2/outputWriterConfig">
 
-    <complexType name="outputWriterInformation">
+    <element name="outputWriterConfig">
+    	<complexType>
+    		<sequence>
+    			<element name="outputWriterInformation"
+    				type="Q1:OutputWriterInformation" maxOccurs="unbounded"
+    				minOccurs="0">
+    			</element>
+    		</sequence></complexType>
+    	<unique name="uniqueOutputWriterConfig">
+    		<selector xpath="outputWriterConfig"></selector>
+    		<field xpath="writerClassName"></field>
+    	</unique>
+
+    </element>
+    
+    <complexType name="OutputWriterInformation">
     	<sequence>    		
+    		<element name="writerClassName" type="string"
+    			nillable="false">
+    		</element>
     		<element name="metaFomula" type="Q1:MetaFomula"></element>
-    		<element name="singleCharYn" type="boolean"></element>
     		<element name="variableSyntax" type="Q1:VariableSyntax"></element>
+    		<element name="singleCharYn" type="boolean"></element>
     	</sequence>
     </complexType>
     
@@ -23,8 +41,8 @@
     
     <simpleType name="VariableSyntax">
     	<restriction base="string">
-    		<enumeration value="CamelCase"></enumeration>
-    		<enumeration value="UnderscoreCase"></enumeration>
+    		<enumeration value="camelCase"></enumeration>
+    		<enumeration value="underscoreCase"></enumeration>
     	</restriction>
     </simpleType>
 </schema>

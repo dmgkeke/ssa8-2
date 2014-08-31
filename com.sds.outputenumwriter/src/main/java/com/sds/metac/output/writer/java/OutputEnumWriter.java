@@ -65,7 +65,7 @@ public class OutputEnumWriter implements OutputJavaWriter {
 		// FIXME Deprecated
 	}
 
-
+	
 
 	private void createEnum() throws JClassAlreadyExistsException {
 		definedClass = codeModel.rootPackage()._class(JMod.PUBLIC, getCodeName(), ClassType.ENUM);

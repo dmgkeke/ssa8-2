@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<outputWriterConfig xmlns="http://www.samsung.com/sds/ssa8-2/outputWriterConfig">
+
+	<outputWriterInformation>
+		<writerClassName>enumWriter</writerClassName>
+		<metaFomula>topDown</metaFomula>
+		<variableSyntax>camelCase</variableSyntax>
+		<singleCharYn>false</singleCharYn>
+	</outputWriterInformation>
+
+</outputWriterConfig>
