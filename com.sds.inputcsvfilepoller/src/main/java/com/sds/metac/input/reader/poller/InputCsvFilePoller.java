@@ -168,7 +168,7 @@ public class InputCsvFilePoller implements InputPoller {
 	public StandardVO readStandard() {
 		StandardVO standardVO = new StandardVO();
 		standardVO.setName(this.standardVO.getName());
-		standardVO.setName(this.standardVO.getValue());
+		standardVO.setValue(this.standardVO.getValue());
 		return standardVO;
 	}
 
