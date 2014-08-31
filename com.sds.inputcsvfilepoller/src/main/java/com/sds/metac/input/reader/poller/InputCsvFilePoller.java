@@ -79,7 +79,7 @@ public class InputCsvFilePoller implements InputPoller {
 			} else {
 				logger.debug(readLine);
 				standardVO = new StandardVO(readLine.split(splitter)[0],
-						readLine.split(splitter)[0]);
+						readLine.split(splitter)[1]);
 				isNextStandard = true;
 			}
 		} catch (IOException e) {
