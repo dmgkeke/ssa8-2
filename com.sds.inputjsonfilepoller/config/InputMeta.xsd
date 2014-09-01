@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+	targetNamespace="http://www.samsung.com/sds/ssa8-2/InputMeta" 
+	xmlns:tns="http://www.samsung.com/sds/ssa8-2/InputMeta" elementFormDefault="qualified">
+	
+	<element name="inpuMeata">
+		<complexType>
+			<all>
+				<element name="metaType" type="tns:metaType"/>
+				<element name="configuration" type="tns:configuration"/>
+			</all>
+		</complexType>
+	</element>
+	
+	<simpleType name="metaType">
+		<restriction base="string">
+			<enumeration value="csv"/>
+			<enumeration value="json"/>
+		</restriction>
+	</simpleType>
+	
+	<complexType name="configuration">
+		<all>
+			<element name="inputFilesPath" type="string"/>
+			<element name="standardFileName" type="string"/>
+			<element name="commonCodeFileName" type="string"/>
+		</all>
+	</complexType>
+</schema>
