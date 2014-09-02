@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:inpuMeata xmlns:tns="http://www.samsung.com/sds/ssa8-2/InputMeta" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.samsung.com/sds/ssa8-2/InputMeta InputMeta.xsd ">
+  <tns:metaType>json</tns:metaType>
+  <tns:configuration>
+    <tns:inputFilesPath>./inputfiles</tns:inputFilesPath>
+    <tns:standardFileName>Standard</tns:standardFileName>
+    <tns:commonCodeFileName>CommonCode</tns:commonCodeFileName>
+  </tns:configuration>
+</tns:inpuMeata>
