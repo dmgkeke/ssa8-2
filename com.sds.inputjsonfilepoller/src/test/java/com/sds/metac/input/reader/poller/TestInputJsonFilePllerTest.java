@@ -11,7 +11,7 @@ import org.junit.Test;
 import com.samsung.sds.ssa8_2.inputmeta.InpuMeata;
 import com.sds.metac.file.FileManager;
 
-public class TestInputJsonFilePollerTest {
+public class TestInputJsonFilePllerTest {
 
 	@Test
 	public void test() throws Exception {
