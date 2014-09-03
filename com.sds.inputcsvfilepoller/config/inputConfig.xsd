@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/information" xmlns:tns="http://www.example.org/information" elementFormDefault="qualified">
+
+    <element name="inputConfig">
+    	<complexType>
+    		<sequence>
+    			<element name="inputInformation" minOccurs="0" maxOccurs="unbounded">
+    				<complexType>
+    					<sequence>
+    						<element name="forder" type="string"></element>
+    						<element name="fileNameWord"
+    							type="string">
+    						</element>
+    						<element name="fileNameCode"
+    							type="string">
+    						</element>
+    						<element name="inputType" type="string"></element>
+    						<element name="splitter" type="string"></element>
+    						<element name="encoding" type="string"></element>
+    					</sequence>
+    				</complexType></element>
+    		</sequence>
+    	</complexType></element>
+
+
+
+
+
+    <complexType name="forder">
+    	<attribute name="location" type="string"></attribute>
+    </complexType>
+    
+    <complexType name="fileNameWord">
+    	<attribute name="fileName" type="string"></attribute>
+    </complexType>
+    
+    <complexType name="fileNameCode">
+    	<attribute name="fileName" type="string"></attribute>
+    </complexType>
+    
+    <complexType name="splitter">
+    	<attribute name="splitter" type="string"></attribute>
+    </complexType>
+
+    <complexType name="inputType">
+    	<attribute name="inputType" type="string"></attribute>
+    </complexType>
+
+
+
+
+    <complexType name="encoding"></complexType>
+</schema>
