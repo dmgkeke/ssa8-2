@@ -13,12 +13,16 @@ import java.util.List;
 import org.apache.log4j.Logger;
 
 import com.sds.metac.exception.MetaCException;
+import com.sds.metac.file.FileManager;
 import com.sds.metac.input.reader.poller.InputPoller;
 import com.sds.metac.util.StringUtil;
 import com.sds.metac.vo.domain.GroupVO;
 import com.sds.metac.vo.domain.StandardVO;
 
 public class InputCsvFilePoller implements InputPoller {
+
+	// TODO :: user-setting.xml 정의하여 fileManager로부터 읽어오도록 변경할것..
+	FileManager fileManager = FileManager.INSTANCE;
 
 	// logging
 	Logger logger = Logger.getLogger(InputCsvFilePoller.class);
