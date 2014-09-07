@@ -1,7 +1,9 @@
 package com.sds.metac.file;
 
 import java.io.File;
+import java.io.FileReader;
 import java.nio.file.Paths;
+import java.util.Properties;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
@@ -87,16 +89,33 @@ public enum FileManager {
 	}
 	
 	/**
-	 * 파일을 읽는다 (프로그램 폴더 하위)
-	 *  - 없을경우에 상위 폴더구조부터 생성
-	 *  
-	 * @param folder
-	 * @param fileName
-	 * @return
+	 * 특정 properties 파일을 읽는다.
 	 */
-	public File loadFile(String folder, String fileName) {
+	public Properties readPropertiesFile(String folder, String fileName, boolean createNotExists) {
+		File file = loadFile(folder, fileName, createNotExists);
+		Properties properties = null;
+		
+		if (file.exists()) {
+			properties = new Properties();
+			
+			try {
+				properties.load(new FileReader(file));
+			} catch (Exception e) {
+				properties = null;
+			}
+		}
+		
+		return properties;
+	}
+	
+	
+	/**
+	 * 파일을 읽는다 (프로그램 폴더하위)
+	 */
+	public File loadFile(String folder, String fileName, boolean createNotExists) {
 		File file = new File(FOLDER_PATH + FOLDER_SEP + folder + FOLDER_SEP + fileName);
-		if (!file.exists()) {
+		
+		if (!file.exists() && createNotExists) {
 			try {
 				file.getParentFile().mkdirs();
 				file.createNewFile();
@@ -106,6 +125,19 @@ public enum FileManager {
 		}
 		
 		return file;
+	}
+		
+	
+	/**
+	 * 파일을 읽는다 (프로그램 폴더 하위)
+	 *  - 없을경우에 상위 폴더구조부터 생성
+	 *  
+	 * @param folder
+	 * @param fileName
+	 * @return
+	 */
+	public File loadFile(String folder, String fileName) {
+		return loadFile(folder, fileName, true);
 	}
 
 

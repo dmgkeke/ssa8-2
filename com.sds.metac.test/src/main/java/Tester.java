@@ -1,6 +1,7 @@
 import org.junit.Test;
 
 import com.sds.metac.core.Core;
+import com.sds.metac.ui.swing.SwingUILauncher;
 
 
 public class Tester {
@@ -11,4 +12,5 @@ public class Tester {
 		
 		c.doProcess();
 	}
+	
 }

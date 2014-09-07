@@ -20,6 +20,11 @@
 			<artifactId>com.sds.metac.core</artifactId>
 			<version>1.0.0</version>
 		</dependency>
+		<dependency>
+			<groupId>com.sds.metac.ui.swing</groupId>
+			<artifactId>com.sds.metac.ui.swing</artifactId>
+			<version>1.0.0</version>
+		</dependency>
 	</dependencies>
 	<parent>
 		<groupId>com.sds.metac</groupId>
