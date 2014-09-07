@@ -9,6 +9,6 @@ public class MainTab extends JTabbedPane {
 	
 	public MainTab() {
 		addTab(Message.get("message.label.core.tabname"), new CoreTabPanel());
-		
+		addTab("테스트", new ModuleTabPanel());
 	}
 }

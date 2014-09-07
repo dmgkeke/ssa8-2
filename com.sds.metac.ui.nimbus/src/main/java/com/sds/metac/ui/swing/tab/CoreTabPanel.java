@@ -70,13 +70,13 @@ public class CoreTabPanel extends JPanel {
 		addRow(panel, "message.label.core.ext.temp", extTempTextField, 600, 40);
 		
 		JComboBox<?> readerComboBox = createComboBox(informationVO.getInputReaderInfoList(), userSettingVO.getInputReaderName());
-		addRow(panel, "message.label.core.reader.name", readerComboBox, 600, 40);
+		addRowWithButton(panel, "message.label.core.reader.name", readerComboBox, 600, 40);
 		
 		JComboBox<?> writerComboBox = createComboBox(informationVO.getOutputWriterInfoList(), userSettingVO.getOutputWriterName());
-		addRow(panel, "message.label.core.writer.name", writerComboBox, 600, 40);
+		addRowWithButton(panel, "message.label.core.writer.name", writerComboBox, 600, 40);
 		
 		JComboBox<?> postComboBox = createComboBox(informationVO.getPostProcessorInfoList(), userSettingVO.getPostProcessorName(), true);
-		addRow(panel, "message.label.core.post.name", postComboBox, 600, 40);
+		addRowWithButton(panel, "message.label.core.post.name", postComboBox, 600, 40);
 				
 		JFormattedTextField cacheSizeFormatTextField = createNumberFormatedTextField(userSettingVO.getMaxCacheSize(), 30);
 		
@@ -130,8 +130,6 @@ public class CoreTabPanel extends JPanel {
 		comboBox.setSelectedItem(new ComboItem(selectedItem, selectedItem));
 		
 		
-		
-		
 		return comboBox;
 	}
 
@@ -158,6 +156,38 @@ public class CoreTabPanel extends JPanel {
 		
 		panel.add(valuePanel);
 		
+		
+		target.add(panel);
+	}
+	
+	private void addRowWithButton(JPanel target, String messageCode, JComponent component, int width, int height) {
+		JPanel panel = new JPanel();
+		panel.setLayout(new FlowLayout(FlowLayout.LEFT));
+		panel.setPreferredSize(new Dimension(width, height));
+		add(panel);
+				
+		JPanel tagPanel = new JPanel();
+		tagPanel.setLayout(new BorderLayout());
+		tagPanel.setPreferredSize(new Dimension(100, height));
+		
+		
+		JLabel tag = new JLabel(Message.get(messageCode) + " : ");
+		tagPanel.add(tag);
+		
+		panel.add(tagPanel);
+		
+		JPanel valuePanel = new JPanel();
+		valuePanel.setLayout(new FlowLayout(FlowLayout.LEFT));
+		
+		valuePanel.add(component);
+		
+		panel.add(valuePanel);
+		
+		
+		JButton button = new JButton("...");
+		button.setPreferredSize(new Dimension(22, 22));
+		
+		valuePanel.add(button);
 		
 		target.add(panel);
 	}
