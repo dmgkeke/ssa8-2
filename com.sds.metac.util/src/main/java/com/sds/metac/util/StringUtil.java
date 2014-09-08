@@ -8,6 +8,14 @@ public class StringUtil {
 	public static final String SPACE = " ";
 
 	/**
+	 * Oracle nvl과 동일
+	 * null일때 default반환
+	 */
+	public static String nvl(String val, String defaultVal) {
+		return val == null ? defaultVal : val;
+	}
+	
+	/**
 	 * 두 문자열 비교 둘중 하나라도 null 이면 false
 	 * 
 	 * @param left

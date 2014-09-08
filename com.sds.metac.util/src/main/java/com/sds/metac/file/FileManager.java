@@ -1,7 +1,10 @@
 package com.sds.metac.file;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.Properties;
 
@@ -153,6 +156,19 @@ public enum FileManager {
 		}
 		
 		return properties;
+	}
+	
+	/**
+	 * 특정 properties 파일에 쓴다.
+	 */
+	public void writePropertiesFile(String folder, String fileName, Properties prop) {
+		File file = loadFile(folder, fileName, true);
+		
+		try {
+			prop.store(new FileOutputStream(file), null);
+		} catch (Exception e) {
+			throw new MetaCException(e);
+		}
 	}
 	
 	
