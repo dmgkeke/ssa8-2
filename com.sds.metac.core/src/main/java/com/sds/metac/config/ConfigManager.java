@@ -62,6 +62,29 @@ public enum ConfigManager {
 		Cache cache = setting.getCache();
 		userSettingVO.setMaxCacheSize(cache.getMaxSize());
 	}
+	
+	public void saveUserSetting() {
+		FileManager fileManager = FileManager.INSTANCE;
+		
+		Setting setting = fileManager.readConfigXmlFile("user-setting.xml", Setting.class);
+		
+		Selection selection = setting.getSelection();
+		selection.getInput().setName(userSettingVO.getInputReaderName());
+		selection.getOutput().setName(userSettingVO.getOutputWriterName());
+		selection.getPostProc().setName(userSettingVO.getPostProcessorName());
+		
+		Folder folder = setting.getFolder();
+		folder.getImplementation().setLocation(userSettingVO.getImplementationFolder());
+		folder.getTemp().setLocation(userSettingVO.getTempFileFolder());
+		
+		Extension extensions = setting.getExtension();
+		extensions.getTempFile().setName(userSettingVO.getTempFileExt());
+		
+		Cache cache = setting.getCache();
+		cache.setMaxSize(userSettingVO.getMaxCacheSize());
+		
+		fileManager.writeConfigXmlFile("user-setting.xml", setting);
+	}
 
 	private void readInformation() {
 		if (userSettingVO == null) {

@@ -6,6 +6,7 @@ import java.nio.file.Paths;
 import java.util.Properties;
 
 import javax.xml.bind.JAXBContext;
+import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
 import com.sds.metac.exception.MetaCException;
@@ -37,7 +38,7 @@ public enum FileManager {
 	}
 	
 	/**
-	 * 환경설정이 포함되어있는 폴더를 읽는다
+	 * 환경설정이 포함되어있는 폴더에서 파일을 읽는다
 	 * - 프로그램경로\config 밑을 탐색한다.
 	 * 
 	 * @param fileName
@@ -83,6 +84,52 @@ public enum FileManager {
 			Unmarshaller unmarshaller = context.createUnmarshaller();
 						
 			return (T)unmarshaller.unmarshal(file);
+		} catch (Exception e) {
+			throw new MetaCException(e);
+		}
+	}
+	
+	/**
+	 * 환경설정이 포함되어있는 폴더에 파일을 작성한다.
+	 * - 프로그램경로\config 밑을 탐색한다.
+	 * 
+	 * @param fileName
+	 * @param obj
+	 */
+	public <T> void writeConfigXmlFile(String fileName, T obj) {
+		writeXmlFile(FOLDER_PATH + FOLDER_SEP + FOLDER_CONFIG, fileName, obj);
+	}
+	
+	/**
+	 * 
+	 * 특정 폴더(프로그램 하위) 에 있는 xml 파일을 작성한다.
+	 *  - 파일이 존재하지 않으면 생성한다.
+	 *  
+	 * @param folder
+	 * @param fileName
+	 * @param clazz
+	 * @return
+	 */
+	public <T> void writeXmlFile(String folder, String fileName, T obj) {
+		File file = new File(folder + FOLDER_SEP + fileName);
+		
+		if (!file.exists()) {
+			this.createFile(file);
+		}
+		
+		createXmlFileFromObject(file, obj);
+	}
+	
+	/**
+	 * XML파일 내용을 작성한다.
+	 */
+	public <T> void createXmlFileFromObject(File file, T obj) {
+		try {
+			JAXBContext context = JAXBContext.newInstance(obj.getClass());
+			
+			Marshaller marshaller = context.createMarshaller();
+			
+			marshaller.marshal(obj, file);
 		} catch (Exception e) {
 			throw new MetaCException(e);
 		}

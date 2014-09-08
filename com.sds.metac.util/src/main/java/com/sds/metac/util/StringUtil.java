@@ -5,6 +5,7 @@ import com.sds.metac.exception.MetaCException;
 public class StringUtil {
 
 	public static final String EMPTY = "";
+	public static final String SPACE = " ";
 
 	/**
 	 * 두 문자열 비교 둘중 하나라도 null 이면 false

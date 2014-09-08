@@ -9,4 +9,8 @@ public class MetaCException extends RuntimeException {
 	public MetaCException(Exception e) {
 		super(e);
 	}
+
+	public MetaCException(String string, Exception e) {
+		super(string, e);
+	}
 }
