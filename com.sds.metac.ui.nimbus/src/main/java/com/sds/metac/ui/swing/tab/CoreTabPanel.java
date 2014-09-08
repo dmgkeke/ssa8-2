@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
 import com.sds.metac.config.ConfigManager;
@@ -26,25 +27,28 @@ public class CoreTabPanel extends JPanel {
 	
 	public CoreTabPanel() {
 		setName("corePanel");
-		
+				
 		BorderLayout layout = new BorderLayout();
 		this.setLayout(layout);
 		
 		
 		JPanel contentPanel = new JPanel();
 		contentPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
-		contentPanel.setPreferredSize(new Dimension(600, 450));
+		contentPanel.setPreferredSize(new Dimension(600, 300));
 		
 		drawContent(contentPanel);
 		
+		JScrollPane scroller = new JScrollPane();
+		scroller.setViewportView(contentPanel);
+		this.add(scroller, BorderLayout.CENTER);
+		
+		
 		JPanel buttonPanel = new JPanel();
-		FlowLayout flowLayout = new FlowLayout(FlowLayout.RIGHT, 10, 10);
+		FlowLayout flowLayout = new FlowLayout(FlowLayout.RIGHT, 5, 5);
 		buttonPanel.setLayout(flowLayout);
-		contentPanel.setPreferredSize(new Dimension(600, 30));
+		buttonPanel.setPreferredSize(new Dimension(600, 35));
 		
 		drawButton(buttonPanel);
-		
-		this.add(contentPanel, BorderLayout.CENTER);
 		this.add(buttonPanel, BorderLayout.NORTH);
 	}
 	
