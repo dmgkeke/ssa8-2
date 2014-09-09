@@ -52,6 +52,13 @@ public class StringUtil {
 	public static boolean isNotEmpty(String key) {
 		return !isEmpty(key);
 	}
+	
+	/**
+	 * 문자열 trim처리
+	 */
+	public static String trim(String str) {
+		return str != null ? str.trim() : str;
+	}
 
 	/**
 	 * 문자열을 앞에서 부터 length 길이만금 잘라낸 후 리턴

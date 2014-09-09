@@ -1,5 +1,7 @@
 package com.sds.metac.ui.config;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.util.Properties;
 
 import com.sds.metac.file.FileManager;
@@ -31,5 +33,14 @@ public enum UIConfigManager {
 		properties.put(KEY_LOOK_AND_FEEL, value);
 		
 		fileManager.writePropertiesFile(FOLDER_NAME, FILE_NAME, properties);
+	}
+	
+	public static int[] getCenterPosition(int width, int height) {
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+				
+		return new int[] {
+			 (int) (screenSize.getWidth()-width)/2
+			,(int) (screenSize.getHeight()-height)/2
+		};
 	}
 }

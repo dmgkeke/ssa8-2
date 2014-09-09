@@ -25,6 +25,7 @@ public class AbstractModalPopup extends JDialog {
 			@Override
 			public void windowClosing(WindowEvent e) {
 				ResourceManager.releaseAll(getName());
+				System.out.println("1");
 			}
 		});
 		

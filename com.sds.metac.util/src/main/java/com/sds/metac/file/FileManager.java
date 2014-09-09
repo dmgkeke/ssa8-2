@@ -21,10 +21,11 @@ public enum FileManager {
 	 * 확장자 구분자 DOT
 	 */
 	public static final String DOT = ".";
+	public static final String FOLDER_SEP = "\\";
 
 	private static final String PATH = "file:/" + Paths.get("").toAbsolutePath().toString();
 	private static final String FOLDER_PATH = Paths.get("").toAbsolutePath().toString();
-	private static final String FOLDER_SEP = "\\";
+	
 	
 	private static final String FOLDER_CONFIG = "config";
 	

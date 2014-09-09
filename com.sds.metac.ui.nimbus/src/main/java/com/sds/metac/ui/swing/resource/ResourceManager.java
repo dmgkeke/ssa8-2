@@ -1,5 +1,6 @@
 package com.sds.metac.ui.swing.resource;
 
+import java.awt.Container;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -13,9 +14,9 @@ public enum ResourceManager {
 	INSTANCE;
 	
 	Map<String, Set<String>> parentMap = new HashMap<String, Set<String>>();
-	Map<String, JComponent> objectMap = new HashMap<String, JComponent>();
+	Map<String, Container> objectMap = new HashMap<String, Container>();
 	
-	public static void register(String parentName, String objectName, JComponent object) {
+	public static void register(String parentName, String objectName, Container object) {
 		Set<String> set = INSTANCE.parentMap.get(parentName);
 		if (set == null) {
 			set = new TreeSet<String>();
@@ -42,7 +43,15 @@ public enum ResourceManager {
 		}
 	}
 	
-	public static JComponent get(String objectName) {
+	public static void release(String parentName, String key) {
+		Set<String> set = INSTANCE.parentMap.get(parentName);
+		if (set != null) {
+			set.remove(key);
+		}
+		INSTANCE.objectMap.remove(key);
+	}
+	
+	public static Container get(String objectName) {
 		
 		return INSTANCE.objectMap.get(objectName);
 	}

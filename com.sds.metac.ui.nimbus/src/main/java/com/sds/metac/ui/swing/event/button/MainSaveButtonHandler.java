@@ -1,6 +1,6 @@
 package com.sds.metac.ui.swing.event.button;
 
-import java.awt.event.ActionEvent;
+import java.awt.AWTEvent;
 
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
@@ -14,10 +14,10 @@ import com.sds.metac.ui.swing.model.ComboItem;
 import com.sds.metac.ui.swing.resource.ResourceManager;
 import com.sds.metac.vo.config.UserSettingVO;
 
-public class SaveButtonHandler implements CommonHandler {
+public class MainSaveButtonHandler implements CommonHandler {
 	@SuppressWarnings("unchecked")
 	@Override
-	public void invoke(ActionEvent e) {
+	public void invoke(AWTEvent e) {
 		boolean isSaved = true;
 		try {
 			JTextField inputLocImpl = (JTextField) ResourceManager.get("inputLocImpl");

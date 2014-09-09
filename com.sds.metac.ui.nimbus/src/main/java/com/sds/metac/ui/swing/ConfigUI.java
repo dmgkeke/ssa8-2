@@ -1,10 +1,8 @@
 package com.sds.metac.ui.swing;
 
-import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
-
+import com.sds.metac.ui.constant.UIConstants;
 import com.sds.metac.ui.swing.frame.MainFrame;
+import com.sds.metac.ui.swing.resource.ResourceManager;
 
 public class ConfigUI implements Runnable {
 	
@@ -15,13 +13,10 @@ public class ConfigUI implements Runnable {
 	private ConfigUI() {}
 	
 	
-	private MainFrame mainFrame;
-	public static MainFrame getMainFrame() {
-		return instance.mainFrame;
-	}
 	
 	@Override
 	public void run() {
-		mainFrame = new MainFrame();
+		MainFrame mainFrame = new MainFrame();
+		ResourceManager.register(UIConstants.PROGRAM_NAME, UIConstants.MAIN_FRAME_NAME, mainFrame);
 	}
 }

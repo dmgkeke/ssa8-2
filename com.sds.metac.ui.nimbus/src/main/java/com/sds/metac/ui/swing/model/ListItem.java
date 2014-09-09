@@ -1,10 +1,12 @@
 package com.sds.metac.ui.swing.model;
 
+import com.sds.metac.util.StringUtil;
+
 public class ListItem<T> {
 	public static final String TAG_INPUT = "[I]";
 	public static final String TAG_OUTPUT = "[O]";
 	public static final String TAG_POST = "[P]";
-	
+		
 	String text;
 	String tag;
 	T value;
@@ -25,7 +27,7 @@ public class ListItem<T> {
 	
 	@Override
 	public String toString() {		
-		return text;
+		return tag + StringUtil.SPACE + text;
 	}
 	
 	@Override

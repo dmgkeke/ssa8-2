@@ -12,8 +12,8 @@ public class AbstractFrame extends JFrame {
 	
 	public AbstractFrame() {
 		setLookAndFeel(uiConfigManager.getCurrentLookAndFeel());
-		
 		setDefaultLookAndFeelDecorated(true);
+		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}

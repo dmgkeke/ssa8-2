@@ -5,6 +5,7 @@ import java.net.URLClassLoader;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.sds.metac.config.ConfigManager;
 import com.sds.metac.exception.MetaCException;
 import com.sds.metac.file.FileManager;
 import com.sds.metac.vo.core.ClassInfoVO;
@@ -25,8 +26,13 @@ public enum MetaCClassLoader {
 	public <T> T createInstance(ClassInfoVO classInfoVO, Class<T> clazz) {
 		try {
 			FileManager fileManager = FileManager.INSTANCE;
+			ConfigManager configManager = ConfigManager.INSTANCE;
+			String implementationFolder = configManager.getUserSetting().getImplementationFolder();
 			
-			String path = fileManager.getResourceFilePath(classInfoVO.getClassFilePath());
+			String filePath = implementationFolder + FileManager.FOLDER_SEP + classInfoVO.getClassFilePath();
+			
+			
+			String path = fileManager.getResourceFilePath(filePath);
 			URL url = new URL(path);		
 			myClassLoader.addURL(url);
 			

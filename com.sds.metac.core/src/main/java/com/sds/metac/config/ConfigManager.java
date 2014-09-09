@@ -6,6 +6,7 @@ import java.util.List;
 import com.sds.metac.exception.MetaCException;
 import com.sds.metac.file.FileManager;
 import com.sds.metac.schema.information.ClassInformation;
+import com.sds.metac.schema.information.ClassInformationType;
 import com.sds.metac.schema.information.Information;
 import com.sds.metac.schema.userSetting.Setting;
 import com.sds.metac.schema.userSetting.Setting.Cache;
@@ -85,13 +86,11 @@ public enum ConfigManager {
 		
 		fileManager.writeConfigXmlFile("user-setting.xml", setting);
 	}
-
+	
 	private void readInformation() {
 		if (userSettingVO == null) {
 			readUserSetting();
 		}
-		
-		String implementationFolder = userSettingVO.getImplementationFolder();
 		
 		FileManager fileManager = FileManager.INSTANCE;
 		
@@ -110,9 +109,9 @@ public enum ConfigManager {
 		List<ClassInformation> classInfos = information.getClassInfo();
 		for (ClassInformation classInfo : classInfos) {
 			ClassInfoVO infoVO = new ClassInfoVO();
-			infoVO.setName(classInfo.getName());
-			infoVO.setClassName(classInfo.getClassName());
-			infoVO.setClassFilePath(implementationFolder + "\\" + classInfo.getClassFilePath());
+			infoVO.setName(StringUtil.trim(classInfo.getName()));
+			infoVO.setClassName(StringUtil.trim(classInfo.getClassName()));
+			infoVO.setClassFilePath(StringUtil.trim(classInfo.getClassFilePath()));
 			
 			List<ClassInfoVO> list = null;
 			switch(classInfo.getType()) {
@@ -127,6 +126,43 @@ public enum ConfigManager {
 		}
 	}
 	
+	public void saveInformation() {
+		FileManager fileManager = FileManager.INSTANCE;
+				
+		Information information = fileManager.readConfigXmlFile("information.xml", Information.class);
+		
+		List<ClassInformation> list = new ArrayList<ClassInformation>();
+		
+		list.addAll(createInformationList(informationVO.getInputReaderInfoList(), ClassInformationType.INPUT));
+		list.addAll(createInformationList(informationVO.getOutputWriterInfoList(), ClassInformationType.OUTPUT));
+		list.addAll(createInformationList(informationVO.getPostProcessorInfoList(), ClassInformationType.POST_PROC));
+		
+		List<ClassInformation> orgList = information.getClassInfo();
+		orgList.clear();
+		orgList.addAll(list);
+		
+		fileManager.writeConfigXmlFile("information.xml", information);
+	}
+
+
+
+	private List<ClassInformation> createInformationList(List<ClassInfoVO> list, ClassInformationType type) {
+		List<ClassInformation> ret = new ArrayList<ClassInformation>();
+		
+		for (int i=0 ; list!= null && i<list.size() ; i++) {
+			ClassInfoVO vo = list.get(i);
+			
+			ClassInformation info = new ClassInformation();
+			info.setType(type);
+			info.setName(StringUtil.trim(vo.getName()));
+			info.setClassName(StringUtil.trim(vo.getClassName()));
+			info.setClassFilePath(StringUtil.trim(vo.getClassFilePath()));
+			
+			ret.add(info);
+		}
+		
+		return ret;
+	}
 	
 	private void createTempFolder() {
 		FileManager fileManager = FileManager.INSTANCE;

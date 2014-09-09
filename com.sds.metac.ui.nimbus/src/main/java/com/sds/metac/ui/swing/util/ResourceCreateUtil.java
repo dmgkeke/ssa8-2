@@ -19,6 +19,7 @@ import javax.swing.ListSelectionModel;
 import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.text.NumberFormatter;
 
+import com.sds.metac.ui.constant.UIConstants;
 import com.sds.metac.ui.message.Message;
 import com.sds.metac.ui.swing.model.ComboItem;
 import com.sds.metac.ui.swing.model.ListItem;
@@ -27,7 +28,7 @@ import com.sds.metac.vo.core.ClassInfoVO;
 
 public class ResourceCreateUtil {
 
-	public static JFormattedTextField createNumberFormatedTextField(String parentName, String name, Integer maxCacheSize, int defaultSize) {
+	public static JFormattedTextField createNumberFormatedTextField(String parentName, String name, String value, int defaultSize) {
 		JFormattedTextField textField = new JFormattedTextField();
 				
 		textField.setColumns(defaultSize);
@@ -41,7 +42,7 @@ public class ResourceCreateUtil {
 		
 		textField.setFormatterFactory(factory);
 		
-		textField.setText(maxCacheSize.toString());
+		textField.setText(value);
 		
 		ResourceManager.register(parentName, name, textField);
 		
@@ -60,11 +61,11 @@ public class ResourceCreateUtil {
 		return textField;
 	}
 
-	public static JComboBox<ComboItem> createComboBox(String parentName, String name, List<ClassInfoVO> list, String selectedItem) {
+	public static JComboBox<ComboItem> createComboBox(String parentName, String name, List<ComboItem> list, String selectedItem) {
 		return createComboBox(parentName, name, list, selectedItem, false);
 	}
 	
-	public static JComboBox<ComboItem> createComboBox(String parentName, String name, List<ClassInfoVO> list, String selectedItem, boolean nullable) {
+	public static JComboBox<ComboItem> createComboBox(String parentName, String name, List<ComboItem> list, String selectedItem, boolean nullable) {
 		JComboBox<ComboItem> comboBox = new JComboBox<ComboItem>();
 		
 		if (nullable) {
@@ -72,12 +73,14 @@ public class ResourceCreateUtil {
 		}
 		
 		if (list != null) {
-			for (ClassInfoVO readerVO : list) {
-				comboBox.addItem(new ComboItem(readerVO.getName(), readerVO.getName()));
+			for (ComboItem vo : list) {
+				comboBox.addItem(vo);
 			}
 		}
 		
-		comboBox.setSelectedItem(new ComboItem(selectedItem, selectedItem));
+		if (selectedItem != null) {
+			comboBox.setSelectedItem(new ComboItem(selectedItem, selectedItem));
+		}
 		
 		comboBox.setName(name);
 		
@@ -86,23 +89,26 @@ public class ResourceCreateUtil {
 		return comboBox;
 	}
 	
-	public static <T> JList<ListItem<T>> createList(String name, String string, List<ListItem<T>> items, int size) {
+	public static <T> JList<ListItem<T>> createList(String parentName, String name, List<ListItem<T>> items, int size) {
 		
 		
 		JList<ListItem<T>> list = new JList<ListItem<T>>();
 		
+		DefaultListModel<ListItem<T>> model = new DefaultListModel<ListItem<T>>();
+		list.setModel(model);
+		
 		if (items != null) {
-			DefaultListModel<ListItem<T>> model = new DefaultListModel<ListItem<T>>();
 			for (ListItem<T> item : items) {
 				model.addElement(item);
-			}
-			
-			list.setModel(model);
-			list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+			}			
 		}
+		
+		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		
 		JScrollPane scroller = new JScrollPane();
 		scroller.setViewportView(list);
+		
+		ResourceManager.register(parentName, name, list);
 		
 		return list;
 	}
@@ -115,7 +121,7 @@ public class ResourceCreateUtil {
 				
 		JPanel tagPanel = new JPanel();
 		tagPanel.setLayout(new BorderLayout());
-		tagPanel.setPreferredSize(new Dimension(100, height));
+		tagPanel.setPreferredSize(new Dimension(UIConstants.ROW_LABEL_WIDTH, height));
 		
 		
 		JLabel tag = new JLabel(Message.get(messageCode) + " : ");
