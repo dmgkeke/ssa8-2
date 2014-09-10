@@ -8,6 +8,7 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 
+import com.sds.metac.config.OutputConfigManager;
 import com.sds.metac.exception.MetaCException;
 import com.sds.metac.output.reader.StandardReader;
 import com.sds.metac.schema.MetaFomula;
@@ -29,15 +30,16 @@ public class OutputEnumWriter implements OutputJavaWriter {
 
 	private final Logger logger = Logger.getLogger(OutputEnumWriter.class);
 	private final JCodeModel codeModel = new JCodeModel();
+	private final static OutputConfigManager CONFIG_MANAGER = OutputConfigManager.INSTANCE;
+	
 	private JDefinedClass definedClass;
 	
 	private GroupVO groupVO;
-//	private StandardVO standardVO;
+
 	private String standardCodeName;
 	
 	private StandardReader standardReader;
 	
-	private final static String DEFAULT_PACKAGE = "code";
 	private final static String CODEVALUE_FIELD_NAME = "codeValue";
 	
 	private final static String ENUM_FILE_PATH = "temp/";
@@ -58,7 +60,7 @@ public class OutputEnumWriter implements OutputJavaWriter {
 				if(StringUtil.isEmpty(standardCodeName)) {
 					logger.debug("Enum 으로 변환실패 : " + groupVO);
 				}
-				
+				logger.debug("standardCodeName : " + standardCodeName);
 				createEnum();
 				
 				createEnumConstant();
