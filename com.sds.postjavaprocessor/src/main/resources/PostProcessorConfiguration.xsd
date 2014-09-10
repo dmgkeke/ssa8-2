@@ -22,15 +22,15 @@
 	
 	<complexType name="compileConfiguration">
 		<all>
-			<element name="inputFilesPath" type="string"/>
-			<element name="outputFilesPath" type="string"/>
+			<element name="inputFilesPath" type="string" default="./inputfiles"/>
+			<element name="outputFilesPath" type="string" default="./inputfiles/classes"/>
 		</all>
 	</complexType>
 	
 	<complexType name="createJarConfiguration">
 		<all>
-			<element name="outputFilePath" type="string"/>
-			<element name="fileName" type="string"/>
+			<element name="outputFilePath" type="string" default="./dist"/>
+			<element name="fileName" type="string" default="test"/>
 		</all>
 	</complexType>
 	<!-- <simpleType name="암호타입">
