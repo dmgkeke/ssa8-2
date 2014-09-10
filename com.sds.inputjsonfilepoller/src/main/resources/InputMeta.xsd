@@ -3,7 +3,7 @@
 	targetNamespace="http://www.samsung.com/sds/ssa8-2/InputMeta" 
 	xmlns:tns="http://www.samsung.com/sds/ssa8-2/InputMeta" elementFormDefault="qualified">
 	
-	<element name="inpuMeata">
+	<element name="inputMeta">
 		<complexType>
 			<all>
 				<element name="metaType" type="tns:metaType"/>
@@ -21,9 +21,9 @@
 	
 	<complexType name="configuration">
 		<all>
-			<element name="inputFilesPath" type="string"/>
-			<element name="standardFileName" type="string"/>
-			<element name="commonCodeFileName" type="string"/>
+			<element name="inputFilesPath" type="string" default="./inputfiles"/>
+			<element name="standardFileName" type="string" default="Standard"/>
+			<element name="commonCodeFileName" type="string" default="CommonCode"/>
 		</all>
 	</complexType>
 </schema>

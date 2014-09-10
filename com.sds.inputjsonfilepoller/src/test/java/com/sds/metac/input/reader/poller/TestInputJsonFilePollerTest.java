@@ -8,13 +8,13 @@ import javax.xml.bind.Unmarshaller;
 
 import org.junit.Test;
 
-import com.samsung.sds.ssa8_2.inputmeta.InpuMeata;
+import com.samsung.sds.ssa8_2.inputmeta.InputMeta;
 import com.sds.metac.file.FileManager;
 
 public class TestInputJsonFilePollerTest {
 
 	@Test
-	public void test() throws Exception {
+	public void testTestInputJsonFilePoller() throws Exception {
 		TestInputJsonFilePoller inputJsonFilePoller = new TestInputJsonFilePoller();
 		while(inputJsonFilePoller.hasNextGroup()){
 			System.out.println(inputJsonFilePoller.readGroup());
@@ -25,11 +25,22 @@ public class TestInputJsonFilePollerTest {
 	}
 	
 	@Test
-	public void TestJaxb() throws Exception {
+	public void testInputJsonFilePoller() throws Exception {
+		InputJsonFilePoller inputJsonFilePoller = new InputJsonFilePoller();
+		while(inputJsonFilePoller.hasNextGroup()){
+			System.out.println(inputJsonFilePoller.readGroup());
+		}
+		while(inputJsonFilePoller.hasNextStandard()){
+			System.out.println(inputJsonFilePoller.readStandard());
+		}
+	}
+	
+	@Test
+	public void testJaxb() throws Exception {
 		JAXBContext jc = JAXBContext.newInstance("com.samsung.sds.ssa8_2.inputmeta");
 		Unmarshaller u = jc.createUnmarshaller();
 		
-		InpuMeata im = (InpuMeata)u.unmarshal(new File("./src/main/resources/Inputmeta.xml"));
+		InputMeta im = (InputMeta)u.unmarshal(new File("./src/main/resources/Inputmeta.xml"));
 		System.out.println(im.getMetaType());
 		System.out.println(im.getConfiguration().getInputFilesPath());
 		System.out.println(im.getConfiguration().getStandardFileName());
@@ -38,7 +49,7 @@ public class TestInputJsonFilePollerTest {
 		System.out.println(Paths.get("").toAbsolutePath().toString());
 		
 		FileManager fileManger = FileManager.INSTANCE;
-		InpuMeata im1 = fileManger.readConfigXmlFile("InputMeta.xml", InpuMeata.class);
+		InputMeta im1 = fileManger.readConfigXmlFile("InputMeta.xml", InputMeta.class);
 		
 		System.out.println(im1.getMetaType());
 	}
