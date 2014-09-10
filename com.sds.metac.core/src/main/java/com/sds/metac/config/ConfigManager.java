@@ -111,6 +111,7 @@ public enum ConfigManager {
 			ClassInfoVO infoVO = new ClassInfoVO();
 			infoVO.setName(StringUtil.trim(classInfo.getName()));
 			infoVO.setClassName(StringUtil.trim(classInfo.getClassName()));
+			infoVO.setUiClassName(StringUtil.trim(classInfo.getUiClassName()));
 			infoVO.setClassFilePath(StringUtil.trim(classInfo.getClassFilePath()));
 			
 			List<ClassInfoVO> list = null;
@@ -156,6 +157,7 @@ public enum ConfigManager {
 			info.setType(type);
 			info.setName(StringUtil.trim(vo.getName()));
 			info.setClassName(StringUtil.trim(vo.getClassName()));
+			info.setUiClassName(StringUtil.trim(vo.getUiClassName()));
 			info.setClassFilePath(StringUtil.trim(vo.getClassFilePath()));
 			
 			ret.add(info);

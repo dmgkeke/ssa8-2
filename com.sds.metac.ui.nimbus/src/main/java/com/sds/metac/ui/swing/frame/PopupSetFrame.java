@@ -1,24 +1,22 @@
 package com.sds.metac.ui.swing.frame;
 
-import static com.sds.metac.ui.constant.UIConstants.POPUP_SET_BUTTON_HEIGHT;
-import static com.sds.metac.ui.constant.UIConstants.POPUP_SET_CONTENT_HEIGHT;
-import static com.sds.metac.ui.constant.UIConstants.POPUP_SET_CONTENT_ROW_HEIGHT;
-import static com.sds.metac.ui.constant.UIConstants.POPUP_SET_CONTENT_WIDTH;
-import static com.sds.metac.ui.constant.UIConstants.POPUP_SET_FRAME_NAME;
-import static com.sds.metac.ui.constant.UIConstants.POPUP_SET_HEIGHT;
-import static com.sds.metac.ui.constant.UIConstants.POPUP_SET_INPUT_LENGTH;
-import static com.sds.metac.ui.constant.UIConstants.POPUP_SET_LIST_BOTTOM_HEIGHT;
-import static com.sds.metac.ui.constant.UIConstants.POPUP_SET_LIST_HEIGHT;
-import static com.sds.metac.ui.constant.UIConstants.POPUP_SET_LIST_LENGTH;
-import static com.sds.metac.ui.constant.UIConstants.POPUP_SET_LIST_WIDTH;
-import static com.sds.metac.ui.constant.UIConstants.POPUP_SET_WIDTH;
+import static com.sds.metac.ui.constant.UIConstants.HEIGHT_POPUP_SET;
+import static com.sds.metac.ui.constant.UIConstants.HEIGHT_POPUP_SET_BUTTON;
+import static com.sds.metac.ui.constant.UIConstants.HEIGHT_POPUP_SET_CONTENT;
+import static com.sds.metac.ui.constant.UIConstants.HEIGHT_POPUP_SET_CONTENT_ROW;
+import static com.sds.metac.ui.constant.UIConstants.HEIGHT_POPUP_SET_LIST;
+import static com.sds.metac.ui.constant.UIConstants.HEIGHT_POPUP_SET_LIST_BOTTOM;
+import static com.sds.metac.ui.constant.UIConstants.LENGTH_POPUP_SET_INPUT;
+import static com.sds.metac.ui.constant.UIConstants.NAME_FRAME_POPUP_SET;
+import static com.sds.metac.ui.constant.UIConstants.WIDTH_POPUP_SET;
+import static com.sds.metac.ui.constant.UIConstants.WIDTH_POPUP_SET_CONTENT;
+import static com.sds.metac.ui.constant.UIConstants.WIDTH_POPUP_SET_LIST;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.MouseListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,18 +32,17 @@ import javax.swing.JTextField;
 import com.sds.metac.config.ConfigManager;
 import com.sds.metac.schema.information.ClassInformationType;
 import com.sds.metac.ui.config.UIConfigManager;
-import com.sds.metac.ui.constant.UIConstants;
 import com.sds.metac.ui.message.Message;
 import com.sds.metac.ui.swing.event.CommonActionListener;
 import com.sds.metac.ui.swing.event.button.PopupSetDelButtonHandler;
 import com.sds.metac.ui.swing.event.button.PopupSetNewButtonHandler;
 import com.sds.metac.ui.swing.event.button.PopupSetSaveButtonHandler;
 import com.sds.metac.ui.swing.event.list.PopupSetListHandler;
+import com.sds.metac.ui.swing.event.window.PopupSetWindowHandler;
 import com.sds.metac.ui.swing.model.ComboItem;
 import com.sds.metac.ui.swing.model.ListItem;
+import com.sds.metac.ui.swing.resource.ResourceCreator;
 import com.sds.metac.ui.swing.resource.ResourceManager;
-import com.sds.metac.ui.swing.tab.CoreTabPanel;
-import com.sds.metac.ui.swing.util.ResourceCreateUtil;
 import com.sds.metac.util.StringUtil;
 import com.sds.metac.vo.config.InformationVO;
 import com.sds.metac.vo.core.ClassInfoVO;
@@ -56,25 +53,19 @@ public class PopupSetFrame extends AbstractModalPopup {
 	public static final String LIST_ID = "listInfos";
 
 	public PopupSetFrame() {		
-		setName(POPUP_SET_FRAME_NAME);
+		setName(NAME_FRAME_POPUP_SET);
 		setTitle(Message.get("message.button.core.set"));
 		
-		setSize(POPUP_SET_WIDTH, POPUP_SET_HEIGHT);
-		int[] pos = UIConfigManager.getCenterPosition(POPUP_SET_WIDTH, POPUP_SET_HEIGHT);
+		setSize(WIDTH_POPUP_SET, HEIGHT_POPUP_SET);
+		int[] pos = UIConfigManager.getCenterPosition(WIDTH_POPUP_SET, HEIGHT_POPUP_SET);
 		setLocation(pos[0], pos[1]);
 				
 		drawLayer();
 		
 		addListData();
-		setData();
+		setContentData();
 		
-		addWindowListener(new WindowAdapter() {
-			@Override
-			public void windowClosing(WindowEvent e) {
-				CoreTabPanel coreTabPanel = (CoreTabPanel) ResourceManager.get(UIConstants.CORE_TAB_PANEL_NAME);
-				coreTabPanel.setData();
-			}
-		});
+		CommonActionListener.addHandler(this, new PopupSetWindowHandler(), WindowListener.class);
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -102,15 +93,23 @@ public class PopupSetFrame extends AbstractModalPopup {
 
 
 	@SuppressWarnings("unchecked")
-	public void setData() {
+	public void setContentData() {
 		JList<ListItem<ClassInfoVO>> list = (JList<ListItem<ClassInfoVO>>) ResourceManager.get(LIST_ID);
-		JComboBox<?> setComboBox = (JComboBox<?>) ResourceManager.get("comboSet");
+		JComboBox<ComboItem> setComboBox = (JComboBox<ComboItem>) ResourceManager.get("comboSet");
 		JTextField setNameTextField = (JTextField) ResourceManager.get("setName");
 		JTextField classNameTextField = (JTextField) ResourceManager.get("className");
+		JTextField uiClassNameTextField = (JTextField) ResourceManager.get("uiClassName");
 		JTextField classFilePathTextField = (JTextField) ResourceManager.get("classFilePath");
 		JButton popupSaveButton = (JButton) ResourceManager.get("popupSaveButton");
 		
 		ListItem<ClassInfoVO> selectedItem = list.getSelectedValue();
+		
+		if (setComboBox.getItemCount() <= 0) {
+			setComboBox.addItem(new ComboItem(ClassInformationType.INPUT.value(), ListItem.TAG_INPUT));
+			setComboBox.addItem(new ComboItem(ClassInformationType.OUTPUT.value(), ListItem.TAG_OUTPUT));
+			setComboBox.addItem(new ComboItem(ClassInformationType.POST_PROC.value(), ListItem.TAG_POST));
+		}
+		
 		
 		// 데이터가 없을때
 		if (list == null
@@ -125,6 +124,9 @@ public class PopupSetFrame extends AbstractModalPopup {
 			classNameTextField.setText(StringUtil.EMPTY);
 			classNameTextField.setEnabled(false);
 			
+			uiClassNameTextField.setText(StringUtil.EMPTY);
+			uiClassNameTextField.setEnabled(false);
+			
 			classFilePathTextField.setText(StringUtil.EMPTY);
 			classFilePathTextField.setEnabled(false);
 			
@@ -136,12 +138,14 @@ public class PopupSetFrame extends AbstractModalPopup {
 			setComboBox.setEnabled(true);
 			setNameTextField.setEnabled(true);
 			classNameTextField.setEnabled(true);
+			uiClassNameTextField.setEnabled(true);
 			classFilePathTextField.setEnabled(true);
 			
 			if (vo != null) {
 				setComboBox.setSelectedItem(new ComboItem(null, selectedItem.getTag()));
 				setNameTextField.setText(vo.getName());
 				classNameTextField.setText(vo.getClassName());
+				uiClassNameTextField.setText(vo.getUiClassName());
 				classFilePathTextField.setText(vo.getClassFilePath());
 			}
 			
@@ -155,20 +159,22 @@ public class PopupSetFrame extends AbstractModalPopup {
 		
 		// 좌측 리스트 그리기
 		JPanel listPanel = new JPanel(new BorderLayout());
-		listPanel.setPreferredSize(new Dimension(POPUP_SET_LIST_WIDTH, POPUP_SET_LIST_HEIGHT));
+		listPanel.setPreferredSize(new Dimension(WIDTH_POPUP_SET_LIST, HEIGHT_POPUP_SET_LIST));
 		drawList(listPanel);		
 		this.add(listPanel, BorderLayout.WEST);
 		
 		// 우측 컨텐트 그리기
 		JPanel contentPanel = new JPanel(new BorderLayout());
-		contentPanel.setPreferredSize(new Dimension(POPUP_SET_CONTENT_WIDTH, POPUP_SET_CONTENT_HEIGHT));
+		contentPanel.setPreferredSize(new Dimension(WIDTH_POPUP_SET_CONTENT, HEIGHT_POPUP_SET_CONTENT));
 		drawContent(contentPanel);		
 		this.add(contentPanel, BorderLayout.CENTER);
 		
 	}
 
 	private void drawList(JPanel listPanel) {
-		JList<ListItem<ClassInfoVO>> implList = ResourceCreateUtil.createList(getName(), LIST_ID, null, POPUP_SET_LIST_LENGTH);	
+		ResourceCreator creator = ResourceManager.getCreator(getName());
+		
+		JList<ListItem<ClassInfoVO>> implList = creator.createList(LIST_ID);	
 		CommonActionListener.addHandler(implList, new PopupSetListHandler(), MouseListener.class);
 		JScrollPane scroller = new JScrollPane(implList);
 		
@@ -178,9 +184,9 @@ public class PopupSetFrame extends AbstractModalPopup {
 		// 구성 버튼 그리기
 		JPanel buttonPanel = new JPanel();
 		buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.PAGE_AXIS));
-		buttonPanel.setPreferredSize(new Dimension(POPUP_SET_LIST_WIDTH, POPUP_SET_LIST_BOTTOM_HEIGHT));
+		buttonPanel.setPreferredSize(new Dimension(WIDTH_POPUP_SET_LIST, HEIGHT_POPUP_SET_LIST_BOTTOM));
 		
-		Dimension buttonDimension = new Dimension(Integer.MAX_VALUE, (POPUP_SET_LIST_BOTTOM_HEIGHT-5)/2);
+		Dimension buttonDimension = new Dimension(Integer.MAX_VALUE, (HEIGHT_POPUP_SET_LIST_BOTTOM-5)/2);
 		
 		JButton newButton = new JButton(Message.get("message.button.popup.new"));
 		newButton.setMaximumSize(buttonDimension);
@@ -209,35 +215,27 @@ public class PopupSetFrame extends AbstractModalPopup {
 
 	private void drawContent(JPanel panel) {
 		JPanel contentPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		contentPanel.setPreferredSize(new Dimension(POPUP_SET_CONTENT_WIDTH, POPUP_SET_CONTENT_HEIGHT));
+		contentPanel.setPreferredSize(new Dimension(WIDTH_POPUP_SET_CONTENT, HEIGHT_POPUP_SET_CONTENT));
 		JScrollPane scroller = new JScrollPane();
 		scroller.setViewportView(contentPanel);
 		panel.add(scroller, BorderLayout.CENTER);
 		
-		// 구성 종류 설정
-		List<ComboItem> list = new ArrayList<ComboItem>();
-		list.add(new ComboItem(ClassInformationType.INPUT.value(), ListItem.TAG_INPUT));
-		list.add(new ComboItem(ClassInformationType.OUTPUT.value(), ListItem.TAG_OUTPUT));
-		list.add(new ComboItem(ClassInformationType.POST_PROC.value(), ListItem.TAG_POST));
 		
-		JComboBox<?> setComboBox = ResourceCreateUtil.createComboBox(getName(), "comboSet", list, null);
-		ResourceCreateUtil.addRow(contentPanel, "message.label.core.reader.name", setComboBox, POPUP_SET_CONTENT_WIDTH, POPUP_SET_CONTENT_ROW_HEIGHT);
+		ResourceCreator creator = ResourceManager.getCreator(getName());
+		creator.setWidth(WIDTH_POPUP_SET_CONTENT);
+		creator.setHeight(HEIGHT_POPUP_SET_CONTENT_ROW);
+		creator.setTextFieldSize(LENGTH_POPUP_SET_INPUT);
 		
-		// 구성이름
-		JTextField setNameTextField = ResourceCreateUtil.createTextField(getName(), "setName", StringUtil.EMPTY, POPUP_SET_INPUT_LENGTH);
-		ResourceCreateUtil.addRow(contentPanel, "message.label.popup.set.setName", setNameTextField, POPUP_SET_CONTENT_WIDTH, POPUP_SET_CONTENT_ROW_HEIGHT);
+		contentPanel.add(creator.createRow("message.label.core.reader.name", "comboSet", ResourceCreator.OPT_COMBO_BOX));
 		
-		// 클래스이름
-		JTextField classNameTextField = ResourceCreateUtil.createTextField(getName(), "className", StringUtil.EMPTY, POPUP_SET_INPUT_LENGTH);
-		ResourceCreateUtil.addRow(contentPanel, "message.label.popup.set.className", classNameTextField, POPUP_SET_CONTENT_WIDTH, POPUP_SET_CONTENT_ROW_HEIGHT);
-		
-		// 클래스 위치
-		JTextField classFilePathTextField = ResourceCreateUtil.createTextField(getName(), "classFilePath", StringUtil.EMPTY, POPUP_SET_INPUT_LENGTH);
-		ResourceCreateUtil.addRow(contentPanel, "message.label.popup.set.classFilePath", classFilePathTextField, POPUP_SET_CONTENT_WIDTH, POPUP_SET_CONTENT_ROW_HEIGHT);
+		contentPanel.add(creator.createRow("message.label.popup.set.setName", "setName", ResourceCreator.OPT_TEXT_FIELD));
+		contentPanel.add(creator.createRow("message.label.popup.set.className", "className", ResourceCreator.OPT_TEXT_FIELD));
+		contentPanel.add(creator.createRow("message.label.popup.set.uiClassName", "uiClassName", ResourceCreator.OPT_TEXT_FIELD));
+		contentPanel.add(creator.createRow("message.label.popup.set.classFilePath", "classFilePath", ResourceCreator.OPT_TEXT_FIELD));
 		
 		
 		JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-		buttonPanel.setPreferredSize(new Dimension(POPUP_SET_CONTENT_WIDTH, POPUP_SET_BUTTON_HEIGHT));
+		buttonPanel.setPreferredSize(new Dimension(WIDTH_POPUP_SET_CONTENT, HEIGHT_POPUP_SET_BUTTON));
 		
 		JButton saveButton = new JButton(Message.get("message.button.popup.save"));
 		ResourceManager.register(getName(), "popupSaveButton", saveButton);

@@ -8,13 +8,15 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import com.sds.metac.config.ConfigManager;
+import com.sds.metac.ui.constant.UIConstants;
 import com.sds.metac.ui.message.Message;
-import com.sds.metac.ui.swing.event.CommonHandler;
+import com.sds.metac.ui.swing.event.specific.CommonDefaultHandler;
 import com.sds.metac.ui.swing.model.ComboItem;
 import com.sds.metac.ui.swing.resource.ResourceManager;
+import com.sds.metac.ui.swing.tab.MainTab;
 import com.sds.metac.vo.config.UserSettingVO;
 
-public class MainSaveButtonHandler implements CommonHandler {
+public class MainSaveButtonHandler extends CommonDefaultHandler {
 	@SuppressWarnings("unchecked")
 	@Override
 	public void invoke(AWTEvent e) {
@@ -49,6 +51,9 @@ public class MainSaveButtonHandler implements CommonHandler {
 		String msg = "message.alert.save.fail";
 		if (isSaved) {
 			msg = "message.alert.save.success";
+			
+			MainTab mainTab = (MainTab) ResourceManager.get(UIConstants.NAME_TAB_MAIN);
+			mainTab.recreateModuleTabs();
 		}
 		
 		msg = Message.get(msg);

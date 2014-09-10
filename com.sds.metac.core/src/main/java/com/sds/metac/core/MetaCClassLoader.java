@@ -22,30 +22,46 @@ public enum MetaCClassLoader {
 		myClassLoader = new MyClassLoader(loader.getURLs());
 	}
 	
-	@SuppressWarnings("unchecked")
+	
 	public <T> T createInstance(ClassInfoVO classInfoVO, Class<T> clazz) {
+		T ret = createInstance(classInfoVO.getClassFilePath(), classInfoVO.getClassName(), clazz);
+		if (ret == null) {
+			throw new MetaCException("Class Loading에 실패하였습니다. : " + classInfoVO);
+		}
+		return ret;
+	}
+	
+	public <T> T createInstanceNoError(ClassInfoVO classInfoVO, Class<T> clazz) {
+		return createInstance(classInfoVO.getClassFilePath(), classInfoVO.getClassName(), clazz);
+	}
+	
+	public <T> T createUIInstanceNoError(ClassInfoVO classInfoVO, Class<T> clazz) {
+		return createInstance(classInfoVO.getClassFilePath(), classInfoVO.getUiClassName(), clazz);
+	}
+	
+	@SuppressWarnings("unchecked")
+	private <T> T createInstance(String classFilePath, String className, Class<T> clazz) {
 		try {
 			FileManager fileManager = FileManager.INSTANCE;
 			ConfigManager configManager = ConfigManager.INSTANCE;
 			String implementationFolder = configManager.getUserSetting().getImplementationFolder();
 			
-			String filePath = implementationFolder + FileManager.FOLDER_SEP + classInfoVO.getClassFilePath();
+			String filePath = implementationFolder + FileManager.FOLDER_SEP + classFilePath;
 			
 			
 			String path = fileManager.getResourceFilePath(filePath);
 			URL url = new URL(path);		
 			myClassLoader.addURL(url);
 			
-//			ClassLoader classLoader = this.getClass().getClassLoader();
-//			URLClassLoader urlClassLoader = URLClassLoader.newInstance(new URL[]{url}, classLoader);
+	//		ClassLoader classLoader = this.getClass().getClassLoader();
+	//		URLClassLoader urlClassLoader = URLClassLoader.newInstance(new URL[]{url}, classLoader);
 			
 			
-			Class<?> realClazz = (Class<T>) myClassLoader.loadClass(classInfoVO.getClassName());
+			Class<?> realClazz = (Class<T>) myClassLoader.loadClass(className);
 			//Class<?> realClazz = (Class<T>) urlClassLoader.loadClass(classInfoVO.getClassName());
 			return (T) realClazz.newInstance();
-			
 		} catch (Exception e) {
-			throw new MetaCException("Class Loading에 실패하였습니다. : " + classInfoVO);
+			return null;
 		}
 	}
 

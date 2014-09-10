@@ -6,8 +6,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
-import javax.swing.JComponent;
-
 import com.sds.metac.exception.MetaCException;
 
 public enum ResourceManager {
@@ -16,7 +14,7 @@ public enum ResourceManager {
 	Map<String, Set<String>> parentMap = new HashMap<String, Set<String>>();
 	Map<String, Container> objectMap = new HashMap<String, Container>();
 	
-	public static void register(String parentName, String objectName, Container object) {
+	public static <T extends Container> T register(String parentName, String objectName, T object) {
 		Set<String> set = INSTANCE.parentMap.get(parentName);
 		if (set == null) {
 			set = new TreeSet<String>();
@@ -30,6 +28,8 @@ public enum ResourceManager {
 		set.add(objectName);
 		
 		INSTANCE.objectMap.put(objectName, object);
+		
+		return object;
 	}
 	
 	public static void releaseAll(String parentName) {
@@ -54,5 +54,9 @@ public enum ResourceManager {
 	public static Container get(String objectName) {
 		
 		return INSTANCE.objectMap.get(objectName);
+	}
+	
+	public static ResourceCreator getCreator(String curName) {
+		return new ResourceCreator(curName);
 	}
 }

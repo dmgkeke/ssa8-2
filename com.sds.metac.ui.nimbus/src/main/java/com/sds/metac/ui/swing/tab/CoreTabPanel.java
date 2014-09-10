@@ -1,10 +1,10 @@
 package com.sds.metac.ui.swing.tab;
 
-import static com.sds.metac.ui.constant.UIConstants.MAIN_BUTTON_HEIGHT;
-import static com.sds.metac.ui.constant.UIConstants.MAIN_CONTENT_HEIGHT;
-import static com.sds.metac.ui.constant.UIConstants.MAIN_CONTENT_INPUT_LENGTH;
-import static com.sds.metac.ui.constant.UIConstants.MAIN_CONTENT_ROW_HEIGHT;
-import static com.sds.metac.ui.constant.UIConstants.MAIN_CONTENT_WIDTH;
+import static com.sds.metac.ui.constant.UIConstants.HEIGHT_MAIN_BUTTON;
+import static com.sds.metac.ui.constant.UIConstants.HEIGHT_MAIN_CONTENT;
+import static com.sds.metac.ui.constant.UIConstants.HEIGHT_MAIN_CONTENT_ROW;
+import static com.sds.metac.ui.constant.UIConstants.LENGTH_MAIN_CONTENT_INPUT;
+import static com.sds.metac.ui.constant.UIConstants.WIDTH_MAIN_CONTENT;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -25,8 +25,8 @@ import com.sds.metac.ui.swing.event.CommonActionListener;
 import com.sds.metac.ui.swing.event.button.MainNewSetButtonHandler;
 import com.sds.metac.ui.swing.event.button.MainSaveButtonHandler;
 import com.sds.metac.ui.swing.model.ComboItem;
+import com.sds.metac.ui.swing.resource.ResourceCreator;
 import com.sds.metac.ui.swing.resource.ResourceManager;
-import com.sds.metac.ui.swing.util.ResourceCreateUtil;
 import com.sds.metac.util.StringUtil;
 import com.sds.metac.vo.config.InformationVO;
 import com.sds.metac.vo.config.UserSettingVO;
@@ -38,26 +38,26 @@ public class CoreTabPanel extends JPanel {
 	private ConfigManager configManager = ConfigManager.INSTANCE;
 	
 	public CoreTabPanel() {
-		setName("corePanel");
+		setName(Message.get("message.label.core.tabname"));
 				
-		BorderLayout layout = new BorderLayout();
-		this.setLayout(layout);
+		this.setLayout(new BorderLayout());
+		
 		
 		// 본문 그리기
-		JPanel contentPanel = new JPanel();
-		contentPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
-		contentPanel.setPreferredSize(new Dimension(MAIN_CONTENT_WIDTH, MAIN_CONTENT_HEIGHT));
+		JPanel contentPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		contentPanel.setPreferredSize(new Dimension(WIDTH_MAIN_CONTENT, HEIGHT_MAIN_CONTENT));
 		
 		drawContent(contentPanel);
-		setData();
+		setContentData();
 		
 		JScrollPane scroller = new JScrollPane();
 		scroller.setViewportView(contentPanel);
 		this.add(scroller, BorderLayout.CENTER);
 		
+		
 		// 상단 버튼 그리기
 		JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT, 5, 5));
-		buttonPanel.setPreferredSize(new Dimension(MAIN_CONTENT_WIDTH, MAIN_BUTTON_HEIGHT));
+		buttonPanel.setPreferredSize(new Dimension(WIDTH_MAIN_CONTENT, HEIGHT_MAIN_BUTTON));
 		
 		drawButton(buttonPanel);
 		this.add(buttonPanel, BorderLayout.SOUTH);
@@ -65,7 +65,7 @@ public class CoreTabPanel extends JPanel {
 	
 
 	@SuppressWarnings("unchecked")
-	public void setData() {
+	public void setContentData() {
 		InformationVO informationVO = configManager.getInformation();
 		UserSettingVO userSettingVO = configManager.getUserSetting();
 		
@@ -118,27 +118,21 @@ public class CoreTabPanel extends JPanel {
 	}
 
 	private void drawContent(JPanel panel) {
-		JTextField locImplTextField = ResourceCreateUtil.createTextField(getName(), "inputLocImpl", StringUtil.EMPTY, MAIN_CONTENT_INPUT_LENGTH);
-		ResourceCreateUtil.addRow(panel, "message.label.core.location.impl", locImplTextField, MAIN_CONTENT_WIDTH, MAIN_CONTENT_ROW_HEIGHT);
+		ResourceCreator creator = ResourceManager.getCreator(getName());
+		creator.setHeight(HEIGHT_MAIN_CONTENT_ROW);
+		creator.setWidth(WIDTH_MAIN_CONTENT);
+		creator.setTextFieldSize(LENGTH_MAIN_CONTENT_INPUT);
 		
-		JTextField locTempTextField = ResourceCreateUtil.createTextField(getName(), "inputLocTemp", StringUtil.EMPTY, MAIN_CONTENT_INPUT_LENGTH);
-		ResourceCreateUtil.addRow(panel, "message.label.core.location.temp", locTempTextField, MAIN_CONTENT_WIDTH, MAIN_CONTENT_ROW_HEIGHT);
 		
-		JTextField extTempTextField = ResourceCreateUtil.createTextField(getName(), "inputExtTemp", StringUtil.EMPTY, MAIN_CONTENT_INPUT_LENGTH);
-		ResourceCreateUtil.addRow(panel, "message.label.core.ext.temp", extTempTextField, MAIN_CONTENT_WIDTH, MAIN_CONTENT_ROW_HEIGHT);
+		panel.add(creator.createRow("message.label.core.location.impl", "inputLocImpl", ResourceCreator.OPT_TEXT_FIELD));
+		panel.add(creator.createRow("message.label.core.location.temp", "inputLocTemp", ResourceCreator.OPT_TEXT_FIELD));
+		panel.add(creator.createRow("message.label.core.ext.temp", "inputExtTemp", ResourceCreator.OPT_TEXT_FIELD));
 		
-		JComboBox<?> readerComboBox = ResourceCreateUtil.createComboBox(getName(), "comboReader", null, null);
-		ResourceCreateUtil.addRow(panel, "message.label.core.reader.name", readerComboBox, MAIN_CONTENT_WIDTH, MAIN_CONTENT_ROW_HEIGHT);
-		
-		JComboBox<?> writerComboBox = ResourceCreateUtil.createComboBox(getName(), "comboWriter", null, null);
-		ResourceCreateUtil.addRow(panel, "message.label.core.writer.name", writerComboBox, MAIN_CONTENT_WIDTH, MAIN_CONTENT_ROW_HEIGHT);
-		
-		JComboBox<?> postComboBox = ResourceCreateUtil.createComboBox(getName(), "comboPost", null, null, true);
-		ResourceCreateUtil.addRow(panel, "message.label.core.post.name", postComboBox, MAIN_CONTENT_WIDTH, MAIN_CONTENT_ROW_HEIGHT);
+		panel.add(creator.createRow("message.label.core.reader.name", "comboReader", ResourceCreator.OPT_COMBO_BOX));
+		panel.add(creator.createRow("message.label.core.writer.name", "comboWriter", ResourceCreator.OPT_COMBO_BOX));		
+		panel.add(creator.createRow("message.label.core.post.name", "comboPost", ResourceCreator.OPT_COMBO_BOX));
 				
-		JFormattedTextField cacheSizeFormatTextField = ResourceCreateUtil.createNumberFormatedTextField(getName(), "inputCacheSize", StringUtil.EMPTY, MAIN_CONTENT_INPUT_LENGTH);
-		
-		ResourceCreateUtil.addRow(panel, "message.label.core.cache.maxSize", cacheSizeFormatTextField, MAIN_CONTENT_WIDTH, MAIN_CONTENT_ROW_HEIGHT);
+		panel.add(creator.createRow("message.label.core.cache.maxSize", "inputCacheSize", ResourceCreator.OPT_NUM_TEXT_FIELD));
 	}
 	
 	private List<ComboItem> convertToComboItemList(List<ClassInfoVO> list) {

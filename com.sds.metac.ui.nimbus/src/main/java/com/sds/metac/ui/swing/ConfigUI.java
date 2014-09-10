@@ -17,6 +17,7 @@ public class ConfigUI implements Runnable {
 	@Override
 	public void run() {
 		MainFrame mainFrame = new MainFrame();
-		ResourceManager.register(UIConstants.PROGRAM_NAME, UIConstants.MAIN_FRAME_NAME, mainFrame);
+		ResourceManager.register(UIConstants.NAME_PROGRAM, UIConstants.NAME_FRAME_MAIN, mainFrame);
+		mainFrame.setVisible(true);
 	}
 }

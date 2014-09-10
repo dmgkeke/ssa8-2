@@ -19,11 +19,12 @@
     </element>
 
     <complexType name="ClassInformation">
-    	<sequence>    		
+    	<sequence>
     		<element name="name" type="string" nillable="false" minOccurs="1" maxOccurs="1"></element>
     		<element name="type" type="Q1:ClassInformationType"></element>
     		<element name="className" type="string"></element>
-    		<element name="classFilePath" type="string"></element>
+            <element name="uiClassName" type="string"></element>
+            <element name="classFilePath" type="string"></element>
     	</sequence>
     </complexType>
     

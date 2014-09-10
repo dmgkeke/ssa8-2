@@ -1,5 +1,11 @@
 package com.sds.metac.ui.swing.frame;
 
+import static com.sds.metac.ui.constant.UIConstants.DEFAULT_LOOK_AND_FEEL;
+import static com.sds.metac.ui.constant.UIConstants.HEIGHT_WINDOW;
+import static com.sds.metac.ui.constant.UIConstants.NAME_FRAME_MAIN;
+import static com.sds.metac.ui.constant.UIConstants.NAME_TAB_MAIN;
+import static com.sds.metac.ui.constant.UIConstants.WIDTH_WINDOW;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
@@ -14,29 +20,28 @@ import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 
 import com.sds.metac.ui.config.UIConfigManager;
-import com.sds.metac.ui.constant.UIConstants;
 import com.sds.metac.ui.message.Message;
 import com.sds.metac.ui.swing.event.CommonActionListener;
 import com.sds.metac.ui.swing.event.menu.ExitMenuHandler;
 import com.sds.metac.ui.swing.event.menu.LookAndFeelRadioMenuHandler;
+import com.sds.metac.ui.swing.resource.ResourceManager;
 import com.sds.metac.ui.swing.tab.MainTab;
 
 @SuppressWarnings("serial")
 public class MainFrame extends AbstractFrame {
 	
 	public MainFrame() {
-		setName(UIConstants.MAIN_FRAME_NAME);	
+		setName(NAME_FRAME_MAIN);	
 		setTitle(Message.get("message.label.title.main"));
 		
-		setSize(UIConstants.WINDOW_WIDTH, UIConstants.WINDOW_HEIGHT);
-		int[] pos = UIConfigManager.getCenterPosition(UIConstants.WINDOW_WIDTH, UIConstants.WINDOW_HEIGHT);
+		setSize(WIDTH_WINDOW, HEIGHT_WINDOW);
+		int[] pos = UIConfigManager.getCenterPosition(WIDTH_WINDOW, HEIGHT_WINDOW);
 		setLocation(pos[0], pos[1]);
 		
-		add(new MainTab());
+		MainTab mainTab = ResourceManager.register(NAME_FRAME_MAIN, NAME_TAB_MAIN, new MainTab());
+		add(mainTab);
 		
 		setJMenuBar(createMenubar());
-		
-		setVisible(true);
 	}
 
 	private JMenuBar createMenubar() {
@@ -94,13 +99,12 @@ public class MainFrame extends AbstractFrame {
 				}
 			}
 			
-			
 			UIManager.setLookAndFeel(selInfo.getClassName());
 			SwingUtilities.updateComponentTreeUI(getRootPane());
 			
 			this.repaint();
 		} catch (Exception e) {
-			uiConfigManager.setCurrentLookAndFeel(UIConstants.DEFAULT_LOOK_AND_FEEL);
+			uiConfigManager.setCurrentLookAndFeel(DEFAULT_LOOK_AND_FEEL);
 		}
 	}
 

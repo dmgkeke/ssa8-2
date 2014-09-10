@@ -15,7 +15,7 @@ import com.sds.metac.config.ConfigManager;
 import com.sds.metac.exception.MetaCException;
 import com.sds.metac.ui.constant.UIConstants;
 import com.sds.metac.ui.message.Message;
-import com.sds.metac.ui.swing.event.CommonHandler;
+import com.sds.metac.ui.swing.event.specific.CommonDefaultHandler;
 import com.sds.metac.ui.swing.frame.PopupSetFrame;
 import com.sds.metac.ui.swing.model.ComboItem;
 import com.sds.metac.ui.swing.model.ListItem;
@@ -24,7 +24,7 @@ import com.sds.metac.util.StringUtil;
 import com.sds.metac.vo.config.InformationVO;
 import com.sds.metac.vo.core.ClassInfoVO;
 
-public class PopupSetSaveButtonHandler implements CommonHandler {
+public class PopupSetSaveButtonHandler extends CommonDefaultHandler {
 
 	
 	@SuppressWarnings("unchecked")
@@ -46,7 +46,7 @@ public class PopupSetSaveButtonHandler implements CommonHandler {
 		if (isSaved) {
 			msg = "message.alert.save.success";
 			
-			PopupSetFrame popupSet = (PopupSetFrame) ResourceManager.get(UIConstants.POPUP_SET_FRAME_NAME);
+			PopupSetFrame popupSet = (PopupSetFrame) ResourceManager.get(UIConstants.NAME_FRAME_POPUP_SET);
 			JList<ListItem<ClassInfoVO>> jlist = (JList<ListItem<ClassInfoVO>>) ResourceManager.get(PopupSetFrame.LIST_ID);
 			JTextField setNameTextField = (JTextField) ResourceManager.get("setName");
 			
@@ -78,6 +78,7 @@ public class PopupSetSaveButtonHandler implements CommonHandler {
 		
 		JTextField setNameTextField = (JTextField) ResourceManager.get("setName");
 		JTextField classNameTextField = (JTextField) ResourceManager.get("className");
+		JTextField uiClassNameTextField = (JTextField) ResourceManager.get("uiClassName");
 		JTextField classFilePathTextField = (JTextField) ResourceManager.get("classFilePath");
 		
 		JComboBox<ComboItem> combo = (JComboBox<ComboItem>) ResourceManager.get("comboSet");
@@ -118,6 +119,7 @@ public class PopupSetSaveButtonHandler implements CommonHandler {
 		// 새로운 정보 세팅
 		orgConfigVO.setName(setNameTextField.getText());
 		orgConfigVO.setClassName(classNameTextField.getText());
+		orgConfigVO.setUiClassName(uiClassNameTextField.getText());
 		orgConfigVO.setClassFilePath(classFilePathTextField.getText());
 		
 		

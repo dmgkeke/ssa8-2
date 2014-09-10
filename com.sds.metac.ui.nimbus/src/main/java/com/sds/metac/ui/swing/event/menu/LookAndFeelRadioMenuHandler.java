@@ -5,11 +5,11 @@ import java.awt.event.ActionEvent;
 
 import com.sds.metac.ui.config.UIConfigManager;
 import com.sds.metac.ui.constant.UIConstants;
-import com.sds.metac.ui.swing.event.CommonHandler;
+import com.sds.metac.ui.swing.event.specific.CommonDefaultHandler;
 import com.sds.metac.ui.swing.frame.MainFrame;
 import com.sds.metac.ui.swing.resource.ResourceManager;
 
-public class LookAndFeelRadioMenuHandler implements CommonHandler{
+public class LookAndFeelRadioMenuHandler extends CommonDefaultHandler {
 	UIConfigManager uiConfigManager = UIConfigManager.INSTANCE;
 	
 	@Override
@@ -17,7 +17,7 @@ public class LookAndFeelRadioMenuHandler implements CommonHandler{
 		ActionEvent ae = (ActionEvent)e;
 		uiConfigManager.setCurrentLookAndFeel(ae.getActionCommand());
 		
-		MainFrame mainFrame = (MainFrame) ResourceManager.get(UIConstants.MAIN_FRAME_NAME);
+		MainFrame mainFrame = (MainFrame) ResourceManager.get(UIConstants.NAME_FRAME_MAIN);
 		
 		mainFrame.changeLookAndFeel(ae.getActionCommand());
 	}

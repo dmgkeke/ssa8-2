@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.sds.metac.input.reader.poller.InputReadConifgTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.143 sec <<< FAILURE!
-test(com.sds.metac.input.reader.poller.InputReadConifgTest)  Time elapsed: 0.101 sec  <<< ERROR!
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.157 sec <<< FAILURE!
+test(com.sds.metac.input.reader.poller.InputReadConifgTest)  Time elapsed: 0.109 sec  <<< ERROR!
 com.sds.metac.exception.MetaCException: !!! IOException - hasNextStandard()
 	at com.sds.metac.input.reader.poller.InputReadConifgTest.test(InputReadConifgTest.java:87)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)

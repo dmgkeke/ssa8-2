@@ -10,14 +10,14 @@ import com.sds.metac.config.ConfigManager;
 import com.sds.metac.exception.MetaCException;
 import com.sds.metac.ui.constant.UIConstants;
 import com.sds.metac.ui.message.Message;
-import com.sds.metac.ui.swing.event.CommonHandler;
+import com.sds.metac.ui.swing.event.specific.CommonDefaultHandler;
 import com.sds.metac.ui.swing.frame.PopupSetFrame;
 import com.sds.metac.ui.swing.model.ListItem;
 import com.sds.metac.ui.swing.resource.ResourceManager;
 import com.sds.metac.vo.config.InformationVO;
 import com.sds.metac.vo.core.ClassInfoVO;
 
-public class PopupSetDelButtonHandler implements CommonHandler {
+public class PopupSetDelButtonHandler extends CommonDefaultHandler {
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -47,9 +47,9 @@ public class PopupSetDelButtonHandler implements CommonHandler {
 		if (isDeleted) {
 			msg ="message.alert.delete.success";
 			
-			PopupSetFrame popupSet = (PopupSetFrame) ResourceManager.get(UIConstants.POPUP_SET_FRAME_NAME);
+			PopupSetFrame popupSet = (PopupSetFrame) ResourceManager.get(UIConstants.NAME_FRAME_POPUP_SET);
 			popupSet.addListData();
-			popupSet.setData();
+			popupSet.setContentData();
 		}
 		
 		msg = Message.get(msg);

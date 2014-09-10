@@ -12,13 +12,7 @@ public enum PostProcessorFactory {
 		ClassInfoVO classInfoVO = configManager.getPostProcessorClassInfo();
 		
 		MetaCClassLoader metaCClassLoader = MetaCClassLoader.INSTANCE;
-		PostProcessor postProcessor = null;
-		try {
-			postProcessor = metaCClassLoader.createInstance(classInfoVO, PostProcessor.class);
-		} catch (Exception e) {
-			postProcessor = null;
-		}
-		return postProcessor;
+		return metaCClassLoader.createInstanceNoError(classInfoVO, PostProcessor.class);
 	}
 
 }
