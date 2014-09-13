@@ -4,6 +4,7 @@ import static com.sun.codemodel.JExpr._this;
 import static com.sun.codemodel.JExpr.lit;
 
 import java.io.File;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
@@ -48,14 +49,13 @@ public class OutputEnumWriter implements OutputJavaWriter {
 	public void write(GroupVO groupVO, StandardReader standardReader) {
 		this.groupVO = groupVO;
 		this.standardReader = standardReader;
-		String codeName = getCodeName();
-		
 		logger.debug("Enum 으로 변환해라 : " + groupVO);
+		
 		try {
-			if (standardReader != null && codeName != null) {
+			if (standardReader != null && getCodeName() != null) {
 				// FIXME 일단 TOP-DOWN, 두글자 이상, underscore 방식으로 구현 
 				// 차후에 ConfigManager를 통하여 처리하도록 수정해야함
-				this.standardCodeName = MetacCommonUtil.convertStandardStr(codeName, MetaFomula.TOP_DOWN, 2, standardReader);
+				this.standardCodeName = convertStandardStr();
 				
 				if(StringUtil.isEmpty(standardCodeName)) {
 					logger.debug("Enum 으로 변환실패 : " + groupVO);
@@ -122,6 +122,35 @@ public class OutputEnumWriter implements OutputJavaWriter {
 	
 	private String getFirstLetterToUpperCase(String fieldName) {
 		return fieldName.substring(0, 1).toUpperCase() + fieldName.substring(1);
+	}
+	
+	private String convertStandardStr() {
+		String codeName = getCodeName();
+		String standardStr = "";
+		
+		// FIXME 일단 TOP-DOWN, 두글자 이상, underscore 방식으로 구현
+		String metaFomula = MetaFomula.TOP_DOWN.value();
+		int minLength = 2;
+		
+		List<List<String>> standardStrList = MetacCommonUtil.getStandardStrList(codeName, minLength, metaFomula); 
+		
+		for (List<String> row : standardStrList) {
+			for (String splitStr : row) {
+				StandardVO result = null;
+				if( (result = standardReader.getStandardVO(splitStr)) == null ) {
+					standardStr = null;
+					break;
+				}
+				
+				standardStr += (standardStr != null)?"_":"" + result.getValue();
+			}
+			
+			if(standardStr != null) {
+				return standardStr;
+			}
+		}
+		
+		return null;
 	}
 	
 }
