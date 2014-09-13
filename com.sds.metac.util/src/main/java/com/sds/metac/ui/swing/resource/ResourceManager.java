@@ -8,7 +8,7 @@ import java.util.TreeSet;
 
 import com.sds.metac.exception.MetaCException;
 
-public enum ResourceManager {
+public enum ResourceManager  {
 	INSTANCE;
 	
 	Map<String, Set<String>> parentMap = new HashMap<String, Set<String>>();

@@ -1,0 +1,708 @@
+DEBUG   2014-09-13 19:46:09,437 [main] com.sds.metac.core.Core  - Input Reader 생성
+DEBUG   2014-09-13 19:46:09,626 [main] com.sds.metac.core.Core  - Input Writer 생성
+DEBUG   2014-09-13 19:46:09,628 [main] com.sds.metac.core.Core  - Input 처리
+DEBUG   2014-09-13 19:46:09,629 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI|AFI
+DEBUG   2014-09-13 19:46:09,697 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - ISO|ISO
+DEBUG   2014-09-13 19:46:09,698 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - JSON|JSON
+DEBUG   2014-09-13 19:46:09,700 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - SOAP|SOAP
+DEBUG   2014-09-13 19:46:09,701 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - VO|VO
+DEBUG   2014-09-13 19:46:09,704 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - XML|XML
+DEBUG   2014-09-13 19:46:09,705 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 값|VALUE
+DEBUG   2014-09-13 19:46:09,707 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 고정|FIXED
+DEBUG   2014-09-13 19:46:09,708 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 맵|MAP
+DEBUG   2014-09-13 19:46:09,710 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 메세지|MESSAGE
+DEBUG   2014-09-13 19:46:09,711 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 미|NOT
+DEBUG   2014-09-13 19:46:09,712 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 안함|NOT
+DEBUG   2014-09-13 19:46:09,714 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 엑셀|EXCEL
+DEBUG   2014-09-13 19:46:09,715 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 인터페이스|INTERFACE
+DEBUG   2014-09-13 19:46:09,716 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 정의|DEFINE
+DEBUG   2014-09-13 19:46:09,717 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 키|KEY
+DEBUG   2014-09-13 19:46:09,719 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 타입|TYPE
+DEBUG   2014-09-13 19:46:09,720 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 패턴|PATTERN
+DEBUG   2014-09-13 19:46:09,721 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|00|정의안함
+DEBUG   2014-09-13 19:46:09,722 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|01|고정
+DEBUG   2014-09-13 19:46:09,722 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|02|JSON
+DEBUG   2014-09-13 19:46:09,722 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|03|XML
+DEBUG   2014-09-13 19:46:09,722 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|04|VO
+DEBUG   2014-09-13 19:46:09,722 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|05|SOAP
+DEBUG   2014-09-13 19:46:09,723 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|06|키값
+DEBUG   2014-09-13 19:46:09,723 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|07|ISO
+DEBUG   2014-09-13 19:46:09,723 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|08|엑셀
+DEBUG   2014-09-13 19:46:09,723 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|09|맵
+DEBUG   2014-09-13 19:46:09,726 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 연계패턴정보|1|전문TO전문
+DEBUG   2014-09-13 19:46:09,727 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 연계패턴정보|2|단말TOMCI
+DEBUG   2014-09-13 19:46:09,727 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 연계패턴정보|3|DBTODB
+DEBUG   2014-09-13 19:46:09,727 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 연계패턴정보|4|DBTO전문
+DEBUG   2014-09-13 19:46:09,727 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 연계패턴정보|5|전문TODB
+DEBUG   2014-09-13 19:46:09,728 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - 인덱싱 작업을 시작합니다.
+DEBUG   2014-09-13 19:46:09,729 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [0]stn_44050.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 19:46:09,733 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [1]stn_44256.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 19:46:09,736 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [2]stn_47605.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 19:46:09,739 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [3]stn_47700.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 19:46:09,742 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [4]stn_48120.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 19:46:09,747 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [5]stn_50504.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 19:46:09,751 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [6]stn_50641.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 19:46:09,757 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [7]stn_51064.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 19:46:09,761 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [8]stn_51221.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 19:46:09,764 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [9]stn_53412.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 19:46:09,767 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [10]stn_53440.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 19:46:09,771 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [11]stn_54056.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 19:46:09,774 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [12]stn_65.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 19:46:09,780 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [13]stn_73.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 19:46:09,784 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [14]stn_74.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 19:46:09,788 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [15]stn_83.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 19:46:09,793 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [16]stn_86.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 19:46:09,797 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [17]stn_88.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 19:46:09,800 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - 인덱싱 작업을 종료합니다.
+DEBUG   2014-09-13 19:46:09,800 [main] com.sds.metac.core.Core  - Output Reader 생성
+DEBUG   2014-09-13 19:46:09,804 [main] com.sds.metac.core.Core  - Output Writer 생성
+DEBUG   2014-09-13 19:46:09,827 [main] com.sds.metac.core.Core  - Output 처리
+DEBUG   2014-09-13 19:46:09,843 [main] com.sds.metac.output.writer.java.OutputEnumWriter  - Enum 으로 변환해라 : {name=AFI메세지타입, codeMap={08=엑셀, 09=맵, 04=VO, 05=SOAP, 06=키값, 07=ISO, 00=정의안함, 01=고정, 02=JSON, 03=XML}, method=NEW, codeMethodMap={}}
+DEBUG   2014-09-13 19:46:09,858 [main] com.sds.metac.exception.MetaCException  - 표준용어 [AFI메세지타입]에 해당하는 값을 찾을 수 없습니다.
+DEBUG   2014-09-13 19:46:09,858 [main] com.sds.metac.exception.MetaCException  - 
+com.sds.metac.exception.MetaCException: 표준용어 [AFI메세지타입]에 해당하는 값을 찾을 수 없습니다.
+	at com.sds.metac.output.reader.impl.StandardFileEvent.doAction(StandardFileEvent.java:66)
+	at com.sds.metac.output.reader.impl.StandardFileEvent.doAction(StandardFileEvent.java:1)
+	at com.sds.metac.cache.Cache.getValue(Cache.java:55)
+	at com.sds.metac.output.reader.impl.StandardFileReader.getStandardVO(StandardFileReader.java:22)
+	at com.sds.metac.util.MetacCommonUtil.getStandardValue(MetacCommonUtil.java:105)
+	at com.sds.metac.util.MetacCommonUtil.getPostStandardStr(MetacCommonUtil.java:72)
+	at com.sds.metac.util.MetacCommonUtil.convertStandardStr(MetacCommonUtil.java:45)
+	at com.sds.metac.output.writer.java.OutputEnumWriter.write(OutputEnumWriter.java:56)
+	at com.sds.metac.output.processor.OutputProcessor.doWrite(OutputProcessor.java:17)
+	at com.sds.metac.core.Core.doProcess(Core.java:56)
+	at Tester.coreTest(Tester.java:13)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+DEBUG   2014-09-13 19:46:09,863 [main] com.sds.metac.exception.MetaCException  - 표준용어 [AFI메세지타]에 해당하는 값을 찾을 수 없습니다.
+DEBUG   2014-09-13 19:46:09,863 [main] com.sds.metac.exception.MetaCException  - 
+com.sds.metac.exception.MetaCException: 표준용어 [AFI메세지타]에 해당하는 값을 찾을 수 없습니다.
+	at com.sds.metac.output.reader.impl.StandardFileEvent.doAction(StandardFileEvent.java:66)
+	at com.sds.metac.output.reader.impl.StandardFileEvent.doAction(StandardFileEvent.java:1)
+	at com.sds.metac.cache.Cache.getValue(Cache.java:55)
+	at com.sds.metac.output.reader.impl.StandardFileReader.getStandardVO(StandardFileReader.java:22)
+	at com.sds.metac.util.MetacCommonUtil.getStandardValue(MetacCommonUtil.java:105)
+	at com.sds.metac.util.MetacCommonUtil.getPostStandardStr(MetacCommonUtil.java:72)
+	at com.sds.metac.util.MetacCommonUtil.convertStandardStr(MetacCommonUtil.java:45)
+	at com.sds.metac.output.writer.java.OutputEnumWriter.write(OutputEnumWriter.java:56)
+	at com.sds.metac.output.processor.OutputProcessor.doWrite(OutputProcessor.java:17)
+	at com.sds.metac.core.Core.doProcess(Core.java:56)
+	at Tester.coreTest(Tester.java:13)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+DEBUG   2014-09-13 19:46:09,864 [main] com.sds.metac.exception.MetaCException  - 표준용어 [AFI메세지]에 해당하는 값을 찾을 수 없습니다.
+DEBUG   2014-09-13 19:46:09,864 [main] com.sds.metac.exception.MetaCException  - 
+com.sds.metac.exception.MetaCException: 표준용어 [AFI메세지]에 해당하는 값을 찾을 수 없습니다.
+	at com.sds.metac.output.reader.impl.StandardFileEvent.doAction(StandardFileEvent.java:66)
+	at com.sds.metac.output.reader.impl.StandardFileEvent.doAction(StandardFileEvent.java:1)
+	at com.sds.metac.cache.Cache.getValue(Cache.java:55)
+	at com.sds.metac.output.reader.impl.StandardFileReader.getStandardVO(StandardFileReader.java:22)
+	at com.sds.metac.util.MetacCommonUtil.getStandardValue(MetacCommonUtil.java:105)
+	at com.sds.metac.util.MetacCommonUtil.getPostStandardStr(MetacCommonUtil.java:72)
+	at com.sds.metac.util.MetacCommonUtil.convertStandardStr(MetacCommonUtil.java:45)
+	at com.sds.metac.output.writer.java.OutputEnumWriter.write(OutputEnumWriter.java:56)
+	at com.sds.metac.output.processor.OutputProcessor.doWrite(OutputProcessor.java:17)
+	at com.sds.metac.core.Core.doProcess(Core.java:56)
+	at Tester.coreTest(Tester.java:13)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+DEBUG   2014-09-13 19:46:09,867 [main] com.sds.metac.exception.MetaCException  - 표준용어 [AFI메세]에 해당하는 값을 찾을 수 없습니다.
+DEBUG   2014-09-13 19:46:09,868 [main] com.sds.metac.exception.MetaCException  - 
+com.sds.metac.exception.MetaCException: 표준용어 [AFI메세]에 해당하는 값을 찾을 수 없습니다.
+	at com.sds.metac.output.reader.impl.StandardFileEvent.doAction(StandardFileEvent.java:66)
+	at com.sds.metac.output.reader.impl.StandardFileEvent.doAction(StandardFileEvent.java:1)
+	at com.sds.metac.cache.Cache.getValue(Cache.java:55)
+	at com.sds.metac.output.reader.impl.StandardFileReader.getStandardVO(StandardFileReader.java:22)
+	at com.sds.metac.util.MetacCommonUtil.getStandardValue(MetacCommonUtil.java:105)
+	at com.sds.metac.util.MetacCommonUtil.getPostStandardStr(MetacCommonUtil.java:72)
+	at com.sds.metac.util.MetacCommonUtil.convertStandardStr(MetacCommonUtil.java:45)
+	at com.sds.metac.output.writer.java.OutputEnumWriter.write(OutputEnumWriter.java:56)
+	at com.sds.metac.output.processor.OutputProcessor.doWrite(OutputProcessor.java:17)
+	at com.sds.metac.core.Core.doProcess(Core.java:56)
+	at Tester.coreTest(Tester.java:13)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+DEBUG   2014-09-13 19:46:09,870 [main] com.sds.metac.exception.MetaCException  - 
+java.lang.IllegalArgumentException: Argument 'from' must be less than the file's number of lines!
+	at com.jramoyo.io.IndexedFileReader.readLines(IndexedFileReader.java:291)
+	at com.sds.metac.output.reader.impl.StandardFileEvent.doAction(StandardFileEvent.java:43)
+	at com.sds.metac.output.reader.impl.StandardFileEvent.doAction(StandardFileEvent.java:1)
+	at com.sds.metac.cache.Cache.getValue(Cache.java:55)
+	at com.sds.metac.output.reader.impl.StandardFileReader.getStandardVO(StandardFileReader.java:22)
+	at com.sds.metac.util.MetacCommonUtil.getStandardValue(MetacCommonUtil.java:105)
+	at com.sds.metac.util.MetacCommonUtil.getPostStandardStr(MetacCommonUtil.java:72)
+	at com.sds.metac.util.MetacCommonUtil.convertStandardStr(MetacCommonUtil.java:45)
+	at com.sds.metac.output.writer.java.OutputEnumWriter.write(OutputEnumWriter.java:56)
+	at com.sds.metac.output.processor.OutputProcessor.doWrite(OutputProcessor.java:17)
+	at com.sds.metac.core.Core.doProcess(Core.java:56)
+	at Tester.coreTest(Tester.java:13)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+DEBUG   2014-09-13 19:46:09,874 [main] com.sds.metac.exception.MetaCException  - 
+java.lang.IllegalArgumentException: Argument 'from' must be less than the file's number of lines!
+	at com.jramoyo.io.IndexedFileReader.readLines(IndexedFileReader.java:291)
+	at com.sds.metac.output.reader.impl.StandardFileEvent.doAction(StandardFileEvent.java:43)
+	at com.sds.metac.output.reader.impl.StandardFileEvent.doAction(StandardFileEvent.java:1)
+	at com.sds.metac.cache.Cache.getValue(Cache.java:55)
+	at com.sds.metac.output.reader.impl.StandardFileReader.getStandardVO(StandardFileReader.java:22)
+	at com.sds.metac.util.MetacCommonUtil.getStandardValue(MetacCommonUtil.java:105)
+	at com.sds.metac.util.MetacCommonUtil.getPostStandardStr(MetacCommonUtil.java:72)
+	at com.sds.metac.util.MetacCommonUtil.convertStandardStr(MetacCommonUtil.java:45)
+	at com.sds.metac.output.writer.java.OutputEnumWriter.write(OutputEnumWriter.java:56)
+	at com.sds.metac.output.processor.OutputProcessor.doWrite(OutputProcessor.java:17)
+	at com.sds.metac.core.Core.doProcess(Core.java:56)
+	at Tester.coreTest(Tester.java:13)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+DEBUG   2014-09-13 19:46:09,876 [main] com.sds.metac.exception.MetaCException  - 표준용어 [AF]에 해당하는 값을 찾을 수 없습니다.
+DEBUG   2014-09-13 19:46:09,876 [main] com.sds.metac.exception.MetaCException  - 
+com.sds.metac.exception.MetaCException: 표준용어 [AF]에 해당하는 값을 찾을 수 없습니다.
+	at com.sds.metac.output.reader.impl.StandardFileEvent.doAction(StandardFileEvent.java:66)
+	at com.sds.metac.output.reader.impl.StandardFileEvent.doAction(StandardFileEvent.java:1)
+	at com.sds.metac.cache.Cache.getValue(Cache.java:55)
+	at com.sds.metac.output.reader.impl.StandardFileReader.getStandardVO(StandardFileReader.java:22)
+	at com.sds.metac.util.MetacCommonUtil.getStandardValue(MetacCommonUtil.java:105)
+	at com.sds.metac.util.MetacCommonUtil.getPostStandardStr(MetacCommonUtil.java:72)
+	at com.sds.metac.util.MetacCommonUtil.convertStandardStr(MetacCommonUtil.java:45)
+	at com.sds.metac.output.writer.java.OutputEnumWriter.write(OutputEnumWriter.java:56)
+	at com.sds.metac.output.processor.OutputProcessor.doWrite(OutputProcessor.java:17)
+	at com.sds.metac.core.Core.doProcess(Core.java:56)
+	at Tester.coreTest(Tester.java:13)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+DEBUG   2014-09-13 19:46:09,877 [main] com.sds.metac.output.writer.java.OutputEnumWriter  - Enum 으로 변환실패 : {name=AFI메세지타입, codeMap={08=엑셀, 09=맵, 04=VO, 05=SOAP, 06=키값, 07=ISO, 00=정의안함, 01=고정, 02=JSON, 03=XML}, method=NEW, codeMethodMap={}}
+DEBUG   2014-09-13 19:46:09,880 [main] com.sds.metac.output.writer.java.OutputEnumWriter  - 
+DEBUG   2014-09-13 19:46:09,880 [main] com.sds.metac.exception.MetaCException  - 
+java.lang.NullPointerException
+	at java.util.TreeMap.getEntry(TreeMap.java:342)
+	at java.util.TreeMap.containsKey(TreeMap.java:227)
+	at com.sun.codemodel.JPackage._class(JPackage.java:176)
+	at com.sds.metac.output.writer.java.OutputEnumWriter.createEnum(OutputEnumWriter.java:86)
+	at com.sds.metac.output.writer.java.OutputEnumWriter.write(OutputEnumWriter.java:62)
+	at com.sds.metac.output.processor.OutputProcessor.doWrite(OutputProcessor.java:17)
+	at com.sds.metac.core.Core.doProcess(Core.java:56)
+	at Tester.coreTest(Tester.java:13)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+DEBUG   2014-09-13 19:54:47,295 [main] com.sds.metac.core.Core  - Input Reader 생성
+DEBUG   2014-09-13 19:54:47,482 [main] com.sds.metac.core.Core  - Input Writer 생성
+DEBUG   2014-09-13 19:54:47,482 [main] com.sds.metac.core.Core  - Input 처리
+DEBUG   2014-09-13 19:54:47,482 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI|AFI
+DEBUG   2014-09-13 19:54:47,560 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - ISO|ISO
+DEBUG   2014-09-13 19:54:47,560 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - JSON|JSON
+DEBUG   2014-09-13 19:54:47,560 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - SOAP|SOAP
+DEBUG   2014-09-13 19:54:47,560 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - VO|VO
+DEBUG   2014-09-13 19:54:47,560 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - XML|XML
+DEBUG   2014-09-13 19:54:47,560 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 값|VALUE
+DEBUG   2014-09-13 19:54:47,560 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 고정|FIXED
+DEBUG   2014-09-13 19:54:47,560 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 맵|MAP
+DEBUG   2014-09-13 19:54:47,560 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 메세지|MESSAGE
+DEBUG   2014-09-13 19:54:47,576 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 미|NOT
+DEBUG   2014-09-13 19:54:47,576 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 안함|NOT
+DEBUG   2014-09-13 19:54:47,576 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 엑셀|EXCEL
+DEBUG   2014-09-13 19:54:47,576 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 인터페이스|INTERFACE
+DEBUG   2014-09-13 19:54:47,576 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 정의|DEFINE
+DEBUG   2014-09-13 19:54:47,576 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 키|KEY
+DEBUG   2014-09-13 19:54:47,576 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 타입|TYPE
+DEBUG   2014-09-13 19:54:47,592 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 패턴|PATTERN
+DEBUG   2014-09-13 19:54:47,592 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|00|정의안함
+DEBUG   2014-09-13 19:54:47,592 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|01|고정
+DEBUG   2014-09-13 19:54:47,592 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|02|JSON
+DEBUG   2014-09-13 19:54:47,592 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|03|XML
+DEBUG   2014-09-13 19:54:47,592 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|04|VO
+DEBUG   2014-09-13 19:54:47,592 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|05|SOAP
+DEBUG   2014-09-13 19:54:47,592 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|06|키값
+DEBUG   2014-09-13 19:54:47,592 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|07|ISO
+DEBUG   2014-09-13 19:54:47,592 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|08|엑셀
+DEBUG   2014-09-13 19:54:47,592 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|09|맵
+DEBUG   2014-09-13 19:54:47,592 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 연계패턴정보|1|전문TO전문
+DEBUG   2014-09-13 19:54:47,592 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 연계패턴정보|2|단말TOMCI
+DEBUG   2014-09-13 19:54:47,592 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 연계패턴정보|3|DBTODB
+DEBUG   2014-09-13 19:54:47,592 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 연계패턴정보|4|DBTO전문
+DEBUG   2014-09-13 19:54:47,592 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 연계패턴정보|5|전문TODB
+DEBUG   2014-09-13 19:54:47,607 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - 인덱싱 작업을 시작합니다.
+DEBUG   2014-09-13 19:54:47,607 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [0]stn_44050.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 19:54:47,607 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [1]stn_44256.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 19:54:47,607 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [2]stn_47605.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 19:54:47,623 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [3]stn_47700.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 19:54:47,623 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [4]stn_48120.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 19:54:47,623 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [5]stn_50504.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 19:54:47,638 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [6]stn_50641.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 19:54:47,638 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [7]stn_51064.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 19:54:47,638 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [8]stn_51221.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 19:54:47,638 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [9]stn_53412.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 19:54:47,654 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [10]stn_53440.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 19:54:47,654 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [11]stn_54056.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 19:54:47,670 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [12]stn_65.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 19:54:47,670 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [13]stn_73.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 19:54:47,670 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [14]stn_74.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 19:54:47,670 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [15]stn_83.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 19:54:47,685 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [16]stn_86.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 19:54:47,685 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [17]stn_88.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 19:54:47,685 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - 인덱싱 작업을 종료합니다.
+DEBUG   2014-09-13 19:54:47,685 [main] com.sds.metac.core.Core  - Output Reader 생성
+DEBUG   2014-09-13 19:54:47,685 [main] com.sds.metac.core.Core  - Output Writer 생성
+DEBUG   2014-09-13 19:54:47,716 [main] com.sds.metac.core.Core  - Output 처리
+DEBUG   2014-09-13 19:54:47,732 [main] com.sds.metac.output.writer.java.OutputEnumWriter  - Enum 으로 변환해라 : {name=AFI메세지타입, codeMap={08=엑셀, 09=맵, 04=VO, 05=SOAP, 06=키값, 07=ISO, 00=정의안함, 01=고정, 02=JSON, 03=XML}, method=NEW, codeMethodMap={}}
+DEBUG   2014-09-13 19:54:47,732 [main] com.sds.metac.exception.MetaCException  - 표준용어 [AFI메세지타입]에 해당하는 값을 찾을 수 없습니다.
+DEBUG   2014-09-13 19:54:47,732 [main] com.sds.metac.exception.MetaCException  - 
+com.sds.metac.exception.MetaCException: 표준용어 [AFI메세지타입]에 해당하는 값을 찾을 수 없습니다.
+	at com.sds.metac.output.reader.impl.StandardFileEvent.doAction(StandardFileEvent.java:66)
+	at com.sds.metac.output.reader.impl.StandardFileEvent.doAction(StandardFileEvent.java:1)
+	at com.sds.metac.cache.Cache.getValue(Cache.java:55)
+	at com.sds.metac.output.reader.impl.StandardFileReader.getStandardVO(StandardFileReader.java:22)
+	at com.sds.metac.util.MetacCommonUtil.getStandardValue(MetacCommonUtil.java:105)
+	at com.sds.metac.util.MetacCommonUtil.getPostStandardStr(MetacCommonUtil.java:72)
+	at com.sds.metac.util.MetacCommonUtil.convertStandardStr(MetacCommonUtil.java:45)
+	at com.sds.metac.output.writer.java.OutputEnumWriter.write(OutputEnumWriter.java:56)
+	at com.sds.metac.output.processor.OutputProcessor.doWrite(OutputProcessor.java:17)
+	at com.sds.metac.core.Core.doProcess(Core.java:56)
+	at Tester.coreTest(Tester.java:12)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+DEBUG   2014-09-13 19:54:47,748 [main] com.sds.metac.exception.MetaCException  - 표준용어 [AFI메세지타]에 해당하는 값을 찾을 수 없습니다.
+DEBUG   2014-09-13 19:54:47,748 [main] com.sds.metac.exception.MetaCException  - 
+com.sds.metac.exception.MetaCException: 표준용어 [AFI메세지타]에 해당하는 값을 찾을 수 없습니다.
+	at com.sds.metac.output.reader.impl.StandardFileEvent.doAction(StandardFileEvent.java:66)
+	at com.sds.metac.output.reader.impl.StandardFileEvent.doAction(StandardFileEvent.java:1)
+	at com.sds.metac.cache.Cache.getValue(Cache.java:55)
+	at com.sds.metac.output.reader.impl.StandardFileReader.getStandardVO(StandardFileReader.java:22)
+	at com.sds.metac.util.MetacCommonUtil.getStandardValue(MetacCommonUtil.java:105)
+	at com.sds.metac.util.MetacCommonUtil.getPostStandardStr(MetacCommonUtil.java:72)
+	at com.sds.metac.util.MetacCommonUtil.convertStandardStr(MetacCommonUtil.java:45)
+	at com.sds.metac.output.writer.java.OutputEnumWriter.write(OutputEnumWriter.java:56)
+	at com.sds.metac.output.processor.OutputProcessor.doWrite(OutputProcessor.java:17)
+	at com.sds.metac.core.Core.doProcess(Core.java:56)
+	at Tester.coreTest(Tester.java:12)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+DEBUG   2014-09-13 19:54:47,748 [main] com.sds.metac.exception.MetaCException  - 표준용어 [AFI메세지]에 해당하는 값을 찾을 수 없습니다.
+DEBUG   2014-09-13 19:54:47,748 [main] com.sds.metac.exception.MetaCException  - 
+com.sds.metac.exception.MetaCException: 표준용어 [AFI메세지]에 해당하는 값을 찾을 수 없습니다.
+	at com.sds.metac.output.reader.impl.StandardFileEvent.doAction(StandardFileEvent.java:66)
+	at com.sds.metac.output.reader.impl.StandardFileEvent.doAction(StandardFileEvent.java:1)
+	at com.sds.metac.cache.Cache.getValue(Cache.java:55)
+	at com.sds.metac.output.reader.impl.StandardFileReader.getStandardVO(StandardFileReader.java:22)
+	at com.sds.metac.util.MetacCommonUtil.getStandardValue(MetacCommonUtil.java:105)
+	at com.sds.metac.util.MetacCommonUtil.getPostStandardStr(MetacCommonUtil.java:72)
+	at com.sds.metac.util.MetacCommonUtil.convertStandardStr(MetacCommonUtil.java:45)
+	at com.sds.metac.output.writer.java.OutputEnumWriter.write(OutputEnumWriter.java:56)
+	at com.sds.metac.output.processor.OutputProcessor.doWrite(OutputProcessor.java:17)
+	at com.sds.metac.core.Core.doProcess(Core.java:56)
+	at Tester.coreTest(Tester.java:12)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+DEBUG   2014-09-13 19:54:47,748 [main] com.sds.metac.exception.MetaCException  - 표준용어 [AFI메세]에 해당하는 값을 찾을 수 없습니다.
+DEBUG   2014-09-13 19:54:47,748 [main] com.sds.metac.exception.MetaCException  - 
+com.sds.metac.exception.MetaCException: 표준용어 [AFI메세]에 해당하는 값을 찾을 수 없습니다.
+	at com.sds.metac.output.reader.impl.StandardFileEvent.doAction(StandardFileEvent.java:66)
+	at com.sds.metac.output.reader.impl.StandardFileEvent.doAction(StandardFileEvent.java:1)
+	at com.sds.metac.cache.Cache.getValue(Cache.java:55)
+	at com.sds.metac.output.reader.impl.StandardFileReader.getStandardVO(StandardFileReader.java:22)
+	at com.sds.metac.util.MetacCommonUtil.getStandardValue(MetacCommonUtil.java:105)
+	at com.sds.metac.util.MetacCommonUtil.getPostStandardStr(MetacCommonUtil.java:72)
+	at com.sds.metac.util.MetacCommonUtil.convertStandardStr(MetacCommonUtil.java:45)
+	at com.sds.metac.output.writer.java.OutputEnumWriter.write(OutputEnumWriter.java:56)
+	at com.sds.metac.output.processor.OutputProcessor.doWrite(OutputProcessor.java:17)
+	at com.sds.metac.core.Core.doProcess(Core.java:56)
+	at Tester.coreTest(Tester.java:12)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+DEBUG   2014-09-13 19:54:47,748 [main] com.sds.metac.exception.MetaCException  - 
+java.lang.IllegalArgumentException: Argument 'from' must be less than the file's number of lines!
+	at com.jramoyo.io.IndexedFileReader.readLines(IndexedFileReader.java:291)
+	at com.sds.metac.output.reader.impl.StandardFileEvent.doAction(StandardFileEvent.java:43)
+	at com.sds.metac.output.reader.impl.StandardFileEvent.doAction(StandardFileEvent.java:1)
+	at com.sds.metac.cache.Cache.getValue(Cache.java:55)
+	at com.sds.metac.output.reader.impl.StandardFileReader.getStandardVO(StandardFileReader.java:22)
+	at com.sds.metac.util.MetacCommonUtil.getStandardValue(MetacCommonUtil.java:105)
+	at com.sds.metac.util.MetacCommonUtil.getPostStandardStr(MetacCommonUtil.java:72)
+	at com.sds.metac.util.MetacCommonUtil.convertStandardStr(MetacCommonUtil.java:45)
+	at com.sds.metac.output.writer.java.OutputEnumWriter.write(OutputEnumWriter.java:56)
+	at com.sds.metac.output.processor.OutputProcessor.doWrite(OutputProcessor.java:17)
+	at com.sds.metac.core.Core.doProcess(Core.java:56)
+	at Tester.coreTest(Tester.java:12)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+DEBUG   2014-09-13 19:54:47,748 [main] com.sds.metac.exception.MetaCException  - 
+java.lang.IllegalArgumentException: Argument 'from' must be less than the file's number of lines!
+	at com.jramoyo.io.IndexedFileReader.readLines(IndexedFileReader.java:291)
+	at com.sds.metac.output.reader.impl.StandardFileEvent.doAction(StandardFileEvent.java:43)
+	at com.sds.metac.output.reader.impl.StandardFileEvent.doAction(StandardFileEvent.java:1)
+	at com.sds.metac.cache.Cache.getValue(Cache.java:55)
+	at com.sds.metac.output.reader.impl.StandardFileReader.getStandardVO(StandardFileReader.java:22)
+	at com.sds.metac.util.MetacCommonUtil.getStandardValue(MetacCommonUtil.java:105)
+	at com.sds.metac.util.MetacCommonUtil.getPostStandardStr(MetacCommonUtil.java:72)
+	at com.sds.metac.util.MetacCommonUtil.convertStandardStr(MetacCommonUtil.java:45)
+	at com.sds.metac.output.writer.java.OutputEnumWriter.write(OutputEnumWriter.java:56)
+	at com.sds.metac.output.processor.OutputProcessor.doWrite(OutputProcessor.java:17)
+	at com.sds.metac.core.Core.doProcess(Core.java:56)
+	at Tester.coreTest(Tester.java:12)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+DEBUG   2014-09-13 19:54:47,748 [main] com.sds.metac.exception.MetaCException  - 표준용어 [AF]에 해당하는 값을 찾을 수 없습니다.
+DEBUG   2014-09-13 19:54:47,748 [main] com.sds.metac.exception.MetaCException  - 
+com.sds.metac.exception.MetaCException: 표준용어 [AF]에 해당하는 값을 찾을 수 없습니다.
+	at com.sds.metac.output.reader.impl.StandardFileEvent.doAction(StandardFileEvent.java:66)
+	at com.sds.metac.output.reader.impl.StandardFileEvent.doAction(StandardFileEvent.java:1)
+	at com.sds.metac.cache.Cache.getValue(Cache.java:55)
+	at com.sds.metac.output.reader.impl.StandardFileReader.getStandardVO(StandardFileReader.java:22)
+	at com.sds.metac.util.MetacCommonUtil.getStandardValue(MetacCommonUtil.java:105)
+	at com.sds.metac.util.MetacCommonUtil.getPostStandardStr(MetacCommonUtil.java:72)
+	at com.sds.metac.util.MetacCommonUtil.convertStandardStr(MetacCommonUtil.java:45)
+	at com.sds.metac.output.writer.java.OutputEnumWriter.write(OutputEnumWriter.java:56)
+	at com.sds.metac.output.processor.OutputProcessor.doWrite(OutputProcessor.java:17)
+	at com.sds.metac.core.Core.doProcess(Core.java:56)
+	at Tester.coreTest(Tester.java:12)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+DEBUG   2014-09-13 19:54:47,748 [main] com.sds.metac.output.writer.java.OutputEnumWriter  - Enum 으로 변환실패 : {name=AFI메세지타입, codeMap={08=엑셀, 09=맵, 04=VO, 05=SOAP, 06=키값, 07=ISO, 00=정의안함, 01=고정, 02=JSON, 03=XML}, method=NEW, codeMethodMap={}}
+DEBUG   2014-09-13 19:54:47,763 [main] com.sds.metac.output.writer.java.OutputEnumWriter  - 
+DEBUG   2014-09-13 19:54:47,763 [main] com.sds.metac.exception.MetaCException  - 
+java.lang.NullPointerException
+	at java.util.TreeMap.getEntry(TreeMap.java:342)
+	at java.util.TreeMap.containsKey(TreeMap.java:227)
+	at com.sun.codemodel.JPackage._class(JPackage.java:176)
+	at com.sds.metac.output.writer.java.OutputEnumWriter.createEnum(OutputEnumWriter.java:86)
+	at com.sds.metac.output.writer.java.OutputEnumWriter.write(OutputEnumWriter.java:62)
+	at com.sds.metac.output.processor.OutputProcessor.doWrite(OutputProcessor.java:17)
+	at com.sds.metac.core.Core.doProcess(Core.java:56)
+	at Tester.coreTest(Tester.java:12)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)

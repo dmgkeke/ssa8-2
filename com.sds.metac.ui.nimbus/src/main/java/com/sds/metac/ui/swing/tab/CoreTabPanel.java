@@ -69,15 +69,19 @@ public class CoreTabPanel extends JPanel {
 		InformationVO informationVO = configManager.getInformation();
 		UserSettingVO userSettingVO = configManager.getUserSetting();
 		
+		// Implementation 위치
 		JTextField locImplTextField = (JTextField) ResourceManager.get("inputLocImpl");
 		locImplTextField.setText(userSettingVO.getImplementationFolder());		
 		
+		// temp file 위치
 		JTextField locTempTextField = (JTextField) ResourceManager.get("inputLocTemp");
 		locTempTextField.setText(userSettingVO.getTempFileFolder());
 		
+		// temp file 확장자
 		JTextField extTempTextField = (JTextField) ResourceManager.get("inputExtTemp");
 		extTempTextField.setText(userSettingVO.getTempFileExt());
 		
+		// reader
 		JComboBox<ComboItem> readerComboBox = (JComboBox<ComboItem>) ResourceManager.get("comboReader");
 		readerComboBox.removeAllItems();
 		List<ComboItem> readerList = convertToComboItemList(informationVO.getInputReaderInfoList());
@@ -86,6 +90,7 @@ public class CoreTabPanel extends JPanel {
 		}
 		readerComboBox.setSelectedItem(new ComboItem(null, userSettingVO.getInputReaderName()));
 		
+		// writer
 		JComboBox<ComboItem> writerComboBox = (JComboBox<ComboItem>) ResourceManager.get("comboWriter");
 		writerComboBox.removeAllItems();
 		List<ComboItem> writerList = convertToComboItemList(informationVO.getOutputWriterInfoList());
@@ -94,14 +99,18 @@ public class CoreTabPanel extends JPanel {
 		}
 		writerComboBox.setSelectedItem(new ComboItem(null, userSettingVO.getOutputWriterName()));
 		
+		
+		// post
 		JComboBox<ComboItem> postComboBox = (JComboBox<ComboItem>) ResourceManager.get("comboPost");
 		postComboBox.removeAllItems();
 		List<ComboItem> postList = convertToComboItemList(informationVO.getPostProcessorInfoList());
+		postComboBox.addItem(new ComboItem(Message.get("message.label.common.na"), ""));
 		for (ComboItem item : postList) {
 			postComboBox.addItem(item);
 		}
 		postComboBox.setSelectedItem(new ComboItem(null, userSettingVO.getPostProcessorName()));
 		
+		// cache size
 		JFormattedTextField cacheSizeFormatTextField = (JFormattedTextField) ResourceManager.get("inputCacheSize");
 		cacheSizeFormatTextField.setText(StringUtil.toString(userSettingVO.getMaxCacheSize()));
 	}
@@ -124,15 +133,15 @@ public class CoreTabPanel extends JPanel {
 		creator.setTextFieldSize(LENGTH_MAIN_CONTENT_INPUT);
 		
 		
-		panel.add(creator.createRow("message.label.core.location.impl", "inputLocImpl", ResourceCreator.OPT_TEXT_FIELD));
-		panel.add(creator.createRow("message.label.core.location.temp", "inputLocTemp", ResourceCreator.OPT_TEXT_FIELD));
-		panel.add(creator.createRow("message.label.core.ext.temp", "inputExtTemp", ResourceCreator.OPT_TEXT_FIELD));
+		panel.add(creator.createRow(Message.get("message.label.core.location.impl"), "inputLocImpl", ResourceCreator.OPT_TEXT_FIELD));
+		panel.add(creator.createRow(Message.get("message.label.core.location.temp"), "inputLocTemp", ResourceCreator.OPT_TEXT_FIELD));
+		panel.add(creator.createRow(Message.get("message.label.core.ext.temp"), "inputExtTemp", ResourceCreator.OPT_TEXT_FIELD));
 		
-		panel.add(creator.createRow("message.label.core.reader.name", "comboReader", ResourceCreator.OPT_COMBO_BOX));
-		panel.add(creator.createRow("message.label.core.writer.name", "comboWriter", ResourceCreator.OPT_COMBO_BOX));		
-		panel.add(creator.createRow("message.label.core.post.name", "comboPost", ResourceCreator.OPT_COMBO_BOX));
+		panel.add(creator.createRow(Message.get("message.label.core.reader.name"), "comboReader", ResourceCreator.OPT_COMBO_BOX));
+		panel.add(creator.createRow(Message.get("message.label.core.writer.name"), "comboWriter", ResourceCreator.OPT_COMBO_BOX));		
+		panel.add(creator.createRow(Message.get("message.label.core.post.name"), "comboPost", ResourceCreator.OPT_COMBO_BOX));
 				
-		panel.add(creator.createRow("message.label.core.cache.maxSize", "inputCacheSize", ResourceCreator.OPT_NUM_TEXT_FIELD));
+		panel.add(creator.createRow(Message.get("message.label.core.cache.maxSize"), "inputCacheSize", ResourceCreator.OPT_NUM_TEXT_FIELD));
 	}
 	
 	private List<ComboItem> convertToComboItemList(List<ClassInfoVO> list) {

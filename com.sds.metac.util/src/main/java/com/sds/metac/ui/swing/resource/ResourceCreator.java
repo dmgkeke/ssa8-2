@@ -19,17 +19,18 @@ import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.text.NumberFormatter;
 
 import com.sds.metac.exception.MetaCException;
-import com.sds.metac.ui.constant.UIConstants;
-import com.sds.metac.ui.message.Message;
 import com.sds.metac.ui.swing.model.ComboItem;
 import com.sds.metac.ui.swing.model.ListItem;
 
 public class ResourceCreator {
 	
+	private static final int WIDTH_ROW_LABEL = 100;
+	
+	
 	private String curName;
-	private int rowWidth = UIConstants.WIDTH_RESOURCE_DEFAULT;
-	private int rowHeight = UIConstants.HEIGHT_RESOURCE_DEFAULT;
-	private int textFieldSize = UIConstants.SIZE_RESOURCE_DEFAULT_TEXTFIELD;
+	private int rowWidth = 600;
+	private int rowHeight = 300;
+	private int textFieldSize = 30;
 	private ResourceCreator() {
 	}
 	ResourceCreator(String name) {
@@ -73,16 +74,8 @@ public class ResourceCreator {
 	}
 
 	public JComboBox<ComboItem> createComboBox(String name) {
-		return createComboBox(name, false);
-	}
-	
-	public JComboBox<ComboItem> createComboBox(String name, boolean nullable) {
 		JComboBox<ComboItem> comboBox = new JComboBox<ComboItem>();
-		
-		if (nullable) {
-			comboBox.addItem(new ComboItem(Message.get("message.label.common.na"), ""));
-		}
-				
+						
 		comboBox.setName(name);
 		
 		return ResourceManager.register(curName, name, comboBox);
@@ -111,10 +104,10 @@ public class ResourceCreator {
 				
 		JPanel tagPanel = new JPanel();
 		tagPanel.setLayout(new BorderLayout());
-		tagPanel.setPreferredSize(new Dimension(UIConstants.WIDTH_ROW_LABEL, rowHeight));
+		tagPanel.setPreferredSize(new Dimension(WIDTH_ROW_LABEL, rowHeight));
 		
 		
-		JLabel tag = new JLabel(Message.get(labelText) + " : ");
+		JLabel tag = new JLabel(labelText + " : ");
 		tagPanel.add(tag);
 		
 		panel.add(tagPanel);

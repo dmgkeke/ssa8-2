@@ -226,12 +226,12 @@ public class PopupSetFrame extends AbstractModalPopup {
 		creator.setHeight(HEIGHT_POPUP_SET_CONTENT_ROW);
 		creator.setTextFieldSize(LENGTH_POPUP_SET_INPUT);
 		
-		contentPanel.add(creator.createRow("message.label.core.reader.name", "comboSet", ResourceCreator.OPT_COMBO_BOX));
+		contentPanel.add(creator.createRow(Message.get("message.label.core.reader.name"), "comboSet", ResourceCreator.OPT_COMBO_BOX));
 		
-		contentPanel.add(creator.createRow("message.label.popup.set.setName", "setName", ResourceCreator.OPT_TEXT_FIELD));
-		contentPanel.add(creator.createRow("message.label.popup.set.className", "className", ResourceCreator.OPT_TEXT_FIELD));
-		contentPanel.add(creator.createRow("message.label.popup.set.uiClassName", "uiClassName", ResourceCreator.OPT_TEXT_FIELD));
-		contentPanel.add(creator.createRow("message.label.popup.set.classFilePath", "classFilePath", ResourceCreator.OPT_TEXT_FIELD));
+		contentPanel.add(creator.createRow(Message.get("message.label.popup.set.setName"), "setName", ResourceCreator.OPT_TEXT_FIELD));
+		contentPanel.add(creator.createRow(Message.get("message.label.popup.set.className"), "className", ResourceCreator.OPT_TEXT_FIELD));
+		contentPanel.add(creator.createRow(Message.get("message.label.popup.set.uiClassName"), "uiClassName", ResourceCreator.OPT_TEXT_FIELD));
+		contentPanel.add(creator.createRow(Message.get("message.label.popup.set.classFilePath"), "classFilePath", ResourceCreator.OPT_TEXT_FIELD));
 		
 		
 		JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
