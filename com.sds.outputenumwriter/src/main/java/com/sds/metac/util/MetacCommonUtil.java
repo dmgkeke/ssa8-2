@@ -60,7 +60,7 @@ public class MetacCommonUtil {
 	 * @return
 	 */
 	private static String getPostStandardStr(String targetStr, int preStrLength, int minLength, StandardReader standardReader) {
-String result = "";
+		String result = "";
 		
 		// 문자열의 길이 관련 variable
 		int splitPointer = preStrLength;
