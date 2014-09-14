@@ -1,0 +1,16 @@
+#####################################################
+## impl의 thrid-party jar installation
+#####################################################
+
+## abs-path = /metac/lib
+/metac/lib/com.sds.metac.metainterface-1.0.0.jar
+/metac/lib/com.sds.metac.model-1.0.0.jar
+/metac/lib/com.sds.metac.util-1.0.0.jar
+
+## maven with local-pc class-path
+## maven 이 class-path로 지정된 상태에서 아래 명령어를 /metac/lib 에서 수행하면 
+## metac의 library가 third-party jar 로 install됨
+
+## mvn install:install-file -Dfile=com.sds.metac.metainterface-1.0.0.jar -DgroupId=com.sds.metac -DartifactId=com.sds.metac.metainterface -Dversion=1.0.0 -Dpackaging=jar
+## mvn install:install-file -Dfile=com.sds.metac.model-1.0.0.jar -DgroupId=com.sds.metac -DartifactId=com.sds.metac.model -Dversion=1.0.0 -Dpackaging=jar
+## mvn install:install-file -Dfile=com.sds.metac.util-1.0.0.jar -DgroupId=com.sds.metac -DartifactId=com.sds.metac.util -Dversion=1.0.0 -Dpackaging=jar
