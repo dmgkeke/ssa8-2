@@ -135,8 +135,8 @@ public class InputCsvFilePoller implements InputPoller {
 				// 현재라인 저장
 				groupVO = new GroupVO();
 				groupVO.setName(readLine.split(splitter)[0]);
-				groupVO.addCodeSet(readLine.split(splitter)[1],
-						readLine.split(splitter)[2]);
+				groupVO.addCodeSet(readLine.split(splitter)[2],
+						readLine.split(splitter)[1]);
 
 				// 다음라인과 비교
 				while (true) {
@@ -152,8 +152,8 @@ public class InputCsvFilePoller implements InputPoller {
 					if (readLine.split(splitter)[0].equals(nextLine
 							.split(splitter)[0])) {
 						logger.debug(nextLine);
-						groupVO.addCodeSet(nextLine.split(splitter)[1],
-								nextLine.split(splitter)[2]);
+						groupVO.addCodeSet(nextLine.split(splitter)[2],
+								nextLine.split(splitter)[1]);
 					} else {
 						// 다음라인과 코드값이 달라진경우 플래그를 주고 종료
 						isKeyChanged = true;
