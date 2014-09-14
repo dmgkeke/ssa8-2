@@ -12,7 +12,7 @@ import org.apache.log4j.Logger;
 import com.sds.metac.config.OutputConfigManager;
 import com.sds.metac.exception.MetaCException;
 import com.sds.metac.output.reader.StandardReader;
-import com.sds.metac.schema.MetaFomula;
+import com.sds.metac.schema.OutputWriterConfig;
 import com.sds.metac.util.MetacCommonUtil;
 import com.sds.metac.util.StringUtil;
 import com.sds.metac.vo.domain.GroupVO;
@@ -32,6 +32,7 @@ public class OutputEnumWriter implements OutputJavaWriter {
 	private final Logger logger = Logger.getLogger(OutputEnumWriter.class);
 	private final JCodeModel codeModel = new JCodeModel();
 	private final static OutputConfigManager CONFIG_MANAGER = OutputConfigManager.INSTANCE;
+	private final static OutputWriterConfig CONFIG = CONFIG_MANAGER.getOutputWriterConfig();
 	
 	private JDefinedClass definedClass;
 	
@@ -43,7 +44,7 @@ public class OutputEnumWriter implements OutputJavaWriter {
 	
 	private final static String CODEVALUE_FIELD_NAME = "codeValue";
 	
-	private final static String ENUM_FILE_PATH = "temp/";
+	private final static String ENUM_FILE_PATH = CONFIG.getTempFilePath();
 	
 	@Override
 	public void write(GroupVO groupVO, StandardReader standardReader) {
@@ -128,11 +129,7 @@ public class OutputEnumWriter implements OutputJavaWriter {
 		String codeName = getCodeName();
 		String standardStr = "";
 		
-		// FIXME 일단 TOP-DOWN, 두글자 이상, underscore 방식으로 구현
-		String metaFomula = MetaFomula.TOP_DOWN.value();
-		int minLength = 2;
-		
-		List<List<String>> standardStrList = MetacCommonUtil.getStandardStrList(codeName, minLength, metaFomula); 
+		List<List<String>> standardStrList = MetacCommonUtil.getStandardStrList(codeName, CONFIG.getMinCharSize(), CONFIG.getMetaFomula().value()); 
 		
 		for (List<String> row : standardStrList) {
 			for (String splitStr : row) {
@@ -146,7 +143,14 @@ public class OutputEnumWriter implements OutputJavaWriter {
 			}
 			
 			if(standardStr != null) {
-				return standardStr;
+				switch (CONFIG.getVariableSyntax()) {
+				case CAMEL_CASE:
+					return StringUtil.convertUnderscoreToCamel(standardStr);
+				case UNDERSCORE_CASE:
+					return standardStr.toUpperCase();
+				default:
+					return standardStr;
+				}
 			}
 		}
 		
