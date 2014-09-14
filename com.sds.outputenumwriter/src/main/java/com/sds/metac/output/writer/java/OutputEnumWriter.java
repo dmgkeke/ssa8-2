@@ -94,6 +94,11 @@ public class OutputEnumWriter implements OutputJavaWriter {
 		for (String key : getCodeMap().keySet()) {
 			StandardVO standardVO = standardReader.getStandardVO(key);
 			
+			if(standardVO == null) {
+				logger.debug(key + "에 매칭되는 값을 찾을 수 없습니다.");
+				continue;
+			}
+			
 			JEnumConstant enumConstant = definedClass.enumConstant(standardVO.getValue());
 			enumConstant.arg(lit(getCodeMap().get(key)));
 			
@@ -131,7 +136,7 @@ public class OutputEnumWriter implements OutputJavaWriter {
 			for (String splitStr : row) {
 				StandardVO result = null;
 				if( (result = standardReader.getStandardVO(splitStr)) == null ) {
-					standardStr = null;
+					standardStr = "";
 					break;
 				}
 				
