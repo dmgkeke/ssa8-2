@@ -40,7 +40,7 @@ public class TestInputJsonFilePollerTest {
 		JAXBContext jc = JAXBContext.newInstance("com.samsung.sds.ssa8_2.inputmeta");
 		Unmarshaller u = jc.createUnmarshaller();
 		
-		InputMeta im = (InputMeta)u.unmarshal(new File("./src/main/resources/Inputmeta.xml"));
+		InputMeta im = (InputMeta)u.unmarshal(new File("./config/Inputmeta.xml"));
 		System.out.println(im.getMetaType());
 		System.out.println(im.getConfiguration().getInputFilesPath());
 		System.out.println(im.getConfiguration().getStandardFileName());
