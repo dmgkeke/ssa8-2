@@ -60,7 +60,13 @@ public class OutputIndexedFileReader implements OutputReader {
 			}
 		}
 		
-		return curScanner.hasNextLine();
+		boolean ret = curScanner.hasNextLine();
+		if (!ret) {
+			if (readNextScanner()) {
+				return curScanner.hasNextLine();
+			}
+		}
+		return ret;
 	}
 
 	/**
