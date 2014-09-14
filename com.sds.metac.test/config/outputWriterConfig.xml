@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<outputWriterConfig xmlns="http://www.samsung.com/sds/ssa8-2/outputWriterConfig">
+<outputWriterConfig xmlns="http://www.example.org/information">
 
 	<metaFomula>topDown</metaFomula>
 	<variableSyntax>camelCase</variableSyntax>

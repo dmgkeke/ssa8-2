@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<inputConfig xmlns="http://www.example.org/information">
+	<encoding>UTF-8</encoding>
+	<fileNameCode>code.csv</fileNameCode>
+	<fileNameWord>word.csv</fileNameWord>
+	<forder>inputfiles</forder>
+	<inputType>CSV</inputType>
+	<splitter>|</splitter>
+	<tempFilePath>tempFilePath</tempFilePath>
+</inputConfig>
