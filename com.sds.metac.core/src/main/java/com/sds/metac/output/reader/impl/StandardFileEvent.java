@@ -1,6 +1,7 @@
 package com.sds.metac.output.reader.impl;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.SortedMap;
 
 import org.apache.log4j.Logger;
@@ -40,10 +41,15 @@ public class StandardFileEvent implements CacheEvent<StandardVO> {
 		// 용어이 해당하는 해쉬값을 구한다.
 		int hash = IndexedFileUtil.createHash(name);
 		
+		IndexedFileReader indexReader = null;
 		
 		try {
 			// 인덱스 파일중 해쉬값에 해당하는 위치에 실제 위치가 보관되어있다
-			IndexedFileReader indexReader = new IndexedFileReader(indexFile);			
+			indexReader = new IndexedFileReader(indexFile);
+			if (indexReader.getLineCount() < hash) {
+				return null;
+			}
+			
 			SortedMap<Integer, String> indexTempValue = indexReader.readLines(hash, hash);			
 			
 			// 구분자로 나눈다음
@@ -84,6 +90,15 @@ public class StandardFileEvent implements CacheEvent<StandardVO> {
 			
 		} catch (Exception e) {
 			throw new MetaCException(e);
+		} finally {
+			if (indexReader!= null) {
+				try {
+					indexReader.close();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
 		}
 	}
 }
