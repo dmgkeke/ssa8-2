@@ -12,8 +12,8 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import com.sds.metac.config.InputCsvConfigManager;
 import com.sds.metac.exception.MetaCException;
-import com.sds.metac.file.FileManager;
 import com.sds.metac.input.reader.poller.InputPoller;
 import com.sds.metac.util.StringUtil;
 import com.sds.metac.vo.domain.GroupVO;
@@ -21,8 +21,8 @@ import com.sds.metac.vo.domain.StandardVO;
 
 public class InputCsvFilePoller implements InputPoller {
 
-	// TODO :: user-setting.xml 정의하여 fileManager로부터 읽어오도록 변경할것..
-	FileManager fileManager = FileManager.INSTANCE;
+	// TODO ::
+	private final static InputCsvConfigManager CONFIG_NAMAGER = InputCsvConfigManager.INSTANCE;
 
 	// logging
 	Logger logger = Logger.getLogger(InputCsvFilePoller.class);
@@ -33,8 +33,19 @@ public class InputCsvFilePoller implements InputPoller {
 
 	// 대상 파일 위치 및 설정값
 	final String filePathWord = "./inputfiles/word.csv";
+	// final String filePathWord = "./"
+	// + CONFIG_NAMAGER.getInputConfig().getForder() + "/"
+	// + CONFIG_NAMAGER.getInputConfig().getFileNameWord();
+
 	final String filePathCode = "./inputfiles/code.csv";
+	// final String filePathCode = "./"
+	// + CONFIG_NAMAGER.getInputConfig().getForder() + "/"
+	// + CONFIG_NAMAGER.getInputConfig().getFileNameCode();
+
 	final String splitter = "\\|";
+	// final String splitter = "\\"
+	// + CONFIG_NAMAGER.getInputConfig().getSplitter();
+
 	boolean isHeaderWrod = true;
 	boolean isHeaderCode = true;
 	String filePathWordSort = "";
