@@ -22,7 +22,7 @@
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
-			<version>1.2.16</version>			
+			<version>1.2.16</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
@@ -65,10 +65,10 @@
 
 				<configuration>
 					<finalName>Outputenumwriter</finalName>
-					<outputDirectory>../com.sds.metac.test/implementation</outputDirectory>
+					<!-- <outputDirectory>../com.sds.metac.test/implementation</outputDirectory> -->
+					<outputDirectory>/metac/impl</outputDirectory>
 					<archive>
 						<manifest>
-							<mainClass>OutputEnumWriter</mainClass>
 							<addClasspath>true</addClasspath>
 							<classpathPrefix>lib/</classpathPrefix>
 						</manifest>
@@ -90,7 +90,8 @@
 					</execution>
 				</executions>
 				<configuration>
-					<outputDirectory>../com.sds.metac.test/implementation/lib</outputDirectory>
+					<!-- <outputDirectory>../com.sds.metac.test/implementation/lib</outputDirectory> -->
+					<outputDirectory>/metac/lib</outputDirectory>
 					<overWriteIfNewer>true</overWriteIfNewer>
 				</configuration>
 			</plugin>
