@@ -51,13 +51,19 @@ public class StandardFileEvent implements CacheEvent<StandardVO> {
 			}
 			
 			SortedMap<Integer, String> indexTempValue = indexReader.readLines(hash, hash);			
+			String tempVal = indexTempValue.get(hash);
+			if (StringUtil.isEmpty(tempVal)) {
+				return null;
+			}
 			
 			// 구분자로 나눈다음
-			String[] indexInfos = indexTempValue.get(hash).split(IndexedFileUtil.INDEX_SEP);
+			String[] indexInfos = tempVal.split(IndexedFileUtil.INDEX_SEP);		
 			
 			// 표준용어의 hashCode가 일치하는 값을 찾는다.
 			IndexDataVO indexVO = null;
-			for (String indexInfo : indexInfos) {
+			for (int i=0 ; indexInfos!=null && i<indexInfos.length ; i++) {
+				String indexInfo = indexInfos[i];
+				
 				if (StringUtil.isEmpty(indexInfo)) {
 					continue;
 				}
