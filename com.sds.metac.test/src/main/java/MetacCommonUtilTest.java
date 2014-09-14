@@ -6,6 +6,8 @@ import java.util.Map;
 
 import org.junit.Test;
 
+import com.sds.metac.util.MetacCommonUtil;
+
 
 public class MetacCommonUtilTest {
 	static Map<String, String> keyMap = new HashMap<String, String>();
