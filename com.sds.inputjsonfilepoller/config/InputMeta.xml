@@ -3,7 +3,7 @@
   <tns:metaType>json</tns:metaType>
   <tns:configuration>
     <tns:inputFilesPath>./inputfiles</tns:inputFilesPath>
-    <tns:standardFileName>Standard</tns:standardFileName>
-    <tns:commonCodeFileName>CommonCode</tns:commonCodeFileName>
+    <tns:standardFileName>행정데이터표준용어사전정보_new</tns:standardFileName>
+    <tns:commonCodeFileName>열린데이터광장서비스목록_new</tns:commonCodeFileName>
   </tns:configuration>
 </tns:inputMeta>

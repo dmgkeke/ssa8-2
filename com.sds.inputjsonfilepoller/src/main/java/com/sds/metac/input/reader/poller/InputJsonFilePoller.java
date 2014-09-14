@@ -84,8 +84,11 @@ public class InputJsonFilePoller implements InputPoller {
 				Iterator<CustomVO> it = customList.iterator();
 				while(it.hasNext()) {
 					CustomVO cstTmp 		= it.next();
-					String standardKey 		= cstTmp.getCATEGORY_NM_KR();
-					String standardValue 	= cstTmp.getCATEGORY_NM_EN();
+//					String standardKey 		= cstTmp.getCATEGORY_NM_KR();
+//					String standardValue 	= cstTmp.getCATEGORY_NM_EN();
+					
+					String standardKey 		= cstTmp.getOBJ_KNM();
+					String standardValue 	= cstTmp.getOBJ_ENM();
 					
 					addStandardVO(standardKey, standardValue);		
 				}
@@ -96,6 +99,7 @@ public class InputJsonFilePoller implements InputPoller {
 			standardIter 	= standardVOList.iterator();
 			
 		} catch (Exception e) {
+			e.printStackTrace();
 			throw new MetaCException(this.getClass()+".generateStnVOList()");
 		}		
 	}
@@ -127,9 +131,13 @@ public class InputJsonFilePoller implements InputPoller {
 				while(it.hasNext()) {
 					CustomVO cstTmp 		= it.next();
 					
-					String groupName 	= cstTmp.getCATEGORY_NM_KR();
-					String groupKey 		= cstTmp.getSECTION_NM_KR();
-					String groupValue 		= cstTmp.getSECTION_CD();
+//					String groupName 	= cstTmp.getCATEGORY_NM_KR();
+//					String groupKey 		= cstTmp.getSECTION_NM_KR();
+//					String groupValue 		= cstTmp.getSECTION_CD();
+					
+					String groupName 	= cstTmp.getPAR_INFO_TYPE_NM();
+					String groupKey 		= cstTmp.getDB_NM();
+					String groupValue 		= cstTmp.getINF_ID();
 					
 					addGroupVO(groupName, groupKey, groupValue);		
 				}
@@ -140,6 +148,7 @@ public class InputJsonFilePoller implements InputPoller {
 			groupIter 		= groupVOList.iterator();
 			
 		} catch (Exception e) {
+			e.printStackTrace();
 			throw new MetaCException(this.getClass()+".generateGrpVOList()");
 		}
 	}
