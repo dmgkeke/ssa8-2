@@ -1,0 +1,8 @@
+
+public class $className {
+
+	#foreach($code in $codes)
+	public static final String $code.codeName = "$code.codeValue";
+	#end
+	
+}

@@ -109,7 +109,7 @@ public class OutputEnumWriter implements OutputJavaWriter {
 		constructor.param(String.class, CODEVALUE_FIELD_NAME);
 		constructor.body().assign(_this().ref(codeValue), codeValue);
 		
-		JMethod getCodeValue = definedClass.method(JMod.PUBLIC, String.class, "get" + getFirstLetterToUpperCase(CODEVALUE_FIELD_NAME));
+		JMethod getCodeValue = definedClass.method(JMod.PUBLIC, String.class, "get" + StringUtil.replaceUpperCaseToFirstChar(CODEVALUE_FIELD_NAME));
 		getCodeValue.body()._return(JExpr._this().ref(codeValue));
 	}
 	
@@ -119,10 +119,6 @@ public class OutputEnumWriter implements OutputJavaWriter {
 	
 	private Map<String, String> getCodeMap() {
 		return groupVO.getCodeMap();
-	}
-	
-	private String getFirstLetterToUpperCase(String fieldName) {
-		return fieldName.substring(0, 1).toUpperCase() + fieldName.substring(1);
 	}
 	
 	private String convertStandardStr() {
