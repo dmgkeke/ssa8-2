@@ -706,3 +706,130 @@ java.lang.NullPointerException
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+DEBUG   2014-09-13 22:38:48,300 [main] com.sds.metac.core.Core  - Input Reader 생성
+DEBUG   2014-09-13 22:38:48,589 [main] com.sds.metac.core.Core  - Input Writer 생성
+DEBUG   2014-09-13 22:38:48,594 [main] com.sds.metac.core.Core  - Input 처리
+DEBUG   2014-09-13 22:38:48,595 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI|AFI
+DEBUG   2014-09-13 22:38:48,672 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - ISO|ISO
+DEBUG   2014-09-13 22:38:48,675 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - JSON|JSON
+DEBUG   2014-09-13 22:38:48,680 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - SOAP|SOAP
+DEBUG   2014-09-13 22:38:48,684 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - VO|VO
+DEBUG   2014-09-13 22:38:48,687 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - XML|XML
+DEBUG   2014-09-13 22:38:48,693 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 값|VALUE
+DEBUG   2014-09-13 22:38:48,697 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 고정|FIXED
+DEBUG   2014-09-13 22:38:48,701 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 맵|MAP
+DEBUG   2014-09-13 22:38:48,710 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 메세지|MESSAGE
+DEBUG   2014-09-13 22:38:48,716 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 미|NOT
+DEBUG   2014-09-13 22:38:48,722 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 안함|NOT
+DEBUG   2014-09-13 22:38:48,727 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 엑셀|EXCEL
+DEBUG   2014-09-13 22:38:48,731 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 인터페이스|INTERFACE
+DEBUG   2014-09-13 22:38:48,736 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 정의|DEFINE
+DEBUG   2014-09-13 22:38:48,741 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 키|KEY
+DEBUG   2014-09-13 22:38:48,748 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 타입|TYPE
+DEBUG   2014-09-13 22:38:48,753 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 패턴|PATTERN
+DEBUG   2014-09-13 22:38:48,762 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|00|정의안함
+DEBUG   2014-09-13 22:38:48,763 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|01|고정
+DEBUG   2014-09-13 22:38:48,763 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|02|JSON
+DEBUG   2014-09-13 22:38:48,763 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|03|XML
+DEBUG   2014-09-13 22:38:48,763 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|04|VO
+DEBUG   2014-09-13 22:38:48,764 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|05|SOAP
+DEBUG   2014-09-13 22:38:48,764 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|06|키값
+DEBUG   2014-09-13 22:38:48,764 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|07|ISO
+DEBUG   2014-09-13 22:38:48,764 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|08|엑셀
+DEBUG   2014-09-13 22:38:48,764 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|09|맵
+DEBUG   2014-09-13 22:38:48,776 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 연계패턴정보|1|전문TO전문
+DEBUG   2014-09-13 22:38:48,776 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 연계패턴정보|2|단말TOMCI
+DEBUG   2014-09-13 22:38:48,777 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 연계패턴정보|3|DBTODB
+DEBUG   2014-09-13 22:38:48,777 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 연계패턴정보|4|DBTO전문
+DEBUG   2014-09-13 22:38:48,777 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 연계패턴정보|5|전문TODB
+DEBUG   2014-09-13 22:38:48,783 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - 인덱싱 작업을 시작합니다.
+DEBUG   2014-09-13 22:38:48,784 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [0]stn_44050.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 22:38:48,791 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [1]stn_44256.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 22:38:48,798 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [2]stn_47605.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 22:38:48,805 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [3]stn_47700.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 22:38:48,810 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [4]stn_48120.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 22:38:48,815 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [5]stn_50504.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 22:38:48,825 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [6]stn_50641.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 22:38:48,833 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [7]stn_51064.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 22:38:48,840 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [8]stn_51221.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 22:38:48,847 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [9]stn_53412.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 22:38:48,852 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [10]stn_53440.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 22:38:48,864 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [11]stn_54056.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 22:38:48,876 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [12]stn_65.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 22:38:48,884 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [13]stn_73.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 22:38:48,893 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [14]stn_74.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 22:38:48,900 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [15]stn_83.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 22:38:48,911 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [16]stn_86.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 22:38:48,919 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [17]stn_88.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-13 22:38:48,930 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - 인덱싱 작업을 종료합니다.
+DEBUG   2014-09-13 22:38:48,931 [main] com.sds.metac.core.Core  - Output Reader 생성
+DEBUG   2014-09-13 22:38:48,936 [main] com.sds.metac.core.Core  - Output Writer 생성
+DEBUG   2014-09-13 22:38:49,071 [main] com.sds.metac.exception.MetaCException  - 
+javax.xml.bind.UnmarshalException: unexpected element (uri:"http://www.samsung.com/sds/ssa8-2/outputWriterConfig", local:"outputWriterConfig"). Expected elements are <{http://www.example.org/information}outputWriterConfig>
+	at com.sun.xml.internal.bind.v2.runtime.unmarshaller.UnmarshallingContext.handleEvent(UnmarshallingContext.java:647)
+	at com.sun.xml.internal.bind.v2.runtime.unmarshaller.Loader.reportError(Loader.java:243)
+	at com.sun.xml.internal.bind.v2.runtime.unmarshaller.Loader.reportError(Loader.java:238)
+	at com.sun.xml.internal.bind.v2.runtime.unmarshaller.Loader.reportUnexpectedChildElement(Loader.java:105)
+	at com.sun.xml.internal.bind.v2.runtime.unmarshaller.UnmarshallingContext$DefaultRootLoader.childElement(UnmarshallingContext.java:1048)
+	at com.sun.xml.internal.bind.v2.runtime.unmarshaller.UnmarshallingContext._startElement(UnmarshallingContext.java:483)
+	at com.sun.xml.internal.bind.v2.runtime.unmarshaller.UnmarshallingContext.startElement(UnmarshallingContext.java:465)
+	at com.sun.xml.internal.bind.v2.runtime.unmarshaller.SAXConnector.startElement(SAXConnector.java:135)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.startElement(AbstractSAXParser.java:509)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.scanStartElement(XMLNSDocumentScannerImpl.java:378)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl$NSContentDriver.scanRootElementHook(XMLNSDocumentScannerImpl.java:604)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:3130)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:880)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:606)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:117)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:510)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:848)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:777)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:649)
+	at com.sun.xml.internal.bind.v2.runtime.unmarshaller.UnmarshallerImpl.unmarshal0(UnmarshallerImpl.java:203)
+	at com.sun.xml.internal.bind.v2.runtime.unmarshaller.UnmarshallerImpl.unmarshal(UnmarshallerImpl.java:175)
+	at javax.xml.bind.helpers.AbstractUnmarshallerImpl.unmarshal(AbstractUnmarshallerImpl.java:157)
+	at javax.xml.bind.helpers.AbstractUnmarshallerImpl.unmarshal(AbstractUnmarshallerImpl.java:162)
+	at javax.xml.bind.helpers.AbstractUnmarshallerImpl.unmarshal(AbstractUnmarshallerImpl.java:171)
+	at javax.xml.bind.helpers.AbstractUnmarshallerImpl.unmarshal(AbstractUnmarshallerImpl.java:189)
+	at com.sds.metac.file.FileManager.createObjectFromXml(FileManager.java:90)
+	at com.sds.metac.file.FileManager.readXmlFile(FileManager.java:74)
+	at com.sds.metac.file.FileManager.readConfigXmlFile(FileManager.java:53)
+	at com.sds.metac.config.OutputConfigManager.readOutputWriterConfig(OutputConfigManager.java:26)
+	at com.sds.metac.config.OutputConfigManager.<init>(OutputConfigManager.java:14)
+	at com.sds.metac.config.OutputConfigManager.<clinit>(OutputConfigManager.java:7)
+	at com.sds.metac.output.writer.java.OutputEnumWriter.<clinit>(OutputEnumWriter.java:33)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:526)
+	at java.lang.Class.newInstance(Class.java:374)
+	at com.sds.metac.core.MetaCClassLoader.createInstance(MetaCClassLoader.java:62)
+	at com.sds.metac.core.MetaCClassLoader.createInstance(MetaCClassLoader.java:27)
+	at com.sds.metac.output.writer.OutputWriterFactory.getOutputWriter(OutputWriterFactory.java:15)
+	at com.sds.metac.core.Core.doProcess(Core.java:47)
+	at Tester.coreTest(Tester.java:12)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)

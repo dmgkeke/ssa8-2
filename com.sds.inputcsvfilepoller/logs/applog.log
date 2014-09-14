@@ -1,0 +1,42 @@
+DEBUG   2014-09-14 23:33:50,988 [main] com.sds.metac.input.reader.poller.InputReadConifgTest  - AFI|AFI
+DEBUG   2014-09-14 23:33:50,989 [main] com.sds.metac.input.reader.poller.InputReadConifgTest  - Î©îÏÑ∏Ïß?MESSAGE
+DEBUG   2014-09-14 23:33:50,989 [main] com.sds.metac.input.reader.poller.InputReadConifgTest  - 
+DEBUG   2014-09-14 23:33:50,989 [main] com.sds.metac.input.reader.poller.InputReadConifgTest  - 
+DEBUG   2014-09-14 23:33:50,990 [main] com.sds.metac.input.reader.poller.InputReadConifgTest  - ??ûÖ|TYPE
+DEBUG   2014-09-14 23:33:50,990 [main] com.sds.metac.input.reader.poller.InputReadConifgTest  - ?ïÏùò|DEFINE
+DEBUG   2014-09-14 23:33:50,990 [main] com.sds.metac.input.reader.poller.InputReadConifgTest  - ?àÌï®|NOT
+DEBUG   2014-09-14 23:33:50,990 [main] com.sds.metac.input.reader.poller.InputReadConifgTest  - ÎØ?NOT
+DEBUG   2014-09-14 23:33:50,990 [main] com.sds.metac.input.reader.poller.InputReadConifgTest  - Í≥†Ï†ï|FIXED
+DEBUG   2014-09-14 23:33:50,991 [main] com.sds.metac.input.reader.poller.InputReadConifgTest  - JSON|JSON
+DEBUG   2014-09-14 23:33:50,991 [main] com.sds.metac.input.reader.poller.InputReadConifgTest  - XML|XML
+DEBUG   2014-09-14 23:33:50,991 [main] com.sds.metac.input.reader.poller.InputReadConifgTest  - VO|VO
+DEBUG   2014-09-14 23:33:50,991 [main] com.sds.metac.input.reader.poller.InputReadConifgTest  - SOAP|SOAP
+DEBUG   2014-09-14 23:33:50,992 [main] com.sds.metac.input.reader.poller.InputReadConifgTest  - ??KEY
+DEBUG   2014-09-14 23:33:50,992 [main] com.sds.metac.input.reader.poller.InputReadConifgTest  - Í∞?VALUE
+DEBUG   2014-09-14 23:33:50,992 [main] com.sds.metac.input.reader.poller.InputReadConifgTest  - ISO|ISO
+DEBUG   2014-09-14 23:33:50,998 [main] com.sds.metac.input.reader.poller.InputReadConifgTest  - ?ëÏ?|EXCEL
+DEBUG   2014-09-14 23:33:50,998 [main] com.sds.metac.input.reader.poller.InputReadConifgTest  - Îß?MAP
+DEBUG   2014-09-14 23:33:50,999 [main] com.sds.metac.input.reader.poller.InputReadConifgTest  - ?∏ÌÑ∞?òÏù¥??INTERFACE
+DEBUG   2014-09-14 23:33:50,999 [main] com.sds.metac.input.reader.poller.InputReadConifgTest  - ?®ÌÑ¥|PATTERN
+DEBUG   2014-09-14 23:33:51,007 [main] com.sds.metac.exception.MetaCException  - !!! IOException - hasNextStandard()
+DEBUG   2014-09-14 23:35:39,206 [main] com.sds.metac.input.reader.poller.InputReadConifgTest  - AFI|AFI
+DEBUG   2014-09-14 23:35:39,208 [main] com.sds.metac.input.reader.poller.InputReadConifgTest  - Î©îÏÑ∏Ïß?MESSAGE
+DEBUG   2014-09-14 23:35:39,208 [main] com.sds.metac.input.reader.poller.InputReadConifgTest  - 
+DEBUG   2014-09-14 23:35:39,208 [main] com.sds.metac.input.reader.poller.InputReadConifgTest  - 
+DEBUG   2014-09-14 23:35:39,208 [main] com.sds.metac.input.reader.poller.InputReadConifgTest  - ??ûÖ|TYPE
+DEBUG   2014-09-14 23:35:39,208 [main] com.sds.metac.input.reader.poller.InputReadConifgTest  - ?ïÏùò|DEFINE
+DEBUG   2014-09-14 23:35:39,209 [main] com.sds.metac.input.reader.poller.InputReadConifgTest  - ?àÌï®|NOT
+DEBUG   2014-09-14 23:35:39,209 [main] com.sds.metac.input.reader.poller.InputReadConifgTest  - ÎØ?NOT
+DEBUG   2014-09-14 23:35:39,209 [main] com.sds.metac.input.reader.poller.InputReadConifgTest  - Í≥†Ï†ï|FIXED
+DEBUG   2014-09-14 23:35:39,209 [main] com.sds.metac.input.reader.poller.InputReadConifgTest  - JSON|JSON
+DEBUG   2014-09-14 23:35:39,209 [main] com.sds.metac.input.reader.poller.InputReadConifgTest  - XML|XML
+DEBUG   2014-09-14 23:35:39,209 [main] com.sds.metac.input.reader.poller.InputReadConifgTest  - VO|VO
+DEBUG   2014-09-14 23:35:39,210 [main] com.sds.metac.input.reader.poller.InputReadConifgTest  - SOAP|SOAP
+DEBUG   2014-09-14 23:35:39,210 [main] com.sds.metac.input.reader.poller.InputReadConifgTest  - ??KEY
+DEBUG   2014-09-14 23:35:39,210 [main] com.sds.metac.input.reader.poller.InputReadConifgTest  - Í∞?VALUE
+DEBUG   2014-09-14 23:35:39,210 [main] com.sds.metac.input.reader.poller.InputReadConifgTest  - ISO|ISO
+DEBUG   2014-09-14 23:35:39,212 [main] com.sds.metac.input.reader.poller.InputReadConifgTest  - ?ëÏ?|EXCEL
+DEBUG   2014-09-14 23:35:39,212 [main] com.sds.metac.input.reader.poller.InputReadConifgTest  - Îß?MAP
+DEBUG   2014-09-14 23:35:39,212 [main] com.sds.metac.input.reader.poller.InputReadConifgTest  - ?∏ÌÑ∞?òÏù¥??INTERFACE
+DEBUG   2014-09-14 23:35:39,212 [main] com.sds.metac.input.reader.poller.InputReadConifgTest  - ?®ÌÑ¥|PATTERN
+DEBUG   2014-09-14 23:35:39,219 [main] com.sds.metac.exception.MetaCException  - !!! IOException - hasNextStandard()

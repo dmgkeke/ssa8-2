@@ -3,6 +3,8 @@ package com.sds.metac.output.reader.impl;
 import java.io.File;
 import java.util.SortedMap;
 
+import org.apache.log4j.Logger;
+
 import com.jramoyo.io.IndexedFileReader;
 import com.sds.metac.cache.CacheEvent;
 import com.sds.metac.config.ConfigManager;
@@ -15,6 +17,8 @@ import com.sds.metac.vo.core.IndexDataVO;
 import com.sds.metac.vo.domain.StandardVO;
 
 public class StandardFileEvent implements CacheEvent<StandardVO> {
+	
+	private static final Logger log = Logger.getLogger(StandardFileEvent.class);
 	
 	ConfigManager configManager = ConfigManager.INSTANCE;
 	FileManager fileManager = FileManager.INSTANCE;
@@ -63,7 +67,8 @@ public class StandardFileEvent implements CacheEvent<StandardVO> {
 			
 			// indexVO 가 null 이면 에러
 			if (indexVO == null) {
-				throw new MetaCException("표준용어 [" + name + "]에 해당하는 값을 찾을 수 없습니다.");
+				log.debug("표준용어 [" + name + "]에 해당하는 값을 찾을 수 없습니다.");
+				return null;
 			}
 			
 			// 실제 표준용어 파일에 있는 위치를 읽는다
