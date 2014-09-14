@@ -110,4 +110,71 @@ public class StringUtil {
 
 		return result;
 	}
+	
+	/**
+	 * 첫번째 문자를 대문자로 변경한다.
+	 * 
+	 * @param str
+	 * @return
+	 */
+	public static String replaceUpperCaseToFirstChar(String str) {
+		if (isEmpty(str)) {
+			return str;
+		}
+		
+		return splitStr(str, 1).toUpperCase() + splitStrOfIndex(str, 1);
+	}
+	
+	/**
+	 * 첫번째 문자를 소문자로 변경한다.
+	 * 
+	 * @param str
+	 * @return
+	 */
+	public static String replaceLowerCaseToFirstChar(String str) {
+		if (isEmpty(str)) {
+			return str;
+		}
+		
+		return splitStr(str, 1).toLowerCase() + splitStrOfIndex(str, 1);
+	}
+	
+	/**
+	 * Underscore형태의 문자열을 CamelCase로 변경한다.
+	 * 
+	 * @param str
+	 * @return
+	 */
+	public static String convertUnderscoreToCamel(String str) {
+		StringBuffer sb = new StringBuffer();
+		
+		if (isEmpty(str)) {
+			return str;
+		}
+		
+		for (String splitStr : str.split("_")) {
+			if(isNotEmpty(str)) {
+				splitStr = splitStr.toLowerCase();
+				sb.append(replaceUpperCaseToFirstChar(splitStr));
+			}
+		}
+		
+		
+		return sb.toString();
+	}
+	
+	/**
+	 * CamelCase형태의 문자열을 Underscore형태로 변경한다.
+	 * 
+	 * @param str
+	 * @return
+	 */
+	public static String convertCamelToUnderscore(String str) {
+		if (isEmpty(str)) {
+			return str;
+		}
+		
+		return str.replaceAll("(.)([A-Z]+)", "$1_$2").toUpperCase();
+	}
+	
 }
