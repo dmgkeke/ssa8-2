@@ -47,45 +47,7 @@ public class InputReadConifgTest {
 	@Test
 	public void test() throws ParserConfigurationException, SAXException,
 			IOException {
-		boolean isHeaderWrod = true;
-		boolean isHeaderCode = true;
-		boolean isNextStandard = false;
-		BufferedReader bufferedReaderWord = new BufferedReader(new FileReader(
-				"./inputfiles/word.csv"));
-		try {
-			while (true) {
-				String readLine = bufferedReaderWord.readLine();
-				// 중간에 공백이 생기는 부분 처리
-				if (StringUtil.isEmpty(readLine)) {
-					while (true) {
-						readLine = bufferedReaderWord.readLine();
-						if (readLine == null) {
-							isNextStandard = false;
-							bufferedReaderWord.close();
-						} else {
-							break;
-						}
-					}
-				}
-				if (readLine == null) {
-					isNextStandard = false;
-					bufferedReaderWord.close();
-				} else {
-					// 파일에 타이틀이 포함된경우, 한줄을 더읽음
-					if (isHeaderWrod) {
-						readLine = bufferedReaderWord.readLine();
-						isHeaderWrod = false;
-					}
-					logger.debug(readLine);
-					standardVO = new StandardVO(readLine.split(splitter)[0],
-							readLine.split(splitter)[0]);
-					isNextStandard = true;
-				}
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-			throw new MetaCException("!!! IOException - hasNextStandard()");
-		}
+
 	}
 
 }
