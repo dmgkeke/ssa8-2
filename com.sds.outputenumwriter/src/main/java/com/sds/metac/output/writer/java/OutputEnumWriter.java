@@ -60,6 +60,7 @@ public class OutputEnumWriter implements OutputJavaWriter {
 				
 				if(StringUtil.isEmpty(standardCodeName)) {
 					logger.debug("Enum 으로 변환실패 : " + groupVO);
+					return;
 				}
 				logger.debug("standardCodeName : " + standardCodeName);
 				createEnum();
@@ -143,7 +144,7 @@ public class OutputEnumWriter implements OutputJavaWriter {
 				standardStr += (standardStr != null)?"_":"" + result.getValue();
 			}
 			
-			if(standardStr != null) {
+			if(StringUtil.isNotEmpty(standardCodeName)) {
 				switch (CONFIG.getVariableSyntax()) {
 				case CAMEL_CASE:
 					return StringUtil.convertUnderscoreToCamel(standardStr);
