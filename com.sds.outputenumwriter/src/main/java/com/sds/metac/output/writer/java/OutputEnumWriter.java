@@ -56,7 +56,7 @@ public class OutputEnumWriter implements OutputJavaWriter {
 			if (standardReader != null && getCodeName() != null) {
 				// FIXME 일단 TOP-DOWN, 두글자 이상, underscore 방식으로 구현 
 				// 차후에 ConfigManager를 통하여 처리하도록 수정해야함
-				this.standardCodeName = convertStandardStr();
+				this.standardCodeName = convertStandardStr(getCodeName());
 				
 				logger.debug("standardCodeName : " + standardCodeName);
 				if(StringUtil.isEmpty(standardCodeName)) {
@@ -93,17 +93,17 @@ public class OutputEnumWriter implements OutputJavaWriter {
 
 	private void createEnumConstant() throws JClassAlreadyExistsException{
 		for (String key : getCodeMap().keySet()) {
-			StandardVO standardVO = standardReader.getStandardVO(key);
+			String variableStr = convertStandardStr(key);
 			
-			if(standardVO == null) {
-				logger.debug(key + "에 매칭되는 값을 찾을 수 없습니다.");
+			if(StringUtil.isEmpty(variableStr)) {
+				logger.debug(variableStr + "에 매칭되는 값을 찾을 수 없습니다.");
 				continue;
 			}
 			
-			JEnumConstant enumConstant = definedClass.enumConstant(standardVO.getValue());
+			JEnumConstant enumConstant = definedClass.enumConstant(variableStr);
 			enumConstant.arg(lit(getCodeMap().get(key)));
 			
-			enumConstant.javadoc().append(standardVO.getValue());
+			enumConstant.javadoc().append(variableStr);
 		}
 	}
 	
@@ -127,11 +127,10 @@ public class OutputEnumWriter implements OutputJavaWriter {
 		return groupVO.getCodeMap();
 	}
 	
-	private String convertStandardStr() {
-		String codeName = getCodeName();
+	private String convertStandardStr(String targetStr) {
 		String standardStr = "";
 		
-		List<List<String>> standardStrList = MetacCommonUtil.getStandardStrList(codeName, CONFIG.getMinCharSize(), CONFIG.getMetaFomula().value()); 
+		List<List<String>> standardStrList = MetacCommonUtil.getStandardStrList(targetStr, CONFIG.getMinCharSize(), CONFIG.getMetaFomula().value()); 
 		
 		for (List<String> row : standardStrList) {
 			for (String splitStr : row) {
