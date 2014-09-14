@@ -58,11 +58,11 @@ public class OutputEnumWriter implements OutputJavaWriter {
 				// 차후에 ConfigManager를 통하여 처리하도록 수정해야함
 				this.standardCodeName = convertStandardStr();
 				
+				logger.debug("standardCodeName : " + standardCodeName);
 				if(StringUtil.isEmpty(standardCodeName)) {
 					logger.debug("Enum 으로 변환실패 : " + groupVO);
 					return;
 				}
-				logger.debug("standardCodeName : " + standardCodeName);
 				createEnum();
 				
 				createEnumConstant();
@@ -140,11 +140,12 @@ public class OutputEnumWriter implements OutputJavaWriter {
 					standardStr = "";
 					break;
 				}
-				
-				standardStr += (standardStr != null)?"_":"" + result.getValue();
+				System.out.println(result.getName() + "," + result.getValue());
+				standardStr += (StringUtil.isNotEmpty(standardStr)?"_":"") + result.getValue();
+				System.out.println("standardStr!!!!!!!!!!!! : " + standardStr);
 			}
 			
-			if(StringUtil.isNotEmpty(standardCodeName)) {
+			if(StringUtil.isNotEmpty(standardStr)) {
 				switch (CONFIG.getVariableSyntax()) {
 				case CAMEL_CASE:
 					return StringUtil.convertUnderscoreToCamel(standardStr);
