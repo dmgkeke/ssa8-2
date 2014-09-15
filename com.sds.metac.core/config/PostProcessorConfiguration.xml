@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:postProcessorConfiguration 
+	xmlns:tns="http://www.samsung.com/sds/ssa8-2/PostProcessorConfiguration" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.samsung.com/sds/ssa8-2/PostProcessorConfiguration PostProcessorConfiguration.xsd ">
+  
+  <tns:programming>java</tns:programming>
+  <tns:compileConfiguration>
+    <tns:inputFilesPath>./outputFiles</tns:inputFilesPath>
+  </tns:compileConfiguration>
+  <tns:createJarConfiguration>
+    <tns:outputFilePath>./output</tns:outputFilePath>
+    <tns:fileName>test</tns:fileName>
+  </tns:createJarConfiguration>
+</tns:postProcessorConfiguration>

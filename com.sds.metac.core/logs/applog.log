@@ -1,0 +1,249 @@
+DEBUG   2014-09-16 00:06:51,670 [main] com.sds.metac.core.Core  - Input Reader 생성
+DEBUG   2014-09-16 00:06:51,903 [main] com.sds.metac.core.Core  - Input Writer 생성
+DEBUG   2014-09-16 00:06:51,907 [main] com.sds.metac.core.Core  - Input 처리
+DEBUG   2014-09-16 00:06:51,909 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI|AFI
+DEBUG   2014-09-16 00:06:51,993 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - DB|DB
+DEBUG   2014-09-16 00:06:51,995 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - ISO|ISO
+DEBUG   2014-09-16 00:06:51,996 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - JSON|JSON
+DEBUG   2014-09-16 00:06:51,998 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - MCI|MCI
+DEBUG   2014-09-16 00:06:52,000 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - SOAP|SOAP
+DEBUG   2014-09-16 00:06:52,001 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - TO|TO
+DEBUG   2014-09-16 00:06:52,003 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - VO|VO
+DEBUG   2014-09-16 00:06:52,005 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - XML|XML
+DEBUG   2014-09-16 00:06:52,009 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 값|VALUE
+DEBUG   2014-09-16 00:06:52,012 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 고정|FIXED
+DEBUG   2014-09-16 00:06:52,017 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 단말|TERMINAL
+DEBUG   2014-09-16 00:06:52,018 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 맵|MAP
+DEBUG   2014-09-16 00:06:52,020 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 메세지|MESSAGE
+DEBUG   2014-09-16 00:06:52,023 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 미|NOT
+DEBUG   2014-09-16 00:06:52,025 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 안함|NOT
+DEBUG   2014-09-16 00:06:52,026 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 엑셀|EXCEL
+DEBUG   2014-09-16 00:06:52,030 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 연계|INTEGRATION
+DEBUG   2014-09-16 00:06:52,031 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 인터페이스|INTERFACE
+DEBUG   2014-09-16 00:06:52,035 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 전문|INTGMESSAGE
+DEBUG   2014-09-16 00:06:52,037 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 정보|INFORMATION
+DEBUG   2014-09-16 00:06:52,040 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 정의|DEFINE
+DEBUG   2014-09-16 00:06:52,043 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 키|KEY
+DEBUG   2014-09-16 00:06:52,045 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 타입|TYPE
+DEBUG   2014-09-16 00:06:52,048 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 패턴|PATTERN
+DEBUG   2014-09-16 00:06:52,051 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|00|정의안함
+DEBUG   2014-09-16 00:06:52,052 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|01|고정
+DEBUG   2014-09-16 00:06:52,052 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|02|JSON
+DEBUG   2014-09-16 00:06:52,053 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|03|XML
+DEBUG   2014-09-16 00:06:52,053 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|04|VO
+DEBUG   2014-09-16 00:06:52,053 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|05|SOAP
+DEBUG   2014-09-16 00:06:52,053 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|06|키값
+DEBUG   2014-09-16 00:06:52,053 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|07|ISO
+DEBUG   2014-09-16 00:06:52,053 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|08|엑셀
+DEBUG   2014-09-16 00:06:52,053 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|09|맵
+DEBUG   2014-09-16 00:06:52,059 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 연계패턴정보|1|전문TO전문
+DEBUG   2014-09-16 00:06:52,059 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 연계패턴정보|2|단말TOMCI
+DEBUG   2014-09-16 00:06:52,059 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 연계패턴정보|3|DBTODB
+DEBUG   2014-09-16 00:06:52,059 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 연계패턴정보|4|DBTO전문
+DEBUG   2014-09-16 00:06:52,060 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 연계패턴정보|5|전문TODB
+DEBUG   2014-09-16 00:06:52,062 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - 인덱싱 작업을 시작합니다.
+DEBUG   2014-09-16 00:06:52,063 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [0]stn_44050.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:06:52,069 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [1]stn_44256.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:06:52,075 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [2]stn_45800.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:06:52,081 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [3]stn_47605.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:06:52,085 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [4]stn_47700.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:06:52,089 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [5]stn_48120.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:06:52,094 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [6]stn_50504.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:06:52,098 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [7]stn_50641.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:06:52,101 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [8]stn_50672.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:06:52,106 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [9]stn_51064.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:06:52,110 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [10]stn_51204.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:06:52,114 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [11]stn_51221.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:06:52,121 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [12]stn_53412.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:06:52,124 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [13]stn_53440.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:06:52,128 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [14]stn_54056.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:06:52,135 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [15]stn_65.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:06:52,139 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [16]stn_68.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:06:52,142 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [17]stn_73.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:06:52,147 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [18]stn_74.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:06:52,150 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [19]stn_77.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:06:52,156 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [20]stn_83.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:06:52,159 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [21]stn_84.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:06:52,164 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [22]stn_86.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:06:52,170 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [23]stn_88.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:06:52,174 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - 인덱싱 작업을 종료합니다.
+DEBUG   2014-09-16 00:06:52,174 [main] com.sds.metac.core.Core  - Output Reader 생성
+DEBUG   2014-09-16 00:06:52,179 [main] com.sds.metac.core.Core  - Output Writer 생성
+DEBUG   2014-09-16 00:06:52,221 [main] com.sds.metac.core.Core  - Output 처리
+DEBUG   2014-09-16 00:06:52,243 [main] com.sds.metac.output.writer.java.OutputEnumWriter  - Enum 으로 변환해라 : {name=AFI메세지타입, codeMap={고정=01, ISO=07, 맵=09, XML=03, 키값=06, 엑셀=08, VO=04, JSON=02, 정의안함=00, SOAP=05}, method=NEW, codeMethodMap={}}
+DEBUG   2014-09-16 00:06:52,310 [main] com.sds.metac.output.writer.java.OutputEnumWriter  - standardCodeName : AfiMessageType
+DEBUG   2014-09-16 00:06:52,368 [main] com.sds.metac.output.writer.java.OutputEnumWriter  - Enum 으로 변환성공 : {name=AFI메세지타입, codeMap={고정=01, ISO=07, 맵=09, XML=03, 키값=06, 엑셀=08, VO=04, JSON=02, 정의안함=00, SOAP=05}, method=NEW, codeMethodMap={}}
+DEBUG   2014-09-16 00:06:52,368 [main] com.sds.metac.output.writer.java.OutputEnumWriter  - AfiMessageType
+DEBUG   2014-09-16 00:06:52,369 [main] com.sds.metac.output.writer.java.OutputEnumWriter  - Enum 으로 변환해라 : {name=연계패턴정보, codeMap={전문TO전문=1, DBTODB=3, DBTO전문=4, 단말TOMCI=2, 전문TODB=5}, method=NEW, codeMethodMap={}}
+DEBUG   2014-09-16 00:06:52,381 [main] com.sds.metac.output.writer.java.OutputEnumWriter  - standardCodeName : IntegrationPatternInformation
+DEBUG   2014-09-16 00:06:52,425 [main] com.sds.metac.output.writer.java.OutputEnumWriter  - Enum 으로 변환성공 : {name=연계패턴정보, codeMap={전문TO전문=1, DBTODB=3, DBTO전문=4, 단말TOMCI=2, 전문TODB=5}, method=NEW, codeMethodMap={}}
+DEBUG   2014-09-16 00:06:52,425 [main] com.sds.metac.output.writer.java.OutputEnumWriter  - IntegrationPatternInformation
+DEBUG   2014-09-16 00:06:52,425 [main] com.sds.metac.core.Core  - 후속처리
+DEBUG   2014-09-16 00:06:52,430 [main] com.sds.metac.post.PostJavaProcessor  - 컴파일을 수행한다
+DEBUG   2014-09-16 00:06:52,430 [main] com.sds.metac.post.PostJavaProcessor  - 패키징을 수행한다
+DEBUG   2014-09-16 00:17:38,486 [main] com.sds.metac.core.Core  - Input Reader 생성
+DEBUG   2014-09-16 00:17:38,711 [main] com.sds.metac.core.Core  - Input Writer 생성
+DEBUG   2014-09-16 00:17:38,715 [main] com.sds.metac.core.Core  - Input 처리
+DEBUG   2014-09-16 00:17:38,717 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI|AFI
+DEBUG   2014-09-16 00:17:38,814 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - DB|DB
+DEBUG   2014-09-16 00:17:38,816 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - ISO|ISO
+DEBUG   2014-09-16 00:17:38,818 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - JSON|JSON
+DEBUG   2014-09-16 00:17:38,820 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - MCI|MCI
+DEBUG   2014-09-16 00:17:38,822 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - SOAP|SOAP
+DEBUG   2014-09-16 00:17:38,823 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - TO|TO
+DEBUG   2014-09-16 00:17:38,827 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - VO|VO
+DEBUG   2014-09-16 00:17:38,828 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - XML|XML
+DEBUG   2014-09-16 00:17:38,830 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 값|VALUE
+DEBUG   2014-09-16 00:17:38,833 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 고정|FIXED
+DEBUG   2014-09-16 00:17:38,837 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 단말|TERMINAL
+DEBUG   2014-09-16 00:17:38,841 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 맵|MAP
+DEBUG   2014-09-16 00:17:38,842 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 메세지|MESSAGE
+DEBUG   2014-09-16 00:17:38,844 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 미|NOT
+DEBUG   2014-09-16 00:17:38,846 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 안함|NOT
+DEBUG   2014-09-16 00:17:38,847 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 엑셀|EXCEL
+DEBUG   2014-09-16 00:17:38,851 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 연계|INTEGRATION
+DEBUG   2014-09-16 00:17:38,853 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 인터페이스|INTERFACE
+DEBUG   2014-09-16 00:17:38,856 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 전문|INTGMESSAGE
+DEBUG   2014-09-16 00:17:38,858 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 정보|INFORMATION
+DEBUG   2014-09-16 00:17:38,859 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 정의|DEFINE
+DEBUG   2014-09-16 00:17:38,863 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 키|KEY
+DEBUG   2014-09-16 00:17:38,866 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 타입|TYPE
+DEBUG   2014-09-16 00:17:38,868 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 패턴|PATTERN
+DEBUG   2014-09-16 00:17:38,872 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|00|정의안함
+DEBUG   2014-09-16 00:17:38,873 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|01|고정
+DEBUG   2014-09-16 00:17:38,873 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|02|JSON
+DEBUG   2014-09-16 00:17:38,873 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|03|XML
+DEBUG   2014-09-16 00:17:38,874 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|04|VO
+DEBUG   2014-09-16 00:17:38,874 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|05|SOAP
+DEBUG   2014-09-16 00:17:38,874 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|06|키값
+DEBUG   2014-09-16 00:17:38,874 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|07|ISO
+DEBUG   2014-09-16 00:17:38,874 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|08|엑셀
+DEBUG   2014-09-16 00:17:38,874 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|09|맵
+DEBUG   2014-09-16 00:17:38,879 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 연계패턴정보|1|전문TO전문
+DEBUG   2014-09-16 00:17:38,880 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 연계패턴정보|2|단말TOMCI
+DEBUG   2014-09-16 00:17:38,880 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 연계패턴정보|3|DBTODB
+DEBUG   2014-09-16 00:17:38,880 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 연계패턴정보|4|DBTO전문
+DEBUG   2014-09-16 00:17:38,880 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 연계패턴정보|5|전문TODB
+DEBUG   2014-09-16 00:17:38,883 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - 인덱싱 작업을 시작합니다.
+DEBUG   2014-09-16 00:17:38,883 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [0]stn_44050.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:17:38,890 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [1]stn_44256.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:17:38,896 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [2]stn_45800.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:17:38,900 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [3]stn_47605.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:17:38,905 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [4]stn_47700.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:17:38,909 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [5]stn_48120.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:17:38,915 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [6]stn_50504.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:17:38,920 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [7]stn_50641.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:17:38,927 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [8]stn_50672.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:17:38,931 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [9]stn_51064.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:17:38,938 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [10]stn_51204.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:17:38,942 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [11]stn_51221.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:17:38,949 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [12]stn_53412.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:17:38,953 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [13]stn_53440.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:17:38,957 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [14]stn_54056.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:17:38,965 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [15]stn_65.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:17:38,972 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [16]stn_68.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:17:38,975 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [17]stn_73.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:17:38,979 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [18]stn_74.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:17:38,983 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [19]stn_77.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:17:38,987 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [20]stn_83.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:17:38,991 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [21]stn_84.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:17:38,994 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [22]stn_86.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:17:39,000 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [23]stn_88.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:17:39,006 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - 인덱싱 작업을 종료합니다.
+DEBUG   2014-09-16 00:17:39,006 [main] com.sds.metac.core.Core  - Output Reader 생성
+DEBUG   2014-09-16 00:17:39,013 [main] com.sds.metac.core.Core  - Output Writer 생성
+DEBUG   2014-09-16 00:17:39,066 [main] com.sds.metac.core.Core  - Output 처리
+DEBUG   2014-09-16 00:17:39,091 [main] com.sds.metac.output.writer.java.OutputEnumWriter  - Enum 으로 변환해라 : {name=AFI메세지타입, codeMap={고정=01, ISO=07, 맵=09, XML=03, 키값=06, 엑셀=08, VO=04, JSON=02, 정의안함=00, SOAP=05}, method=NEW, codeMethodMap={}}
+DEBUG   2014-09-16 00:17:39,171 [main] com.sds.metac.output.writer.java.OutputEnumWriter  - standardCodeName : AfiMessageType
+DEBUG   2014-09-16 00:17:39,231 [main] com.sds.metac.output.writer.java.OutputEnumWriter  - Enum 으로 변환성공 : {name=AFI메세지타입, codeMap={고정=01, ISO=07, 맵=09, XML=03, 키값=06, 엑셀=08, VO=04, JSON=02, 정의안함=00, SOAP=05}, method=NEW, codeMethodMap={}}
+DEBUG   2014-09-16 00:17:39,231 [main] com.sds.metac.output.writer.java.OutputEnumWriter  - AfiMessageType
+DEBUG   2014-09-16 00:17:39,234 [main] com.sds.metac.output.writer.java.OutputEnumWriter  - Enum 으로 변환해라 : {name=연계패턴정보, codeMap={전문TO전문=1, DBTODB=3, DBTO전문=4, 단말TOMCI=2, 전문TODB=5}, method=NEW, codeMethodMap={}}
+DEBUG   2014-09-16 00:17:39,247 [main] com.sds.metac.output.writer.java.OutputEnumWriter  - standardCodeName : IntegrationPatternInformation
+DEBUG   2014-09-16 00:17:39,288 [main] com.sds.metac.output.writer.java.OutputEnumWriter  - Enum 으로 변환성공 : {name=연계패턴정보, codeMap={전문TO전문=1, DBTODB=3, DBTO전문=4, 단말TOMCI=2, 전문TODB=5}, method=NEW, codeMethodMap={}}
+DEBUG   2014-09-16 00:17:39,288 [main] com.sds.metac.output.writer.java.OutputEnumWriter  - IntegrationPatternInformation
+DEBUG   2014-09-16 00:17:39,289 [main] com.sds.metac.core.Core  - 후속처리
+DEBUG   2014-09-16 00:17:39,293 [main] com.sds.metac.post.PostJavaProcessor  - 컴파일을 수행한다
+DEBUG   2014-09-16 00:17:39,294 [main] com.sds.metac.post.PostJavaProcessor  - 패키징을 수행한다
+DEBUG   2014-09-16 00:41:33,802 [main] com.sds.metac.core.Core  - Input Reader 생성
+DEBUG   2014-09-16 00:41:34,057 [main] com.sds.metac.core.Core  - Input Writer 생성
+DEBUG   2014-09-16 00:41:34,061 [main] com.sds.metac.core.Core  - Input 처리
+DEBUG   2014-09-16 00:41:34,062 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI|AFI
+DEBUG   2014-09-16 00:41:34,150 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - DB|DB
+DEBUG   2014-09-16 00:41:34,153 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - ISO|ISO
+DEBUG   2014-09-16 00:41:34,156 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - JSON|JSON
+DEBUG   2014-09-16 00:41:34,160 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - MCI|MCI
+DEBUG   2014-09-16 00:41:34,162 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - SOAP|SOAP
+DEBUG   2014-09-16 00:41:34,164 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - TO|TO
+DEBUG   2014-09-16 00:41:34,168 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - VO|VO
+DEBUG   2014-09-16 00:41:34,171 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - XML|XML
+DEBUG   2014-09-16 00:41:34,173 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 값|VALUE
+DEBUG   2014-09-16 00:41:34,174 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 고정|FIXED
+DEBUG   2014-09-16 00:41:34,176 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 단말|TERMINAL
+DEBUG   2014-09-16 00:41:34,178 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 맵|MAP
+DEBUG   2014-09-16 00:41:34,180 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 메세지|MESSAGE
+DEBUG   2014-09-16 00:41:34,181 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 미|NOT
+DEBUG   2014-09-16 00:41:34,183 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 안함|NOT
+DEBUG   2014-09-16 00:41:34,185 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 엑셀|EXCEL
+DEBUG   2014-09-16 00:41:34,187 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 연계|INTEGRATION
+DEBUG   2014-09-16 00:41:34,188 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 인터페이스|INTERFACE
+DEBUG   2014-09-16 00:41:34,192 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 전문|INTGMESSAGE
+DEBUG   2014-09-16 00:41:34,194 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 정보|INFORMATION
+DEBUG   2014-09-16 00:41:34,196 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 정의|DEFINE
+DEBUG   2014-09-16 00:41:34,200 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 키|KEY
+DEBUG   2014-09-16 00:41:34,202 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 타입|TYPE
+DEBUG   2014-09-16 00:41:34,204 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 패턴|PATTERN
+DEBUG   2014-09-16 00:41:34,206 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|00|정의안함
+DEBUG   2014-09-16 00:41:34,208 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|01|고정
+DEBUG   2014-09-16 00:41:34,208 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|02|JSON
+DEBUG   2014-09-16 00:41:34,208 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|03|XML
+DEBUG   2014-09-16 00:41:34,208 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|04|VO
+DEBUG   2014-09-16 00:41:34,208 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|05|SOAP
+DEBUG   2014-09-16 00:41:34,208 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|06|키값
+DEBUG   2014-09-16 00:41:34,209 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|07|ISO
+DEBUG   2014-09-16 00:41:34,209 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|08|엑셀
+DEBUG   2014-09-16 00:41:34,209 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - AFI메세지타입|09|맵
+DEBUG   2014-09-16 00:41:34,215 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 연계패턴정보|1|전문TO전문
+DEBUG   2014-09-16 00:41:34,216 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 연계패턴정보|2|단말TOMCI
+DEBUG   2014-09-16 00:41:34,216 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 연계패턴정보|3|DBTODB
+DEBUG   2014-09-16 00:41:34,216 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 연계패턴정보|4|DBTO전문
+DEBUG   2014-09-16 00:41:34,216 [main] com.sds.metac.input.reader.poller.InputCsvFilePoller  - 연계패턴정보|5|전문TODB
+DEBUG   2014-09-16 00:41:34,219 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - 인덱싱 작업을 시작합니다.
+DEBUG   2014-09-16 00:41:34,220 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [0]stn_44050.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:41:34,226 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [1]stn_44256.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:41:34,232 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [2]stn_45800.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:41:34,238 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [3]stn_47605.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:41:34,244 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [4]stn_47700.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:41:34,248 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [5]stn_48120.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:41:34,252 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [6]stn_50504.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:41:34,256 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [7]stn_50641.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:41:34,259 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [8]stn_50672.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:41:34,265 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [9]stn_51064.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:41:34,272 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [10]stn_51204.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:41:34,276 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [11]stn_51221.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:41:34,283 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [12]stn_53412.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:41:34,286 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [13]stn_53440.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:41:34,290 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [14]stn_54056.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:41:34,295 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [15]stn_65.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:41:34,298 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [16]stn_68.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:41:34,302 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [17]stn_73.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:41:34,306 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [18]stn_74.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:41:34,310 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [19]stn_77.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:41:34,314 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [20]stn_83.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:41:34,318 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [21]stn_84.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:41:34,323 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [22]stn_86.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:41:34,327 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - [23]stn_88.dat 파일 인덱싱 작업중입니다.
+DEBUG   2014-09-16 00:41:34,331 [main] com.sds.metac.input.writer.impl.InputIndexedFileWriter  - 인덱싱 작업을 종료합니다.
+DEBUG   2014-09-16 00:41:34,331 [main] com.sds.metac.core.Core  - Output Reader 생성
+DEBUG   2014-09-16 00:41:34,336 [main] com.sds.metac.core.Core  - Output Writer 생성
+DEBUG   2014-09-16 00:41:34,382 [main] com.sds.metac.core.Core  - Output 처리
+DEBUG   2014-09-16 00:41:34,402 [main] com.sds.metac.output.writer.java.OutputEnumWriter  - Enum 으로 변환해라 : {name=AFI메세지타입, codeMap={고정=01, ISO=07, 맵=09, XML=03, 키값=06, 엑셀=08, VO=04, JSON=02, 정의안함=00, SOAP=05}, method=NEW, codeMethodMap={}}
+DEBUG   2014-09-16 00:41:34,471 [main] com.sds.metac.output.writer.java.OutputEnumWriter  - standardCodeName : AfiMessageType
+DEBUG   2014-09-16 00:41:34,543 [main] com.sds.metac.output.writer.java.OutputEnumWriter  - Enum 으로 변환성공 : {name=AFI메세지타입, codeMap={고정=01, ISO=07, 맵=09, XML=03, 키값=06, 엑셀=08, VO=04, JSON=02, 정의안함=00, SOAP=05}, method=NEW, codeMethodMap={}}
+DEBUG   2014-09-16 00:41:34,544 [main] com.sds.metac.output.writer.java.OutputEnumWriter  - AfiMessageType
+DEBUG   2014-09-16 00:41:34,545 [main] com.sds.metac.output.writer.java.OutputEnumWriter  - Enum 으로 변환해라 : {name=연계패턴정보, codeMap={전문TO전문=1, DBTODB=3, DBTO전문=4, 단말TOMCI=2, 전문TODB=5}, method=NEW, codeMethodMap={}}
+DEBUG   2014-09-16 00:41:34,554 [main] com.sds.metac.output.writer.java.OutputEnumWriter  - standardCodeName : IntegrationPatternInformation
+DEBUG   2014-09-16 00:41:34,594 [main] com.sds.metac.output.writer.java.OutputEnumWriter  - Enum 으로 변환성공 : {name=연계패턴정보, codeMap={전문TO전문=1, DBTODB=3, DBTO전문=4, 단말TOMCI=2, 전문TODB=5}, method=NEW, codeMethodMap={}}
+DEBUG   2014-09-16 00:41:34,594 [main] com.sds.metac.output.writer.java.OutputEnumWriter  - IntegrationPatternInformation
+DEBUG   2014-09-16 00:41:34,594 [main] com.sds.metac.core.Core  - 후속처리
+DEBUG   2014-09-16 00:41:34,598 [main] com.sds.metac.post.PostJavaProcessor  - 컴파일을 수행한다
+DEBUG   2014-09-16 00:41:34,599 [main] com.sds.metac.post.PostJavaProcessor  - 패키징을 수행한다

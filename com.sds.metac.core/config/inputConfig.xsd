@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/information"
+	xmlns:tns="http://www.example.org/information" elementFormDefault="qualified">
+
+	<element name="inputConfig">
+		<complexType>
+			<sequence>
+				<element name="encoding" type="tns:Encoding"></element>
+				<element name="fileNameCode" type="string"></element>
+				<element name="fileNameWord" type="string"></element>
+				<element name="forder" type="string"></element>
+				<element name="inputType" type="tns:InputType"></element>
+				<element name="splitter" type="tns:Splitter"></element>
+				<element name="tempFilePath" type="string"></element>
+			</sequence>
+		</complexType>
+	</element>
+
+
+	<simpleType name="Encoding">
+		<restriction base="string">
+			<enumeration value="UTF-8"></enumeration>
+			<enumeration value="EUC-KR"></enumeration>
+			<enumeration value="ISO-8859-1"></enumeration>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="InputType">
+		<restriction base="string">
+			<enumeration value="CSV"></enumeration>
+			<enumeration value="JSON"></enumeration>
+			<enumeration value="XSL"></enumeration>
+			<enumeration value="TXT"></enumeration>
+		</restriction>
+	</simpleType>
+
+
+	<simpleType name="Splitter">
+		<restriction base="string">
+			<enumeration value="|"></enumeration>
+			<enumeration value="\t"></enumeration>
+			<enumeration value=";"></enumeration>
+			<enumeration value=":"></enumeration>
+		</restriction>
+	</simpleType>
+</schema>

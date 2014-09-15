@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<outputWriterConfig xmlns="http://www.example.org/information">
+
+	<metaFomula>topDown</metaFomula>
+	<variableSyntax>camelCase</variableSyntax>
+	<minCharSize>1</minCharSize>
+	<tempFilePath>outputFiles</tempFilePath>
+
+</outputWriterConfig>
