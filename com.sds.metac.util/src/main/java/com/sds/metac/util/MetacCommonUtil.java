@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.sds.metac.exception.MetaCException;
-import com.sds.metac.util.StringUtil;
 
 public class MetacCommonUtil {
 	// FIXME 현재는 Util 패키지에서 Impl config schema를 불러올 수 없으므로 일단 하드코딩
@@ -101,12 +100,15 @@ public class MetacCommonUtil {
 		if(row.size() > depth && StringUtil.isNotEmpty(row.get(depth))) {
 			rowClearFromDepth(row, depth);
 		}
-		
 		row.add(depth, str);
 	}
 	
 	private static void rowClearFromDepth(List<String> row, int depth) {
-		row.removeAll(row.subList(depth, row.size()));
+		for (int i = depth; i < row.size(); i++) {
+			row.remove(i);
+		}
+		
+//		row.removeAll(row.subList(depth, row.size()));
 	}
 	
 }

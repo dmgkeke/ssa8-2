@@ -103,7 +103,7 @@ public class OutputEnumWriter implements OutputJavaWriter {
 			JEnumConstant enumConstant = definedClass.enumConstant(variableStr);
 			enumConstant.arg(lit(getCodeMap().get(key)));
 			
-			enumConstant.javadoc().append(variableStr);
+			enumConstant.javadoc().append(key);
 		}
 	}
 	
@@ -139,9 +139,7 @@ public class OutputEnumWriter implements OutputJavaWriter {
 					standardStr = "";
 					break;
 				}
-				System.out.println(result.getName() + "," + result.getValue());
 				standardStr += (StringUtil.isNotEmpty(standardStr)?"_":"") + result.getValue();
-				System.out.println("standardStr!!!!!!!!!!!! : " + standardStr);
 			}
 			
 			if(StringUtil.isNotEmpty(standardStr)) {
