@@ -40,7 +40,7 @@
 
 				<configuration>
 					<finalName>UI</finalName>
-					<outputDirectory>/metac/ui/</outputDirectory>
+					<outputDirectory>/metac/deployee</outputDirectory>
 					<archive>
 						<manifest>
 							<mainClass>com.sds.metac.ui.launcher.UILauncher</mainClass>
@@ -78,10 +78,11 @@
 				</executions>
 				<configuration>
 					<!-- <outputDirectory>../com.sds.metac.test/implementation/lib</outputDirectory> -->
-					<outputDirectory>/metac/ui/lib</outputDirectory>
+					<outputDirectory>/metac/deployee/lib</outputDirectory>
 					<overWriteIfNewer>true</overWriteIfNewer>
 				</configuration>
 			</plugin>
+
 		</plugins>
 
 	</build>
