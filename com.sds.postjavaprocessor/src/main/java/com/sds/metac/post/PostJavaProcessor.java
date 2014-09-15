@@ -12,6 +12,7 @@ public class PostJavaProcessor implements PostProcessor {
 		compiler.compile();
 		logger.debug("패키징을 수행한다");
 		CreateJarFile createJar = new CreateJarFile();
+		createJar.createJarArchive();
 	}
 
 }
