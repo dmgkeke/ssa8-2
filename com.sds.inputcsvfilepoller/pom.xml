@@ -68,7 +68,7 @@
 					<finalName>InputCsvFilePoller</finalName>
 					<!-- 테스트용 -->
 					<!-- <outputDirectory>../com.sds.metac.test/implementation</outputDirectory> -->
-					<outputDirectory>/metac/impl</outputDirectory>
+					<outputDirectory>/metac/deployee/implementation</outputDirectory>
 					<archive>
 						<manifest>
 							<addClasspath>true</addClasspath>
@@ -93,7 +93,7 @@
 				</executions>
 				<configuration>
 					<!-- <outputDirectory>../com.sds.metac.test/implementation/lib</outputDirectory> -->
-					<outputDirectory>/metac/lib</outputDirectory>
+					<outputDirectory>/metac/deployee/lib</outputDirectory>
 					<overWriteIfNewer>true</overWriteIfNewer>
 				</configuration>
 			</plugin>
