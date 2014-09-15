@@ -45,7 +45,7 @@
 						<manifest>
 							<mainClass>com.sds.metac.ui.launcher.UILauncher</mainClass>
 							<addClasspath>true</addClasspath>
-							<classpathPrefix>ui/lib</classpathPrefix>
+							<classpathPrefix>lib/</classpathPrefix>
 						</manifest>
 					</archive>
 				</configuration>
