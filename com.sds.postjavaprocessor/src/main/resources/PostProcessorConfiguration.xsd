@@ -22,8 +22,8 @@
 	
 	<complexType name="compileConfiguration">
 		<all>
-			<element name="inputFilesPath" type="string" default="./inputfiles"/>
-			<element name="outputFilesPath" type="string" default="./inputfiles/classes"/>
+			<element name="inputFilesPath" type="string" default="./outputFiles"/>
+			<!-- <element name="outputFilesPath" type="string" default="./inputfiles/classes"/> -->
 		</all>
 	</complexType>
 	

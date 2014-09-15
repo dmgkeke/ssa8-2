@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.List;
 
 import javax.tools.JavaCompiler;
 import javax.tools.JavaFileObject;
@@ -46,11 +47,18 @@ public class CompileJavaFile {
 				}
 				return false;
 			}
-		};	
+		};
+		
+		List<String> options = null;/*new ArrayList<String>();
+		options.add("-d");
+		options.add(getOutBuildDir().getAbsolutePath());
+		options.add("-s");
+		options.add(getOutSrcDir().getAbsolutePath());
+		options.add("-verbose");*/
 		
 //		Iterable<? extends JavaFileObject> compilationUnits = javaFileManager.getJavaFileObjectsFromStrings(Arrays.asList(folder.list(filter)));
 		Iterable<? extends JavaFileObject> compilationUnits = javaFileManager.getJavaFileObjectsFromFiles(Arrays.asList(sourceFolder.listFiles((javaFileFilter))));
-		JavaCompiler.CompilationTask task = compiler.getTask(null, javaFileManager, null, null, null, compilationUnits);
+		JavaCompiler.CompilationTask task = compiler.getTask(null, javaFileManager, null, options, null, compilationUnits);
 		boolean success = task.call();
 		
 		try {
