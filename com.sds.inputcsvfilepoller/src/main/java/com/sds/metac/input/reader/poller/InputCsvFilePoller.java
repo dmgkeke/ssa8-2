@@ -32,19 +32,19 @@ public class InputCsvFilePoller implements InputPoller {
 	int countGroup = 0;
 
 	// 대상 파일 위치 및 설정값
-	final String filePathWord = "./inputfiles/word.csv";
-	// final String filePathWord = "./"
-	// + CONFIG_NAMAGER.getInputConfig().getForder() + "/"
-	// + CONFIG_NAMAGER.getInputConfig().getFileNameWord();
+	// final String filePathWord = "./inputfiles/word.csv";
+	final String filePathWord = "./"
+			+ CONFIG_NAMAGER.getInputConfig().getForder() + "/"
+			+ CONFIG_NAMAGER.getInputConfig().getFileNameWord();
 
-	final String filePathCode = "./inputfiles/code.csv";
-	// final String filePathCode = "./"
-	// + CONFIG_NAMAGER.getInputConfig().getForder() + "/"
-	// + CONFIG_NAMAGER.getInputConfig().getFileNameCode();
+	// final String filePathCode = "./inputfiles/code.csv";
+	final String filePathCode = "./"
+			+ CONFIG_NAMAGER.getInputConfig().getForder() + "/"
+			+ CONFIG_NAMAGER.getInputConfig().getFileNameCode();
 
-	final String splitter = "\\|";
-	// final String splitter = "\\"
-	// + CONFIG_NAMAGER.getInputConfig().getSplitter();
+	// final String splitter = "\\|";
+	final String splitter = "\\"
+			+ CONFIG_NAMAGER.getInputConfig().getSplitter();
 
 	boolean isHeaderWrod = true;
 	boolean isHeaderCode = true;
