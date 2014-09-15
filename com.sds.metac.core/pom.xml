@@ -50,8 +50,7 @@
 					<outputDirectory>/metac/deployee</outputDirectory>
 					<archive>
 						<manifest>
-							<!-- TODO :: 메인클래스 설정필요 UI 나 어디든... -->
-							<!-- <mainClass>com.sds.metac.core.Core</mainClass> -->
+							<mainClass>com.sds.metac.launcher.CoreLauncher</mainClass>
 							<addClasspath>true</addClasspath>
 							<classpathPrefix>lib/</classpathPrefix>
 						</manifest>
@@ -73,7 +72,7 @@
 					</execution>
 				</executions>
 				<configuration>
-					<outputDirectory>/metac/lib</outputDirectory>
+					<outputDirectory>/metac/deployee/lib</outputDirectory>
 					<overWriteIfNewer>true</overWriteIfNewer>
 				</configuration>
 			</plugin>
