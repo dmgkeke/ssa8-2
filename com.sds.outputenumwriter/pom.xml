@@ -70,7 +70,7 @@
 					<archive>
 						<manifest>
 							<addClasspath>true</addClasspath>
-							<classpathPrefix>/metac/deployee/lib/</classpathPrefix>
+							<classpathPrefix>deployee/lib/</classpathPrefix>
 						</manifest>
 					</archive>
 				</configuration>
