@@ -41,4 +41,9 @@ public enum InputCsvConfigManager {
 		fileManager.createFolder(forderName);
 		fileManager.deleteAllFiles(forderName);
 	}
+	
+	public void saveInputConfig() {
+		FileManager fileManager = FileManager.INSTANCE;
+		fileManager.writeConfigXmlFile(INPUT_CONFIG_FILE_NAME, inputConfig);
+	}
 }

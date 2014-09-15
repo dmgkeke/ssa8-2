@@ -1,5 +1,7 @@
 package com.sds.metac.ui.swing.tab;
 
+import java.awt.Component;
+
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
@@ -25,6 +27,12 @@ public class MainTab extends JTabbedPane {
 
 	public void recreateModuleTabs() {
 		for (int i=getComponents().length-1 ; i>0 ; i--) {
+			Component comp = getComponent(i);
+			if (comp instanceof JPanel) {
+				JPanel panel = (JPanel)comp;
+				ResourceManager.releaseAll(panel.getName());
+			}
+			
 			remove(i);
 		}
 		
@@ -55,6 +63,8 @@ public class MainTab extends JTabbedPane {
 			if (StringUtil.isEmpty(panel.getName())) {
 				panel.setName(info.getName());
 			}
+			
+			ResourceManager.releaseAll(panel.getName());
 			
 			add(panel);
 		}
