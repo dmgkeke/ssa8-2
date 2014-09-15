@@ -43,29 +43,11 @@
 					<outputDirectory>/metac/ui</outputDirectory>
 					<archive>
 						<manifest>
-							<!-- <mainClass> TODO </mainClass>  -->
+							<mainClass>com.sds.metac.ui.launcher.UILauncher</mainClass>
 							<addClasspath>true</addClasspath>
-							<classpathPrefix>lib/</classpathPrefix>
+							<classpathPrefix>metac/deployee</classpathPrefix>
 						</manifest>
 					</archive>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<version>2.3</version>
-				<executions>
-					<execution>
-						<id>copy-dependencies</id>
-						<phase>package</phase>
-						<goals>
-							<goal>copy-dependencies</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<outputDirectory>/metac/lib</outputDirectory>
-					<overWriteIfNewer>true</overWriteIfNewer>
 				</configuration>
 			</plugin>
 
